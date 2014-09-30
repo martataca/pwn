@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930000059) do
+ActiveRecord::Schema.define(version: 20140930115628) do
+
+  create_table "profiles", force: true do |t|
+    t.string   "phone_number",             default: "", null: false
+    t.string   "skype_name",               default: ""
+    t.string   "linkedin_profile",         default: ""
+    t.integer  "age"
+    t.string   "sex"
+    t.string   "nationality"
+    t.string   "city"
+    t.string   "marital_status"
+    t.integer  "number_children"
+    t.string   "main_area"
+    t.string   "highest_academic"
+    t.string   "study_country"
+    t.integer  "years_experience"
+    t.integer  "number_subordinates"
+    t.string   "reporting_level"
+    t.string   "international_experience"
+    t.string   "company"
+    t.string   "company_title"
+    t.string   "company_area"
+    t.string   "company_sector"
+    t.string   "company_nation"
+    t.boolean  "member"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +53,8 @@ ActiveRecord::Schema.define(version: 20140930000059) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lastName"
+    t.string   "firstName"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

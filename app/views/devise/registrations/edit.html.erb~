@@ -6,9 +6,6 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
   
-  <div><%= f.label :firstName %><br />
-  <%= f.text_field :firstName %></div>
-  
   <div><%= f.label :lastName %><br />
   <%= f.text_field :lastName %></div>
   

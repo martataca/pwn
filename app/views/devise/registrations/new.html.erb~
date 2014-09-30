@@ -4,10 +4,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
  
-  <div><%= f.label "First Name", :firstName %><br />
+  <div><%= f.label :firstName %><br />
   <%= f.text_field :firstName %></div>
   
-  <div><%= f.label "Last Name", :lastName %><br />
+  <div><%= f.label :lastName %><br />
   <%= f.text_field :lastName %></div>
 
   <div><%= f.label :email %><br />
