@@ -1,1 +1,9 @@
-<%= @user.email %>
+
+<div>
+<% if @app_tag %>
+  <%= link_to "New Application", new_profile_path(@user.id) %>
+<% else %>
+  <%= link_to "Edit Application", edit_profile_path(@user.id) %>
+<% end %> 
+</div>
+<%= params.inspect %>

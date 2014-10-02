@@ -40,7 +40,7 @@
    Tem sessão iniciada como <%= current_user.email %>, não devia?
    <%= link_to "Terminar sessão.", destroy_user_session_path, :method => :delete %>
 <% else %>
-   Por favor ou   
+   Por favor    
    <%= link_to "registe-se", new_user_registration_path %> ou <%= link_to "Inicie sessão", new_user_session_path %>
 <% end %>
 
@@ -81,7 +81,7 @@
            <h3> </h3>
             <ul class="nav nav-list">
               <li class="nav-header"> </li>
-              <li><%= link_to "Candidatura", "/users/profile"  %></li>
+              <li><%= link_to "Candidatura", users_path(@user)  %></li>
               <!--<li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>-->
             </ul>

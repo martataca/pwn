@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, :only => [:show]
+  resources :users, :only => :show
+  resources :profiles
   
   root "home#index"
   
-  get 'users/profie' => 'users#show'
-  
+  get 'user' => 'users#show'
+  #get 'users/profie/new/:id' => 'profile#new'
   
 
   

@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930115628) do
+ActiveRecord::Schema.define(version: 20140930000059) do
 
   create_table "profiles", force: true do |t|
+    t.integer  "user_id"
     t.string   "phone_number",             default: "", null: false
     t.string   "skype_name",               default: ""
     t.string   "linkedin_profile",         default: ""
@@ -40,7 +41,11 @@ ActiveRecord::Schema.define(version: 20140930115628) do
     t.datetime "updated_at"
   end
 
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
+    t.string   "firstName",              default: "", null: false
+    t.string   "lastName",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -53,11 +58,11 @@ ActiveRecord::Schema.define(version: 20140930115628) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "lastName"
-    t.string   "firstName"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["firstName"], name: "index_users_on_firstName", using: :btree
+  add_index "users", ["lastName"], name: "index_users_on_lastName", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
