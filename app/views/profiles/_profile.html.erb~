@@ -1,16 +1,4 @@
- <div class="container">
-    <h1>Your Application</h1>
-  	<hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-        </div>
-      </div>
-      
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+<div class="col-md-9 personal-info">
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
           <i class="fa fa-coffee"></i>
@@ -27,9 +15,11 @@
           </div>
           <div><b>Skype:</b> <%= @profile.skype_name %>
           </div>
-          <div><b>Phone:</b> 
+          <div><b>Phone: </b> <%= @profile.phone_number %>
           </div>
-
-
-<div><%= link_to "Edit", edit_user_path(@user.id)  %> </div>
-
+          <div><b>CV: </b><a target="_blank" href="<%= @profile.cv.url %> "><b> Resumé attached </b></a>
+          </div>
+          
+          
+          
+</div>

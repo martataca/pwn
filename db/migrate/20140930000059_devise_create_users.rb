@@ -37,8 +37,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
     end
     
     create_table :profiles do |t|
-      t.belongs_to :user, index: true
+      t.belongs_to :user, index: true, unique: true 
       
+      t.string :picture
+      t.string :cv
       ## About Myself - Contacts
       t.string :phone_number, 		null: false, default: ""
       t.string :skype_name, 		default: ""
@@ -84,7 +86,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :lastName
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-    add_index :profiles, :user_id,           unique: true
 
   end
 end

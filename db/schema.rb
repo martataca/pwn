@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20140930000059) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
+    t.string   "picture"
+    t.string   "cv"
     t.string   "phone_number",             default: "", null: false
     t.string   "skype_name",               default: ""
     t.string   "linkedin_profile",         default: ""

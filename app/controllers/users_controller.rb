@@ -4,9 +4,10 @@ before_action :authenticate_user!
 
 def decide_new_or_edit
  if Profile.exists?(:user_id => current_user.id)
-    @app_tag = false
+    @create_new_tag = false
+    @profile = Profile.where(:user_id => current_user.id).take
  else
-    @app_tag = true
+    @create_new_tag = true
  end
 end
 

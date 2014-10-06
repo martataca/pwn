@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <div align="center">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Pwn" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "EPWN Lisbon" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -35,23 +36,25 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
-  <h1> Home </h1>
-<% if user_signed_in? %>
-   Tem sessão iniciada como <%= current_user.email %>, não devia?
-   <%= link_to "Terminar sessão.", destroy_user_session_path, :method => :delete %>
+  <div>
+<img src="../images/pwn_lisbon.png" width="300" height="125" alt="pwn_logo" border="">
+</div>
+<div></div>
+<!--<% if user_signed_in? %>
+   Logged in as <%= current_user.email %>, not you?
+   <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
 <% else %>
-   Por favor    
-   <%= link_to "registe-se", new_user_registration_path %> ou <%= link_to "Inicie sessão", new_user_session_path %>
+   Please    
+   <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Log In", new_user_session_path %>
 <% end %>
-
-  
+-->
   
   
   </head>
   
   
   <body>
-
+<div align="center">
   <!--  <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -72,16 +75,16 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <div class="well sidebar-nav">
            <h3> </h3>
             <ul class="nav nav-list">
               <li class="nav-header"> </li>
-              <li><%= link_to "Candidatura", users_path(@user)  %></li>
+              <li><%= link_to "Your Account", "user"  %></li>
               <!--<li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>-->
             </ul>
@@ -90,7 +93,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; PWN Lisboa 2014</p>
+        <p>&copy; EPWN Lisbon 2014</p>
       </footer>
 
     </div> <!-- /container -->

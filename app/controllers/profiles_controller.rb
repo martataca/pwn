@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
  def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     if @profile.save
      redirect_to @profile
     else
@@ -17,17 +18,20 @@ class ProfilesController < ApplicationController
  
  
   def edit
-    
-     @profile = Profile.find(user_id: params[:id])
+         
+     @profile = Profile.find(params[:id])
 
   end
   
   def show
+     @user = User.find(current_user.id)
      @profile = Profile.find(params[:id])
+     render 'users/show'
   end
   
   def update
      @profile = Profile.find(params[:id])
+     
      if @profile.update(profile_params)
       redirect_to @profile
      else
@@ -43,7 +47,7 @@ class ProfilesController < ApplicationController
   
  private
   def profile_params
-     params.require(:profile).permit(:email, :skype_name, :phone_number)
+     params.require(:profile).permit(:firstName, :picture, :cv, :email, :skype_name, :phone_number)
   end
 
 end

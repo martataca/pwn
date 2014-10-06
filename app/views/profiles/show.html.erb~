@@ -5,31 +5,12 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+        <%= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
         </div>
       </div>
+      </div>
+      </div>
+      <%= render 'profile' %>
       
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
-        <h3>Personal info</h3>
-
-
-          <div><b>Name:</b> <%= @user.firstName %>
-          </div>
-	  <div><b>Surname(s):</b> <%= @user.lastName %>
-          </div>
-          <div><b>Email:</b> <%= @user.email %>
-          </div>
-          <div><b>Skype:</b> 
-          </div>
-          <div><b>Phone:</b> 
-          </div>
-
-
-<div><%= link_to "Edit", edit_user_path(@user.id)  %> </div>
+<div><%= link_to "Edit", edit_profile_path  %> </div>
 
