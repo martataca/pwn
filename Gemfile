@@ -17,7 +17,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'carrierwave'
-
+gem 'activeadmin', github: 'activeadmin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
