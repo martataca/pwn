@@ -17,3 +17,4 @@
 //= require_tree .
 //= require bootstrap
 //= require twitter/bootstrap
+//= require_directory .
