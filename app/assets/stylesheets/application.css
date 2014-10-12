@@ -15,3 +15,10 @@
  * 
  */
 *= require bootstrap
+*= require twitter/bootstrap/responsive
+*= require twitter/bootstrap
+
+.text_box{
+	width: 100;
+	
+}

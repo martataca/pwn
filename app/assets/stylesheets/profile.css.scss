@@ -1,3 +1,71 @@
 // Place all the styles related to the Profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.label_spec {
+  width: 140px;
+  margin-top: 10px;
+}
+ 
+.mini_label_spec {
+  width: 30px;
+  margin-top: 10px;
+}
+ 
+.short_label_spec {
+  width: 80px;
+  margin-top: 10px;
+}
+ 
+.long_label_spec {
+  width: 230px;
+  margin-top: 10px;
+}
+ 
+.text_field_spec {
+  width: 400px;
+}
+ 
+.table_collumn_spec {
+  width: 230px;
+  margin-top: 10px;
+  text-align: center;
+}
+ 
+.table_row_spec {
+  width: 220px;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+ 
+.table_check_box {
+  text-align: center;
+  vertical-align: middle;
+}
+ 
+.list_line_even {
+  background: #EEE;
+}
+ 
+.list_line_odd {
+  background: #CCC;
+}
+ 
+.long_option {
+  width: 720px;
+}
+ 
+.info_text_spec {
+  width: 500px;
+}
+ 
+.question_header {
+  vertical-align:middle;
+  height: 24px;
+  font-size: 24px;
+}
+ 
+// .nav-tabs {
+    // text-align:center;
+    // width: 50px;
+// }

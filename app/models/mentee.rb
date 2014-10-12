@@ -1,0 +1,5 @@
+class Mentee < User
+  
+
+
+end

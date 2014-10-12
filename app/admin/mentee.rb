@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Mentee do
 
 
   # See permitted parameters documentation:
@@ -13,18 +13,16 @@ ActiveAdmin.register User do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-
-
-index do
+  
+    index do
     column :id
-    column :type
     column "First Name", :firstName
     column "Last Name",  :lastName
-    column :email 
-    actions
+    column :email
+    actions :defaults => false do |user|
+      link_to "View", admin_profile_path(user)
     end
-    
-    
+  end
 
- end
 
+end

@@ -7,12 +7,17 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
+       
        <% if @create_new_tag %>
-  	<%= link_to "New Application", new_profile_path(@user.id) %>
+	        <% if @mentee %>
+	  	    <%= link_to "New Mentee Application", new_profile_path(@user.id) %>
+	  	    <% else %>
+	  	    <%= link_to "New Mentor Application", new_profile_path(@user.id) %>
+	  	    <% end %>
        <% else %>
         <%= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
         <div>
-  	<%= link_to "Edit Application", edit_profile_path(@profile.id) %> 
+  	   <%= link_to "Edit Application", edit_profile_path(@profile.id) %> 
   	</div>
   	</div>
   	</div>

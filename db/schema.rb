@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
+    t.string   "type",                   default: "", null: false
     t.string   "firstName",              default: "", null: false
     t.string   "lastName",               default: "", null: false
     t.string   "email",                  default: "", null: false

@@ -19,8 +19,18 @@
 
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    
+    <div><%= f.label "Sign up as a ..." %><br />
+		  		<%= f.radio_button :type, 'mentee', :checked => true %>
+		  	    <%= f.label :type_mentee, 'Mentee' %>
+		   		<%= f.radio_button :type, 'mentor' %>
+		        <%= f.label :type_mentor, 'Mentor' %> </div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+
+		  

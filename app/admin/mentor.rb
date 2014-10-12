@@ -1,4 +1,4 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Mentor do
 
 
   # See permitted parameters documentation:
@@ -13,18 +13,12 @@ ActiveAdmin.register User do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-
-
-index do
+  index do
     column :id
-    column :type
     column "First Name", :firstName
     column "Last Name",  :lastName
     column :email 
-    actions
-    end
-    
-    
+  end
 
- end
 
+end
