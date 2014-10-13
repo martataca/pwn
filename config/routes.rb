@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root "home#index"
   
   get 'user' => 'users#show'
+  get '/subregion_options' => 'profiles#subregion_options'
   #get 'users/profie/new/:id' => 'profile#new'
   
 

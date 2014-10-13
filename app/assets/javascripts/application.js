@@ -17,3 +17,6 @@
 //= require_tree .
 //= require bootstrap
 //= require twitter/bootstrap
+//= require bootstrap-datepicker
+
+$('.datepicker').datepicker();

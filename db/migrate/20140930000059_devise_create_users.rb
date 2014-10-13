@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
-      t.string :type,               null: false                  
+      t.string :type,               null: false, default: ""                 
       t.string :firstName,          null: false, default: ""
       t.string :lastName,           null: false, default: ""
       t.string :email,              null: false, default: ""
@@ -48,9 +48,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :linkedin_profile, 	default: ""
 
       ## About Myself - Demographics
-      t.integer  :age
+      t.date     :born_on
       t.string   :sex
-      t.string   :nationality
+      t.string   :country_origin
+      t.string   :country_residence
       t.string   :city
       t.string   :marital_status
       t.integer  :number_children

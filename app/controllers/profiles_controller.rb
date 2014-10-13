@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
 
+ def subregion_options
+  render partial: 'subregion_select'
+ end
 
  def new
   @profile = Profile.new
@@ -45,9 +48,10 @@ class ProfilesController < ApplicationController
     redirect_to profiles_path
   end
   
+  
  private
   def profile_params
-     params.require(:profile).permit(:firstName, :picture, :cv, :email, :skype_name, :phone_number)
+     params.require(:profile).permit(:firstName, :picture, :cv, :email, :skype_name, :phone_number, :marital_status, :born_on, :number_children, :city, :country_origin, :country_residence)
   end
 
 end

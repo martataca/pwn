@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.string   "phone_number",             default: "", null: false
     t.string   "skype_name",               default: ""
     t.string   "linkedin_profile",         default: ""
-    t.integer  "age"
+    t.date     "born_on"
     t.string   "sex"
-    t.string   "nationality"
+    t.string   "country_origin"
+    t.string   "country_residence"
     t.string   "city"
     t.string   "marital_status"
     t.integer  "number_children"

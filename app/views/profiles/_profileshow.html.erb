@@ -17,6 +17,18 @@
           </div>
           <div><b>Phone: </b> <%= @profile.phone_number %>
           </div>
+          <div><b>From: </b> 
+          <% @origin = Carmen::Country.coded(@profile.country_origin) %>
+          <%= @origin.name %>
+          </div>
+          <div><b>Living in: </b> 
+          <% @residence = Carmen::Country.coded(@profile.country_residence) %>
+          <% @city = @residence.subregions.coded(@profile.city) %> 
+          <%= @city.name %> , <%= @residence.name %>
+          </div>
+          <div><b>Marital Status: </b> <%= @profile.marital_status %>
+          </div>
+          
           <div><b>CV: </b><a target="_blank" href="<%= @profile.cv.url %> "><b> Resumé attached </b></a>
           </div>
           
