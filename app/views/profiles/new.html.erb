@@ -21,6 +21,8 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/datepicker.css"> 
+      <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
       <ul class="nav nav-tabs">
@@ -102,19 +104,19 @@
                     <%= p.label "Birth Date", :class => "label_spec" %>
                     <%= p.text_field :born_on, :class => 'datepicker' %>
                   </div>
+              <br/>
               <div class="field">
-                <%= p.label "Where are you from?" %><br />
+                <%= p.label "Country of Origin" %><br />
                 <%= p.country_select :country_origin, {priority: %w(PT), prompt: 'Please select a country'} %>
               </div>
               <br/>
-              <h4> Where do you live?</h4>
               <div class="field">
-                <%= p.label "Country" %><br />
+                <%= p.label "Country of Residence" %><br />
                 <%= p.country_select :country_residence, {priority: %w(PT), prompt: 'Please select a country'} %>
               </div>
               <br/>
               <div class="field">
-                  <%= p.label :city %><br />
+                  <%= p.label "City of Residence" %><br />
                   <%= render partial: 'subregion_select', locals: {parent_region: p.object.country_residence} %>
                 </div>
                   <br/>
@@ -162,11 +164,12 @@
             <div class="container">
               <div>
                 <%= p.label "Years of professional experience", :class => "long_label_spec" %>
-                <%= p.text_field :years_experience, :class => "text_field_spec" %>
+                <%= p.number_field :years_experience, in: 1..100, step: 1 %>
               </div>
               <div>
                 <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-                <%= p.text_field :number_subordinates, :class => "text_field_spec" %>
+                <%= p.number_field :number_subordinates, in: 1..100, step: 1 %>
+                
               </div>  
               <div>
                 <%= p.label "Level you report to", :class => "long_label_spec" %>
@@ -193,66 +196,68 @@
 <!-- <h3>7. Job Level</h3>
 <div class="container">
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Entry Level: little or no prior working experience; recent college graduate", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Entry Level: little or no prior working experience; recent college graduate", :class => "long_option") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Intermediate Level: proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Intermediate Level: proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees", :class => "long_option") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure): oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure): oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.", :class => "long_option") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Upper Management Level: extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Upper Management Level: extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.", :class => "long_option") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs): highly skilled and experienced employees, with macro management and strategic responsabilities", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs): highly skilled and experienced employees, with macro management and strategic responsabilities", :class => "long_option") %>
 </div>
 <br/>
-</div>
-<h3>7. Job Level</h3>
+</div> -->
+<!-- <h3>7. Job Level</h3>
 <div class="container">
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Entry Level", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Entry Level", :class => "long_option") %>
 <span class="dropt" title="Little or no prior working experience; recent college graduate">
 <img src="/assets/info.png"/>
 </span>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Intermediate Level", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Intermediate Level", :class => "long_option") %>
 <span class="dropt" title="Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees">
 <img src="/assets/info.png"/>
 </span>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure)", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure)", :class => "long_option") %>
 <span class="dropt" title="Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.">
 <img src="/assets/info.png"/>
 </span>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Upper Management Level", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Upper Management Level", :class => "long_option") %>
 <span class="dropt" title="Extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.">
 <img src="/assets/info.png"/>
 </span>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs)", :class => "long_option") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs)", :class => "long_option") %>
 <span class="dropt" title="Highly skilled and experienced employees, with macro management and strategic responsabilities">
 <img src="/assets/info.png"/>
 </span>
 </div>
 <br/>
-</div> -->
+</div>  -->
+
+
 <h3>7. Job Level</h3>
 <div class="container">
   <div>
@@ -401,16 +406,16 @@
 <!-- <h3>11. Availability for trainings (We will hold 4 trainings during the year, on a week day, excluding friday)</h3>
 <div class="container">
 <div>
-<%= p.check_box :availability_8 %>
-<%= p.label "8:30­ - 10:30" %>
+<%#= p.check_box :availability_8 %>
+<%#= p.label "8:30­ - 10:30" %>
 </div>
 <div>
-<%= p.check_box :availability_12 %>
-<%= p.label "12:30­ - 14:30" %>
+<%#= p.check_box :availability_12 %>
+<%#= p.label "12:30­ - 14:30" %>
 </div>
 <div>
-<%= p.check_box :availability_18 %>
-<%= p.label "18:00 - ­20:30" %>
+<%#= p.check_box :availability_18 %>
+<%#= p.label "18:00 - ­20:30" %>
 </div>
 <br/>
 </div> -->
@@ -440,12 +445,12 @@
 <!-- <h3>12. Availability for networking meetings</h3>
 <div class="container">
 <div>
-<%= p.check_box :nationality %>
-<%= p.label "EPWN monthly breakfast (first tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa)" %>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN monthly breakfast (first tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa)" %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= p.label "Mentee buddy contacts (once a month, online or face­to­face)" %>
+<%#= p.check_box :nationality %>
+<%#= p.label "Mentee buddy contacts (once a month, online or face­to­face)" %>
 </div>
 <br/>
 </div> -->
@@ -473,20 +478,20 @@
 </div>
 <!-- <h3>13. Sharing</h3>
 <div class="container">
-<%= form_for @profile do |p| %>
+<%#= form_for @profile do |p| %>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Do you allow your contacts to be shared with fellow program participants and alumni?") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow your contacts to be shared with fellow program participants and alumni?") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Do you allow your basic demographic data and contacts to be shared with fellow international mentoring programs for benchmarking purposes only?") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow your basic demographic data and contacts to be shared with fellow international mentoring programs for benchmarking purposes only?") %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= label_tag(:pet_dog, "Do you allow pictures of you to be used in promotional material about the program?") %>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow pictures of you to be used in promotional material about the program?") %>
 </div>
-<% end %>
+<%# end %>
 <br/>
 </div> -->
 </div>
@@ -749,8 +754,8 @@
   <h3>30. How does your company support your envolvement in this program?</h3>
   <div class="container">
 <!-- <div>
-<%= p.check_box :seeks_mentoring_in_work_life_balance, {}, "Yes", "No" %>
-<%= p.label "I am doing this program privately and have not mentioned it to my company" %>
+<%#= p.check_box :seeks_mentoring_in_work_life_balance, {}, "Yes", "No" %>
+<%#= p.label "I am doing this program privately and have not mentioned it to my company" %>
 </div> -->
 <div>
   <%= p.check_box :company_is_aware_of_program, {}, "Yes", "No" %>
@@ -771,12 +776,12 @@
   <h3>31. How did you hear about Womenship ­ EPWN Lisbon Mentoring Program?</h3>
   <div class="container">
 <!-- <div>
-<%= p.check_box :nationality %>
-<%= p.label "EPWN communication, I am an EPWN member" %>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN communication, I am an EPWN member" %>
 </div>
 <div>
-<%= p.check_box :nationality %>
-<%= p.label "EPWN communication, I still am not an EPWN member" %>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN communication, I still am not an EPWN member" %>
 </div> -->
 <div>
   <%= p.check_box :heard_about_program_from_epwn, {}, "Yes", "No" %>

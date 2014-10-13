@@ -54,61 +54,61 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :sex
       t.string   :country_origin
       t.string   :country_residence
-      t.string   :city
-      t.string   :marital_status
+      t.text     :city
+      t.text     :marital_status
       t.integer  :number_children
 
       
       ##About Myself - Studies
-      t.string	:highest_academic
-      t.string	:main_area
-      t.string	:study_country
-      t.string	:studies_other
+      t.text	:highest_academic
+      t.text	:main_area
+      t.text	:study_country
+      t.text	:studies_other
       
       ##About Myself - Professional Experience
       t.integer	:years_experience
       t.integer	:number_subordinates
-      t.string	:reporting_level
-      t.string	:international_experience
-      t.string	:company
-      t.string	:company_title
+      t.text	:reporting_level
+      t.text	:international_experience
+      t.text	:company
+      t.text	:company_title
       
-      t.string  :job_level
+      t.text  :job_level
       
       ##About the Company 
-      t.string  :company_area
-      t.string  :company_sector
-      t.string  :company_nation
+      t.text  :company_area
+      t.text  :company_sector
+      t.text  :company_nation
       
       ##EPWN 
-      t.string  :member
+      t.text  :member
 
       ##Other Programs
-      t.string  :participation_company_program_as_mentor
-      t.string  :participation_company_program_as_mentee
-      t.string  :participation_lisbon_epwn_as_mentor
-      t.string  :participation_lisbon_epwn_as_mentee
-      t.string  :participation_europe_epwn_as_mentor
-      t.string  :participation_europe_epwn_as_mentee
-      t.string  :participation_other_as_mentor
-      t.string  :participation_other_as_mentee
-      t.string  :participation_other_specified
+      t.text  :participation_company_program_as_mentor
+      t.text  :participation_company_program_as_mentee
+      t.text  :participation_lisbon_epwn_as_mentor
+      t.text  :participation_lisbon_epwn_as_mentee
+      t.text  :participation_europe_epwn_as_mentor
+      t.text  :participation_europe_epwn_as_mentee
+      t.text  :participation_other_as_mentor
+      t.text  :participation_other_as_mentee
+      t.text  :participation_other_specified
 
       ##Availability
-      t.string :availability_8
-      t.string :availability_12
-      t.string :availability_18
-      t.string :availability_monthly_breakfasts
-      t.string :availability_buddy_contacts
+      t.text :availability_8
+      t.text :availability_12
+      t.text :availability_18
+      t.text :availability_monthly_breakfasts
+      t.text :availability_buddy_contacts
       
       ##Description of Myself
       t.text    :career_description
-      t.string  :strengh_1
-      t.string  :strengh_2
-      t.string  :strengh_3
-      t.string  :strengh_4
-      t.string  :strengh_5
-      t.string  :strengh_6
+      t.text    :strengh_1
+      t.text    :strengh_2
+      t.text    :strengh_3
+      t.text    :strengh_4
+      t.text    :strengh_5
+      t.text    :strengh_6
       t.text    :interests
       t.text    :self_description
       
@@ -120,28 +120,28 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text  :aspirations
       t.text  :want_to_be_known_for
       
-      t.string  :seeks_mentoring_in_career_orientation
-      t.string  :seeks_mentoring_in_career_transition
-      t.string  :seeks_mentoring_in_change_management
-      t.string  :seeks_mentoring_in_conflict_management
-      t.string  :seeks_mentoring_in_corporate_communication
-      t.string  :seeks_mentoring_in_cross_cultural_communication
-      t.string  :seeks_mentoring_in_cross_cultural_working_practices
-      t.string  :seeks_mentoring_in_entreperneurship
-      t.string  :seeks_mentoring_in_goal_setting_and_advancement
-      t.string  :seeks_mentoring_in_leadership_development
-      t.string  :seeks_mentoring_in_optimal_use_of_a_network
-      t.string  :seeks_mentoring_in_people_management
-      t.string  :seeks_mentoring_in_political_acumen
-      t.string  :seeks_mentoring_in_reintegration_and_work_immersion
-      t.string  :seeks_mentoring_in_strategic_thinking
-      t.string  :seeks_mentoring_in_time_management
-      t.string  :seeks_mentoring_in_work_life_balance
-      t.string  :seeks_mentoring_in_other_specified
+      t.text    :seeks_mentoring_in_career_orientation
+      t.text    :seeks_mentoring_in_career_transition
+      t.text    :seeks_mentoring_in_change_management
+      t.text    :seeks_mentoring_in_conflict_management
+      t.text    :seeks_mentoring_in_corporate_communication
+      t.text    :seeks_mentoring_in_cross_cultural_communication
+      t.text    :seeks_mentoring_in_cross_cultural_working_practices
+      t.text    :seeks_mentoring_in_entreperneurship
+      t.text    :seeks_mentoring_in_goal_setting_and_advancement
+      t.text    :seeks_mentoring_in_leadership_development
+      t.text    :seeks_mentoring_in_optimal_use_of_a_network
+      t.text    :seeks_mentoring_in_people_management
+      t.text    :seeks_mentoring_in_political_acumen
+      t.text    :seeks_mentoring_in_reintegration_and_work_immersion
+      t.text    :seeks_mentoring_in_strategic_thinking
+      t.text    :seeks_mentoring_in_time_management
+      t.text    :seeks_mentoring_in_work_life_balance
+      t.text    :seeks_mentoring_in_other_specified
       
-      t.string  :goal_1
-      t.string  :goal_2
-      t.string  :goal_3
+      t.text    :goal_1
+      t.text    :goal_2
+      t.text    :goal_3
       
       ##About the Mentor
       t.string  :ideal_mentor_function
@@ -153,7 +153,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :ideal_mentor_strength_5
       t.string  :ideal_mentor_strength_6
       t.text    :ideal_mentor_interests
-      t.text  :ideal_mentor_role
+      t.text    :ideal_mentor_role
       t.string  :mentor_gender_preference
       t.string  :mental_referral_1
       t.string  :mental_referral_2
@@ -165,13 +165,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :company_supports_participation
       
       ##Finalizing Application
-      t.string  :heard_about_program_from_epwn
-      t.string  :heard_about_program_from_previous_participant
-      t.string  :heard_about_program_from_epwn_member
-      t.string  :heard_about_program_from_company
-      t.string  :heard_about_program_in_the_press
-      t.string  :heard_about_program_from_other_specified
-      t.text  :preference_or_constraint
+      t.text    :heard_about_program_from_epwn
+      t.text    :heard_about_program_from_previous_participant
+      t.text    :heard_about_program_from_epwn_member
+      t.text    :heard_about_program_from_company
+      t.text    :heard_about_program_in_the_press
+      t.text    :heard_about_program_from_other_specified
+      t.text    :preference_or_constraint
      
       t.timestamps
     end
