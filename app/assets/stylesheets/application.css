@@ -14,10 +14,13 @@
  *= require_self
  * 
  */
+*= require_self
+*= require_directory
 *= require bootstrap
-*= require twitter/bootstrap/responsive
 *= require twitter/bootstrap
 *= require bootstrap-datepicker3
+*= require twitter/bootstrap/responsive
+
 .text_box{
 	width: 100;
 	
