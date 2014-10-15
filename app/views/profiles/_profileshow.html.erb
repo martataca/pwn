@@ -7,9 +7,7 @@
         <h3>Personal info</h3>
 
 
-          <div><b>Name:</b> <%= @user.firstName %>
-          </div>
-	  <div><b>Surname(s):</b> <%= @user.lastName %>
+          <div><b>Name:</b> <%= @profile.fullName %>
           </div>
           <div><b>Email:</b> <%= @user.email %>
           </div>
@@ -18,18 +16,25 @@
           <div><b>Phone: </b> <%= @profile.phone_number %>
           </div>
           <div><b>From: </b> 
-          <% @origin = Carmen::Country.coded(@profile.country_origin) %>
-          <%= @origin.name %>
+          <% if @profile.country_origin.present? %>
+            <% @origin = Carmen::Country.coded(@profile.country_origin) %>
+            <%= @origin.name %>
+          <% end %>
           </div>
           <div><b>Living in: </b> 
-          <% @residence = Carmen::Country.coded(@profile.country_residence) %>
-          <% @city = @residence.subregions.coded(@profile.city) %> 
-          <%= @city.name %> , <%= @residence.name %>
+          <% if @profile.country_origin.present? %>
+            <% @residence = Carmen::Country.coded(@profile.country_residence) %>
+            <% @city = @residence.subregions.coded(@profile.city) %> 
+            <%= @city.name %> , <%= @residence.name %>
+          <% end %>
           </div>
           <div><b>Marital Status: </b> <%= @profile.marital_status %>
           </div>
-          
-          <div><b>CV: </b><a target="_blank" href="<%= @profile.cv.url %> "><b> Resumé attached </b></a>
+          <div><b>CV: 
+          <% if @profile.cv.present? %>
+            </b><a target="_blank" href="<%= @profile.cv.url %> ">
+            <b> Resumé attached </b></a>
+          <% end %>
           </div>
           
           

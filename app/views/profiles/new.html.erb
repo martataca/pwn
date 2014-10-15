@@ -59,7 +59,7 @@
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a>
           <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          You can save your changes and submit you application later.
         </div>
         <%= form_for @profile do |p| %>
         <div class="tab-content">
@@ -72,7 +72,7 @@
               </div>
               <div>
                 <%= p.label "Email", :class => "label_spec" %>
-                <%= p.text_field :email, :class => "text_field_spec" %>
+                  <%= p.text_field :email, :class => "text_field_spec", :placeholder => @profile.email %>
               </div>  
               <div>
                 <%= p.label "Telephone", :class => "label_spec" %>
@@ -122,21 +122,21 @@
                   <br/>
                   <div>
                     <%= p.label "Marital Status", :class => "label_spec" %>
-                    <%= p.radio_button :marital_status, 'single'  %>
-                    <%= p.label :marital_status_single, 'Single' %>
-                    <%= p.radio_button :marital_status, 'cohabiting' %>
-                    <%= p.label :marital_status_cohabiting, 'Cohabiting' %>
+                    <%= p.radio_button :marital_status, 'single'  %> 
+                    <%= p.label :marital_status_single, 'Single' %> &nbsp
+                    <%= p.radio_button :marital_status, 'cohabiting' %> 
+                    <%= p.label :marital_status_cohabiting, 'Cohabiting' %> &nbsp
                     <%= p.radio_button :marital_status, 'married' %>
-                    <%= p.label :marital_status_married, 'Married' %>
+                    <%= p.label :marital_status_married, 'Married' %>&nbsp
                     <%= p.radio_button :marital_status, 'divorced' %>
-                    <%= p.label :marital_status_divorced, 'Divorced' %>
+                    <%= p.label :marital_status_divorced, 'Divorced' %>&nbsp
                     <%= p.radio_button :marital_status, 'widowed' %>
                     <%= p.label :marital_status_widowed, 'Widowed' %>
                   </div>
                   <br/>
                   <div>
                     <%= p.label "Number of Children", :class => "label_spec" %>
-                    <%= p.number_field :number_children, in: 1..20, step: 1 %>
+                    <%= p.number_field :number_children, in: 0..20, step: 1 %>
                   </div>          
                   <br/>
                 </div>
@@ -144,19 +144,64 @@
             <div class="container">
               <div>
                 <%= p.label "Highest academic title", :class => "long_label_spec" %>
-                <%= p.text_field :highest_academic, :class => "text_field_spec" %>
+                <%#= p.text_field :highest_academic, :class => "text_field_spec" %>
+                <%= p.select :highest_academic, options_for_select(['Please select one', 'Licence (pre-Bologna)', 'Bachelor', 'Master', 'Doctorate' ]) %>
               </div>
               <div>
                 <%= p.label "Main area of studies", :class => "long_label_spec" %>
-                <%= p.text_field :main_area, :class => "text_field_spec" %>
+                <%#= p.text_field :main_area, :class => "text_field_spec" %>
+                <%= p.select :main_area, options_for_select(['Please select one',
+                                                            'Human history',
+                                                            'Linguistics',
+                                                            'Literature',
+                                                            'Arts',
+                                                            'Philosophy',
+                                                            'Religion',
+                                                            'Anthropology',
+                                                            'Archaeology',
+                                                            'Area studies',
+                                                            'Cultural and ethnic studies',
+                                                            'Economics',
+                                                            'Gender and sexuality studies',
+                                                            'Geography',
+                                                            'Political science',
+                                                            'Psychology',
+                                                            'Sociology',
+                                                            'Biology',
+                                                            'Chemistry',
+                                                            'Earth sciences',
+                                                            'Physics',
+                                                            'Space sciences',
+                                                            'Mathematics',
+                                                            'Computer sciences',
+                                                            'Logic',
+                                                            'Statistics',
+                                                            'Systems science',
+                                                            'Agriculture',
+                                                            'Architecture and design',
+                                                            'Business',
+                                                            'Divinity',
+                                                            'Education',
+                                                            'Engineering',
+                                                            'Environmental studies and forestry',
+                                                            'Family and consumer science',
+                                                            'Human physical performance and recreation*',
+                                                            'Journalism, media studies and communication',
+                                                            'Law',
+                                                            'Library and museum studies',
+                                                            'Medicine',
+                                                            'Military sciences',
+                                                            'Public administration',
+                                                            'Social work',
+                                                            'Transportation']) %>
               </div>  
               <div>
                 <%= p.label "Country of main studies", :class => "long_label_spec" %>
-                <%= p.text_field :study_country, :class => "text_field_spec" %>
-              </div>
+                <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'} %>
+                </div>
               <div>
                 <%= p.label "Other (please specify)", :class => "long_label_spec" %>
-                <%= p.text_field :studies_other, :class => "text_field_spec" %>
+                <%= p.country_select :studies_other, {priority: %w(PT), prompt: 'Please select a country'} %>
               </div>  
               <br/>
             </div>
@@ -164,11 +209,11 @@
             <div class="container">
               <div>
                 <%= p.label "Years of professional experience", :class => "long_label_spec" %>
-                <%= p.number_field :years_experience, in: 1..100, step: 1 %>
+                <%= p.number_field :years_experience, in: 0..100, step: 1 %>
               </div>
               <div>
                 <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-                <%= p.number_field :number_subordinates, in: 1..100, step: 1 %>
+                <%= p.number_field :number_subordinates, in: 0..100, step: 1 %>
                 
               </div>  
               <div>
@@ -189,7 +234,8 @@
             </div>
             <h3>6. Title of my position in the company I currently work for</h3>
             <div class="container">
-              <%= p.text_field :company_title, :class => "text_field_spec" %> 
+              <%#= p.text_field :company_title, :class => "text_field_spec" %> 
+              <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
               <br/>
               <br/>
             </div>
@@ -315,16 +361,70 @@
 <h3>8. About the company</h3>
 <div class="container">
   <div>
-    <%= p.label "Area", :class => "label_spec"%>
-    <%= p.text_field :company_area, :class => "text_field_spec" %>
+    <%#= p.label "Area", :class => "label_spec"%>
+    <%#= p.text_field :company_area, :class => "text_field_spec" %>
   </div>
   <div>
-    <%= p.label "Sector", :class => "label_spec"%>
-    <%= p.text_field :company_sector, :class => "text_field_spec" %>
+    <%= p.label "Industry:", :class => "label_spec"%>
+    <%#= p.text_field :company_sector, :class => "text_field_spec" %>
+    <%= p.select :company_sector, options_for_select(['Please select one',
+                                                      'Accountancy', 
+                                                      'Advertising',
+                                                      'Aerospace Industry',
+                                                      'Agriculture',
+                                                      'Antiques',            
+                                                      'Architecture and Interior Design',            
+                                                      'Arts/Heritage/Museums',            
+                                                      'Automotive Industry',            
+                                                      'Banking/Corporate Finance',            
+                                                      'Building and Construction Industries',            
+                                                      'Business Management',            
+                                                      'Business Psychology',            
+                                                      'Catering/Hospitality',            
+                                                      'Charity - In House Management',            
+                                                      'Charity - Services',            
+                                                      'Chemical Industry',            
+                                                      'Commercial & Professional Services',            
+                                                      'Consumer Durables and Apparel',            
+                                                      'Crisis Management',            
+                                                      'Editorial Services',            
+                                                      'Education/Training',            
+                                                      'Energy',            
+                                                      'Entertainment and Music Industries',            
+                                                      'Executive Coaching and Development',            
+                                                      'Fashion/Cosmetics',            
+                                                      'Financial Services',            
+                                                      'Food, Beverage & Tobacco',            
+                                                      'Healthcare/Pharmaceutical/Medical Devices',            
+                                                      'Hotels and Leisure Industry',            
+                                                      'Household & Personal Products',            
+                                                      'Human Resources (Consultants)',            
+                                                      'Human Resources (In House Management)',            
+                                                      'Insurance',            
+                                                      'Languages/Translation Services',            
+                                                      'Law - Employment',            
+                                                      'Law - Family and Matrimonial',            
+                                                      'Law - General Legal Services',            
+                                                      'Management Consultants',            
+                                                      'Manufacturing',            
+                                                      'Marketing/Public Relations',            
+                                                      'Materials',            
+                                                      'Media',            
+                                                      'Non-Profit',            
+                                                      'Oil/Gas/Petroleum Industries',            
+                                                      'Professional Bodies/Trade Organisations',            
+                                                      'Public Affairs',            
+                                                      'Real Estate / Property',            
+                                                      'Retail Industry',            
+                                                      'Software & Services',            
+                                                      'Technology Hardware & Equipment',            
+                                                      'Telecommunications',            
+                                                      'Transport Industry',            
+                                                      'Travel and Tourism',            ]) %>
   </div>  
   <div>
     <%= p.label "Nationality", :class => "label_spec"%>
-    <%= p.text_field :company_nation, :class => "text_field_spec" %>
+    <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
   </div>  
   <br/>
 </div>
@@ -816,8 +916,10 @@
   <br/>
   <br/>
 </div>
+<br/>
 <div class="container">
-  <%= p.submit "Submit" %>
+  <%= p.submit "Save Changes" %>
+  <br/>
   <br/>
 </div>
 </div>
