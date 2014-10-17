@@ -1,10 +1,13 @@
 class ProfilesController < ApplicationController
 
+ def subregion_options
+  render partial: 'subregion_select'
+ end
 
  def new
   @profile = Profile.new
   @profile.user_id = current_user.id
-  
+  @profile.email = current_user.email
  end
 
  def create
@@ -51,10 +54,11 @@ class ProfilesController < ApplicationController
     redirect_to profiles_path
   end
   
+  
  private
   def profile_params
      params.require(:profile).permit(:fullName, :email, :phone_number, :skype_name, :linkedin_profile, :picture, :cv,
-          :age, :nationality, :city, :marital_status, :number_children,
+          :marital_status, :born_on, :number_children, :city, :country_origin, :country_residence,
           :highest_academic, :main_area, :study_country, :studies_other,
           :years_experience, :number_subordinates, :reporting_level,	:international_experience,
           :company,

@@ -1,43 +1,955 @@
+<script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
 <div class="container">
-    <h1>Edit Application</h1>
-  	<hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <%= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
-        </div>
+  <h1>Your Application</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+      <% if @profile.picture.present? %>
+        <%= image_tag(@profile.picture_url, :width => 150)%>
+      <% else %>
+        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar" style="margin-top: 15px;">
+      <% end %>
       </div>
-      
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <h3>Thank you for taking your time to answer this mentee application form.<br/>
+        This form is an important tool to evaluate your fit with the Lisbon mentoring program and, if
+        you are selected for the program, will be essencial to match you with your mentor!<br/><br/></h3>
+      </div>
+    </div>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/datepicker.css"> 
+      <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+      <ul class="nav nav-tabs">
+        <li class="active" style="word-wrap: break-word; width: 11%;">
+          <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;">
+          <a href="#2" data-toggle="tab">EPWN and mentoring</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;">
+          <a href="#3" data-toggle="tab">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;">
+          <a href="#4" data-toggle="tab">Description of myself</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;">
+          <a href="#5" data-toggle="tab">Mentoring Interest</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;">
+          <a href="#6" data-toggle="tab">Mentoring Relationship</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;;">
+          <a href="#7" data-toggle="tab">About the mentor</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;;">
+          <a href="#8" data-toggle="tab">Institutional support</a>
+        </li>
+        <li style="word-wrap: break-word; width: 11%;;">
+          <a href="#9" data-toggle="tab">Finalizing your application</a>
+        </li>
+      </ul>
+      <br/>
+      <div style="margin-left: 300px">
         <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <a class="panel-close close" data-dismiss="alert">×</a>
           <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          You can save your changes and submit you application later.
         </div>
-        <h3>Personal info</h3>
-        
-   <div class="container">
-  <%= form_for @profile, :html => {:multipart => true} do |p| %>
-  <div>
-  <%= p.label "Skype Name: "%><br />
-  <%= p.text_field :skype_name %>
-  </div>
-  
-  <div>
-  <%= p.label "Phone Number:" %><br />
-  <%= p.text_field :phone_number %>
-  </div>
-  <div>
-  <%= p.label "Picture:" %><br />
-  <%= p.file_field :picture %>
-  </div>
-  <div>
-  <%= p.label "CV:" %><br />
-  <%= p.file_field :cv %>
-  </div>
-  
+        <%= form_for @profile do |p| %>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="1" style="">
+            <h3>1. About myself: contact details</h3>
+            <div class="container">
+              <div>
+                <%= p.label "Name", :class => "label_spec" %>
+                <%= p.text_field :fullName, :class => "text_field_spec", :placeholder => @profile.fullName %>
+              </div>
+              <div>
+                <%= p.label "Email", :class => "label_spec" %>
+                <%= p.text_field :email, :class => "text_field_spec", :placeholder => @profile.email %>
+              </div>  
+              <div>
+                <%= p.label "Telephone", :class => "label_spec" %>
+                <%= p.text_field :phone_number, :class => "text_field_spec", :placeholder => @profile.phone_number %>
+              </div>
+              <div>
+                <%= p.label "Skype Name", :class => "label_spec" %>
+                <%= p.text_field :skype_name, :class => "text_field_spec", :placeholder => @profile.skype_name %>
+              </div>
+              <div>
+                <%= p.label "Linkedin Profile", :class => "label_spec" %>
+                <%= p.text_field :linkedin_profile, :class => "text_field_spec", :placeholder => @profile.linkedin_profile %>
+              </div>  
+              <div>
+                <%= p.label "Picture", :class => "label_spec" %>
+                <br/>
+                <%= p.file_field :picture %>
+              </div>
+              <div>
+                <%= p.label "CV", :class => "label_spec" %>
+                <br/>
+                <%= p.file_field :cv %>
+              </div>
+              <br/>
+            </div>
+            <h3>2. About myself: demographics</h3>
+            <div class="container">
+                  <div>
+                    <%= p.label "Birth Date", :class => "label_spec" %>
+                    <%= p.text_field :born_on, :class => 'datepicker', :placeholder => @profile.born_on %>
+                  </div>
+              <br/>
+              <div class="field">
+                <%= p.label "Country of Origin" %><br />
+                <%= p.country_select :country_origin, {priority: %w(PT), prompt: @profile.country_origin } %>
+              </div>
+              <br/>
+              <div class="field">
+                <%= p.label "Country of Residence" %><br />
+                <%= p.country_select :country_residence, {priority: %w(PT), prompt: @profile.country_residence} %>
+              </div>
+              <br/>
+              <div class="field">
+                  <%= p.label "City of Residence" %><br />
+                  <%= render partial: 'subregion_select', locals: {parent_region: p.object.country_residence} %>
+                </div>
+                  <br/>
+                  <div>
+                    <%= p.label "Marital Status", :class => "label_spec" %>
+                    <%= p.radio_button :marital_status, 'single'  %> 
+                    <%= p.label :marital_status_single, 'Single' %> &nbsp
+                    <%= p.radio_button :marital_status, 'cohabiting' %> 
+                    <%= p.label :marital_status_cohabiting, 'Cohabiting' %> &nbsp
+                    <%= p.radio_button :marital_status, 'married' %>
+                    <%= p.label :marital_status_married, 'Married' %>&nbsp
+                    <%= p.radio_button :marital_status, 'divorced' %>
+                    <%= p.label :marital_status_divorced, 'Divorced' %>&nbsp
+                    <%= p.radio_button :marital_status, 'widowed' %>
+                    <%= p.label :marital_status_widowed, 'Widowed' %>
+                  </div>
+                  <br/>
+                  <div>
+                    <%= p.label "Number of Children", :class => "label_spec" %>
+                    <%= p.number_field :number_children, in: 0..20, step: 1 , :placeholder => @profile.number_children %>
+                  </div>          
+                  <br/>
+                </div>
+            <h3>3. About myself: studies</h3>
+            <div class="container">
+              <div>
+                <%= p.label "Highest academic title", :class => "long_label_spec" %>
+                <%#= p.text_field :highest_academic, :class => "text_field_spec" %>
+                <%= p.select :highest_academic, options_for_select(['Please select one', 'Licence (pre-Bologna)', 'Bachelor', 'Master', 'Doctorate' ]) %>
+              </div>
+              <div>
+                <%= p.label "Main area of studies", :class => "long_label_spec" %>
+                <%#= p.text_field :main_area, :class => "text_field_spec" %>
+                <%= p.select :main_area, options_for_select(['Please select one',
+                                                            'Human history',
+                                                            'Linguistics',
+                                                            'Literature',
+                                                            'Arts',
+                                                            'Philosophy',
+                                                            'Religion',
+                                                            'Anthropology',
+                                                            'Archaeology',
+                                                            'Area studies',
+                                                            'Cultural and ethnic studies',
+                                                            'Economics',
+                                                            'Gender and sexuality studies',
+                                                            'Geography',
+                                                            'Political science',
+                                                            'Psychology',
+                                                            'Sociology',
+                                                            'Biology',
+                                                            'Chemistry',
+                                                            'Earth sciences',
+                                                            'Physics',
+                                                            'Space sciences',
+                                                            'Mathematics',
+                                                            'Computer sciences',
+                                                            'Logic',
+                                                            'Statistics',
+                                                            'Systems science',
+                                                            'Agriculture',
+                                                            'Architecture and design',
+                                                            'Business',
+                                                            'Divinity',
+                                                            'Education',
+                                                            'Engineering',
+                                                            'Environmental studies and forestry',
+                                                            'Family and consumer science',
+                                                            'Human physical performance and recreation*',
+                                                            'Journalism, media studies and communication',
+                                                            'Law',
+                                                            'Library and museum studies',
+                                                            'Medicine',
+                                                            'Military sciences',
+                                                            'Public administration',
+                                                            'Social work',
+                                                            'Transportation']) %>
+              </div>  
+              <div>
+                <%= p.label "Country of main studies", :class => "long_label_spec" %>
+                <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'} %>
+                </div>
+              <div>
+                <%= p.label "Other (please specify)", :class => "long_label_spec" %>
+                <%= p.country_select :studies_other, {priority: %w(PT), prompt: 'Please select a country'} %>
+              </div>  
+              <br/>
+            </div>
+            <h3>4. About myself: professional experience</h3>
+            <div class="container">
+              <div>
+                <%= p.label "Years of professional experience", :class => "long_label_spec" %>
+                <%= p.number_field :years_experience, in: 0..100, step: 1 %>
+              </div>
+              <div>
+                <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
+                <%= p.number_field :number_subordinates, in: 0..100, step: 1 %>
+                
+              </div>  
+              <div>
+                <%= p.label "Level you report to", :class => "long_label_spec" %>
+                <%= p.text_field :reporting_level, :class => "text_field_spec" %>
+              </div>
+              <div>
+                <%= p.label "International Experience", :class => "long_label_spec" %>
+                <%= p.text_field :international_experience, :class => "text_field_spec" %>
+              </div>  
+              <br/>
+            </div>
+            <h3>5. Company I currently work for</h3>
+            <div class="container">
+              <%= p.text_field :company, :class => "text_field_spec" %>
+              <br/>
+              <br/>
+            </div>
+            <h3>6. Title of my position in the company I currently work for</h3>
+            <div class="container">
+              <%#= p.text_field :company_title, :class => "text_field_spec" %> 
+              <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
+              <br/>
+              <br/>
+            </div>
+<!-- <h3>7. Job Level</h3>
+<div class="container">
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Entry Level: little or no prior working experience; recent college graduate", :class => "long_option") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Intermediate Level: proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees", :class => "long_option") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure): oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.", :class => "long_option") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Upper Management Level: extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.", :class => "long_option") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs): highly skilled and experienced employees, with macro management and strategic responsabilities", :class => "long_option") %>
+</div>
+<br/>
+</div> -->
+<!-- <h3>7. Job Level</h3>
+<div class="container">
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Entry Level", :class => "long_option") %>
+<span class="dropt" title="Little or no prior working experience; recent college graduate">
+<img src="/assets/info.png"/>
+</span>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Intermediate Level", :class => "long_option") %>
+<span class="dropt" title="Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees">
+<img src="/assets/info.png"/>
+</span>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure)", :class => "long_option") %>
+<span class="dropt" title="Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.">
+<img src="/assets/info.png"/>
+</span>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Upper Management Level", :class => "long_option") %>
+<span class="dropt" title="Extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.">
+<img src="/assets/info.png"/>
+</span>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs)", :class => "long_option") %>
+<span class="dropt" title="Highly skilled and experienced employees, with macro management and strategic responsabilities">
+<img src="/assets/info.png"/>
+</span>
+</div>
+<br/>
+</div>  -->
 
-  <div><%= p.submit "Submit" %></div>
+
+<h3>7. Job Level</h3>
+<div class="container">
+  <div>
+    <%= p.radio_button :job_level, "Entry Level" %>
+    <%= p.label "Entry Level", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.1')" value="Toggle">
+    <div id="opt7.1" style="display:none">
+      Little or no prior working experience; recent college graduate
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.1')" value="Toggle">
+    </div>
+  </div>
+  <div>
+    <%= p.radio_button :job_level, "Intermediate Level" %>
+    <%= p.label "Intermediate Level", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.2')" value="Toggle">
+    <div id="opt7.2" style="display:none">
+      Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
+      work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
+      supervisory responsibility for other intermediate or entry­level employees
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.2')" value="Toggle">
+    </div>
+  </div>
+  <div>
+    <%= p.radio_button :job_level, "Middle Management (first managerial level in the corporate structure)" %>
+    <%= p.label "Middle Management (first managerial level in the corporate structure)", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.3')" value="Toggle">
+    <div id="opt7.3" style="display:none">
+      Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
+      and goals.
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.3')" value="Toggle">
+    </div>
+  </div>
+  <div>
+    <%= p.radio_button :job_level, "Upper Management Level" %>
+    <%= p.label "Upper Management Level", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.4')" value="Toggle">
+    <div id="opt7.4" style="display:none">
+      Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
+      divisions, departments or specific functions within the corporate structure and delegate<br/>
+      responsibilities to middle managers.
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.4')" value="Toggle">
+    </div>
+  </div>
+  <div>
+    <%= p.radio_button :job_level, "Executive Level (Vice President, officers or department chiefs)" %>
+    <%= p.label "Executive Level (Vice President, officers or department chiefs)", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.5')" value="Toggle">
+    <div id="opt7.5" style="display:none">
+      Highly skilled and experienced employees, with macro management and strategic responsabilities
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.5')" value="Toggle">
+    </div>
+  </div>
+  <br/>
+</div>
+<h3>8. About the company</h3>
+<div class="container">
+  <div>
+    <%#= p.label "Area", :class => "label_spec"%>
+    <%#= p.text_field :company_area, :class => "text_field_spec" %>
+  </div>
+  <div>
+    <%= p.label "Industry:", :class => "label_spec"%>
+    <%#= p.text_field :company_sector, :class => "text_field_spec" %>
+    <%= p.select :company_sector, options_for_select(['Please select one',
+                                                      'Accountancy', 
+                                                      'Advertising',
+                                                      'Aerospace Industry',
+                                                      'Agriculture',
+                                                      'Antiques',            
+                                                      'Architecture and Interior Design',            
+                                                      'Arts/Heritage/Museums',            
+                                                      'Automotive Industry',            
+                                                      'Banking/Corporate Finance',            
+                                                      'Building and Construction Industries',            
+                                                      'Business Management',            
+                                                      'Business Psychology',            
+                                                      'Catering/Hospitality',            
+                                                      'Charity - In House Management',            
+                                                      'Charity - Services',            
+                                                      'Chemical Industry',            
+                                                      'Commercial & Professional Services',            
+                                                      'Consumer Durables and Apparel',            
+                                                      'Crisis Management',            
+                                                      'Editorial Services',            
+                                                      'Education/Training',            
+                                                      'Energy',            
+                                                      'Entertainment and Music Industries',            
+                                                      'Executive Coaching and Development',            
+                                                      'Fashion/Cosmetics',            
+                                                      'Financial Services',            
+                                                      'Food, Beverage & Tobacco',            
+                                                      'Healthcare/Pharmaceutical/Medical Devices',            
+                                                      'Hotels and Leisure Industry',            
+                                                      'Household & Personal Products',            
+                                                      'Human Resources (Consultants)',            
+                                                      'Human Resources (In House Management)',            
+                                                      'Insurance',            
+                                                      'Languages/Translation Services',            
+                                                      'Law - Employment',            
+                                                      'Law - Family and Matrimonial',            
+                                                      'Law - General Legal Services',            
+                                                      'Management Consultants',            
+                                                      'Manufacturing',            
+                                                      'Marketing/Public Relations',            
+                                                      'Materials',            
+                                                      'Media',            
+                                                      'Non-Profit',            
+                                                      'Oil/Gas/Petroleum Industries',            
+                                                      'Professional Bodies/Trade Organisations',            
+                                                      'Public Affairs',            
+                                                      'Real Estate / Property',            
+                                                      'Retail Industry',            
+                                                      'Software & Services',            
+                                                      'Technology Hardware & Equipment',            
+                                                      'Telecommunications',            
+                                                      'Transport Industry',            
+                                                      'Travel and Tourism',            ]) %>
+  </div>  
+  <div>
+    <%= p.label "Nationality", :class => "label_spec"%>
+    <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
+  </div>  
+  <br/>
+</div>
+</div>
+<div class="tab-pane fade" id="2">
+  <h3>9. Are you a member of EPWN</h3>
+  <div class="container">
+    <div>
+      <%= p.radio_button :member, "Yes" %>
+      <%= p.label "Yes" %>
+    </div>
+    <div>
+      <%= p.radio_button :member, "Not yet" %>
+      <%= p.label "Not yet" %>
+    </div>
+    <br/>
+  </div>
+  <h3>10. Have you participated in a mentoring program before?</h3>
+  <div class="container">
+    <table>
+      <tr class="list_line_odd">
+        <th class="table_collumn_spec">
+          &nbsp; &nbsp; &nbsp;
+        </th>
+        <th class="table_collumn_spec">
+          As a mentor
+        </th>
+        <th class="table_collumn_spec">
+          As a mentee
+        </th>
+      </tr>
+      <tr class="list_line_even">
+        <th> &nbsp; Company program &nbsp; &nbsp; </th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_company_program_as_mentor, {}, "Yes", "No" %>
+        </th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_company_program_as_mentee, {}, "Yes", "No" %>
+        </th>
+      </tr>
+      <tr class="list_line_odd">
+        <th> &nbsp; EPWN program in Lisbon &nbsp; &nbsp;</th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_lisbon_epwn_as_mentor, {}, "Yes", "No" %>
+        </th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_lisbon_epwn_as_mentee, {}, "Yes", "No" %>
+        </th>
+      </tr>
+      <tr class="list_line_even">
+        <th>&nbsp; EPWN program in another city &nbsp; &nbsp;</th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_europe_epwn_as_mentor, {}, "Yes", "No" %>
+        </th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_europe_epwn_as_mentee, {}, "Yes", "No" %>
+        </th>
+      </tr>
+      <tr class="list_line_odd">
+        <th>&nbsp; Other &nbsp; &nbsp;</th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_other_as_mentor, {}, "Yes", "No" %>
+        </th>
+        <th class="table_check_box">
+          <%= p.check_box :participation_other_as_mentee, {}, "Yes", "No" %>
+        </th>
+      </tr>
+    </table>
+    <div>
+      <br/>
+      <%= p.label "Other (please specify)" %>
+      <br/>
+      <%= p.text_field :participation_other_specified, :class => "text_field_spec" %>
+    </div>
+    <br/>
+  </div>
+</div>
+<div class="tab-pane fade" id="3" style="">
+<!-- <h3>11. Availability for trainings (We will hold 4 trainings during the year, on a week day, excluding friday)</h3>
+<div class="container">
+<div>
+<%#= p.check_box :availability_8 %>
+<%#= p.label "8:30­ - 10:30" %>
+</div>
+<div>
+<%#= p.check_box :availability_12 %>
+<%#= p.label "12:30­ - 14:30" %>
+</div>
+<div>
+<%#= p.check_box :availability_18 %>
+<%#= p.label "18:00 - ­20:30" %>
+</div>
+<br/>
+</div> -->
+<span class="question_header">
+  11. Availability for trainings
+</span>
+<input type="image" src="/assets/info.png" class="question_header" onclick=" return toggleMe('opt10')" value="Toggle">
+<div id="opt10" style="display:none; margin-bottom: 10px;">
+  We will hold 4 trainings during the year, on a week day, excluding friday
+  <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt10')" value="Toggle">
+</div>
+<div class="container">
+  <div>
+    <%= p.check_box :availability_8, {}, "Available", "Unavailable" %>
+    <%= p.label "8:30­ - 10:30" %>
+  </div>
+  <div>
+    <%= p.check_box :availability_12, {}, "Available", "Unavailable" %>
+    <%= p.label "12:30­ - 14:30" %>
+  </div>
+  <div>
+    <%= p.check_box :availability_18, {}, "Available", "Unavailable" %>
+    <%= p.label "18:00 - ­20:30" %>
+  </div>
+  <br/>
+</div>
+<!-- <h3>12. Availability for networking meetings</h3>
+<div class="container">
+<div>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN monthly breakfast (first tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa)" %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= p.label "Mentee buddy contacts (once a month, online or face­to­face)" %>
+</div>
+<br/>
+</div> -->
+<h3>12. Availability for networking meetings</h3>
+<div class="container">
+  <div>
+    <%= p.check_box :availability_monthly_breakfasts, {}, "Available", "Unavailable" %>
+    <%= p.label "EPWN monthly breakfast", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt12.1')" value="Toggle">
+    <div id="opt12.1" style="display:none">
+      First tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt12.1')" value="Toggle">
+    </div>
+  </div>
+  <div>
+    <%= p.check_box :availability_buddy_contacts, {}, "Available", "Unavailable" %>
+    <%= p.label "Mentee buddy contacts", :class => "long_option" %>
+    <input type="image" src="/assets/info.png" onclick="return toggleMe('opt12.2')" value="Toggle">
+    <div id="opt12.2" style="display:none">
+      Once a month, online or face­to­face
+      <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt12.2')" value="Toggle">
+    </div>
+  </div>
+  <br/>
+</div>
+<!-- <h3>13. Sharing</h3>
+<div class="container">
+<%#= form_for @profile do |p| %>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow your contacts to be shared with fellow program participants and alumni?") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow your basic demographic data and contacts to be shared with fellow international mentoring programs for benchmarking purposes only?") %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= label_tag(:pet_dog, "Do you allow pictures of you to be used in promotional material about the program?") %>
+</div>
+<%# end %>
+<br/>
+</div> -->
+</div>
+<div class="tab-pane fade" id="4" style="">
+  <h3>14. Description of my career</h3>
+  <div class="container">
+    <%= p.text_area :career_description, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>15. My strengths</h3>
+  <div class="container">
+    <div>
+      <%= p.label "1", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "2", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "3", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_3, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "4", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_4, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "5", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_5, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "6", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_6, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+  <h3>16. My interests</h3>
+  <div class="container">
+    <%= p.text_area :interests, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>17. Characteristics that describe me best</h3>
+  <div class="container">
+    <%= p.text_area :self_description, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+</div>
+<div class="tab-pane fade" id="5" style="">
+  <h3>18. Motivations to be on EPWN Mentoring program:</h3>
+  <div class="container">
+    <%= p.text_area :motivations, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>19. What I would like to get from my participation as a Mentee:</h3>
+  <div class="container">
+    <%= p.text_area :expectations, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+</div>
+<div class="tab-pane fade" id="6" style="">
+  <h3>20. Imagining myself today and in 3 (or 5 or 10) years: Who do I want to be?</h3>
+  <div class="container">
+    <%= p.text_area :aspirations, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>21. Imagining myself today and in 3 (or 5 or 10) years: What do I want to be known for?</h3>
+  <div class="container">
+    <%= p.text_area :want_to_be_known_for, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>22. Based on the answers to the last questions what are the areas in which I seek a mentor</h3>
+  <div class="container">
+    <div>
+      <%= p.check_box :seeks_mentoring_in_career_orientation, {}, "Yes", "No" %>
+      <%= p.label "Career Orientation" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_career_transition, {}, "Yes", "No" %>
+      <%= p.label "Career Transition" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_change_management, {}, "Yes", "No" %>
+      <%= p.label "Change Management" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_conflict_management, {}, "Yes", "No" %>
+      <%= p.label "Conflict Management" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_corporate_communication, {}, "Yes", "No" %>
+      <%= p.label "Corporate Communication" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_cross_cultural_communication, {}, "Yes", "No" %>
+      <%= p.label "Cross­-Cultural Communication" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_cross_cultural_working_practices, {}, "Yes", "No" %>
+      <%= p.label "Cross­-Cultural Working Practices" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_entreperneurship, {}, "Yes", "No" %>
+      <%= p.label "Entrepreneurship" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_goal_setting_and_advancement, {}, "Yes", "No" %>
+      <%= p.label "Goal Setting and Advancement" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_leadership_development, {}, "Yes", "No" %>
+      <%= p.label "Leadership Development" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_optimal_use_of_a_network, {}, "Yes", "No" %>
+      <%= p.label "Optimal Use of a Network" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_people_management, {}, "Yes", "No" %>
+      <%= p.label "People Management" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_political_acumen, {}, "Yes", "No" %>
+      <%= p.label "Political Acumen" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_reintegration_and_work_immersion, {}, "Yes", "No" %>
+      <%= p.label "Reintegration and Work Immersion" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_strategic_thinking, {}, "Yes", "No" %>
+      <%= p.label "Strategic Thinking" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_time_management, {}, "Yes", "No" %>
+      <%= p.label "Time Management" %>
+    </div>
+    <div>
+      <%= p.check_box :seeks_mentoring_in_work_life_balance, {}, "Yes", "No" %>
+      <%= p.label "Work Life Balance" %>
+    </div>
+    <div>
+      <%= p.label "Other (please specify)"%>
+      <br/>
+      <%= p.text_field :seeks_mentoring_in_other_specified, :class => "text_field_spec" %>
+    </div>
+    <br/>
+  </div>
+  <h3>23. The goals that I want to achieve are:</h3>
+  <div class="container">
+    <div>
+      <%= p.label "Goal 1", :class => "short_label_spec"%>
+      <%= p.text_field :goal_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Goal 2", :class => "short_label_spec"%>
+      <%= p.text_field :goal_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Goal 3", :class => "short_label_spec"%>
+      <%= p.text_field :goal_3, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+</div>
+<div class="tab-pane fade" id="7" style="">
+  <h3>24. Description of the ideal mentor: industry & role</h3>
+  <div class="container">
+    <div>
+      <%= p.label "Function", :class => "short_label_spec"%>
+      <%= p.text_field :ideal_mentor_function, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Sector", :class => "short_label_spec"%>
+      <%= p.text_field :ideal_mentor_sector, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+  <h3>25. Description of the ideal mentor: strengths</h3>
+  <div class="container">
+    <div>
+      <%= p.label "1", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "2", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "3", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_3, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "4", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_4, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "5", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_5, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "6", :class => "mini_label_spec"%>
+      <%= p.text_field :ideal_mentor_strength_6, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+  <h3>26. Description of the ideal mentor: interests</h3>
+  <div class="container">
+    <%= p.text_area :ideal_mentor_interests, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>27. What role do I want the mentor to play (e.g. act as sounding board, provide developmental feedback, share experiences, connect with relevant people, ...)</h3>
+  <div class="container">
+    <%= p.text_area :ideal_mentor_role, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  <h3>28. Gender preference</h3>
+  <div class="container">
+    <div>
+      <%= p.radio_button :mentor_gender_preference, "Woman" %>
+      <%= p.label "Woman" %>
+    </div>
+    <div>
+      <%= p.radio_button :mentor_gender_preference, "Man" %>
+      <%= p.label "Man" %>
+    </div>
+    <div>
+      <%= p.radio_button :mentor_gender_preference, "No Preference" %>
+      <%= p.label "No preference" %>
+    </div>
+    <br/>
+  </div>
+  <h3>29. Mentor referrals</h3>
+  <div class="container">
+    <div>
+      <%= p.label "1", :class => "mini_label_spec"%>
+      <%= p.text_field :mental_referral_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "2", :class => "mini_label_spec"%>
+      <%= p.text_field :mental_referral_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "3", :class => "mini_label_spec"%>
+      <%= p.text_field :mental_referral_3, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+</div>
+<div class="tab-pane fade" id="8" style="">
+  <h3>30. How does your company support your envolvement in this program?</h3>
+  <div class="container">
+<!-- <div>
+<%#= p.check_box :seeks_mentoring_in_work_life_balance, {}, "Yes", "No" %>
+<%#= p.label "I am doing this program privately and have not mentioned it to my company" %>
+</div> -->
+<div>
+  <%= p.check_box :company_is_aware_of_program, {}, "Yes", "No" %>
+  <%= p.label "My company is aware I am doing this program" %>
+</div>
+<div>
+  <%= p.check_box :company_suggested_participation, {}, "Yes", "No" %>
+  <%= p.label "My company suggested I participate in this program" %>
+</div>
+<div>
+  <%= p.check_box :company_supports_participation, {}, "Yes", "No" %>
+  <%= p.label "My company supports the financial costs of this program" %>
+</div>
+<br/>
+</div>
+</div>
+<div class="tab-pane fade" id="9" style="">
+  <h3>31. How did you hear about Womenship ­ EPWN Lisbon Mentoring Program?</h3>
+  <div class="container">
+<!-- <div>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN communication, I am an EPWN member" %>
+</div>
+<div>
+<%#= p.check_box :nationality %>
+<%#= p.label "EPWN communication, I still am not an EPWN member" %>
+</div> -->
+<div>
+  <%= p.check_box :heard_about_program_from_epwn, {}, "Yes", "No" %>
+  <%= p.label "EPWN communication" %>
+</div>
+<div>
+  <%= p.check_box :heard_about_program_from_previous_participant, {}, "Yes", "No" %>
+  <%= p.label "From a participant in a previous edition of the program" %>
+</div>
+<div>
+  <%= p.check_box :heard_about_program_from_epwn_member, {}, "Yes", "No" %>
+  <%= p.label "From an EPWN member" %>
+</div>
+<div>
+  <%= p.check_box :heard_about_program_from_company, {}, "Yes", "No" %>
+  <%= p.label "From my company" %>
+</div>
+<div>
+  <%= p.check_box :heard_about_program_in_the_press, {}, "Yes", "No" %>
+  <%= p.label "In the press" %>
+</div>
+<div>
+  <%= p.label "Other (please specify)" %>
+  <br/>
+  <%= p.text_field :heard_about_program_from_other_specified, :class => "text_field_spec" %>
+</div>
+<br/>
+</div>
+<h3>32. Please note any preferences or constraints you would like us to be aware of in terms of schedule, meeting frequency, location, language etc.</h3>
+<div class="container">
+  <%= p.text_area :preference_or_constraint, :size => "70x8" %>
+  <br/>
+  <br/>
+</div>
+<div class="container">
+  <%= p.submit "Submit" %>
+  <br/>
+</div>
+</div>
+</div>
+<a class="btn btn-primary" id="btnPrevious">Previous</a>
+<a class="btn btn-primary" id="btnNext">Next</a>
+<script type="text/javascript">
+  function toggleMe(a){
+    var e=document.getElementById(a);
+    if(!e)
+      return true;
+    if(e.style.display=="none") {
+      e.style.display="block";
+    }
+    else {
+      e.style.display="none";
+    }
+    return false;
+  }
+  $('#btnNext').click(function() {
+    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+  });
+  $('#btnPrevious').click(function() {
+    $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+  });
+</script>
 <% end %>
+</div>
+</body>
+</html>
+</div>

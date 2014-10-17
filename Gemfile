@@ -19,6 +19,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'activeadmin', github: 'activeadmin'
 gem 'modernizr-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'carmen', git: 'git://github.com/jim/carmen.git'
+gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
