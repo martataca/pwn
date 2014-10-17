@@ -8,15 +8,29 @@
       <div class="col-md-3">
         <div class="text-center">
        
+       
+       
        <% if @create_new_tag %>
 	        <% if @mentee %>
+	        
 	  	    <%= link_to "New Mentee Application", new_profile_path(@user.id) %>
+	  	    
 	  	    <% else %>
 	  	    <%= link_to "New Mentor Application", new_profile_path(@user.id) %>
 	  	    <% end %>
+	  	    
        <% else %>
+        <p> Your application is at <%= number_to_percentage(@profile.application_percentage(@profile)) %> </p>
+        <div class="progress progress-striped">
+          <div class="progress-bar" style="width: <%= number_to_percentage(@profile.application_percentage(@profile)) %>;">
+            <span class="sr-only">60% Complete</span>
+          </div>
+        </div>
         <%= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
+        
+        
         <div>
+          
   	   <%= link_to "Edit Application", edit_profile_path(@profile.id) %> 
   	</div>
   	</div>

@@ -106,6 +106,7 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.4.1)
     minitest (5.4.2)
+    modernizr-rails (2.7.1)
     multi_json (1.10.1)
     mysql2 (0.3.16)
     orm_adapter (0.5.0)
@@ -192,6 +193,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
+  modernizr-rails
   mysql2
   rails (= 4.1.6)
   sass-rails (~> 4.0.3)

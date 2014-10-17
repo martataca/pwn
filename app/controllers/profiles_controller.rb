@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
  def new
   @profile = Profile.new
   @profile.user_id = current_user.id
+  
  end
 
  def create
@@ -16,6 +17,11 @@ class ProfilesController < ApplicationController
     end
  end
  
+ 
+ 
+  def percentage
+    @percentage
+  end
  
   def edit
          

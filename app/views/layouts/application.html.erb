@@ -4,7 +4,9 @@
   <title>EPWN Lisbon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="http://www.dreamtemplate.com/dreamcodes/social_icons/tsc_social_icons.css" />
   
   <p class="navbar-text pull-right">
 <% if user_signed_in? %>
@@ -23,7 +25,38 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<%= yield %>
 
+<%= yield %>
+<div class="footer dark"> 
+  <div class="menu">
+    <div class="wrap clearfix">
+      <nav class="links">
+        <a href="/">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contacts</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>    
+      </nav>
+      
+      <nav class="social">        
+        <a class="facebook_round_gray_32 tsc_social_round_gray_32" title="facebook" href="#">facebook</a>
+        <a class="twitter2_round_gray_32 tsc_social_round_gray_32" title="twitter" href="#">twitter</a>
+        <a class="linkedin_round_gray_32 tsc_social_round_gray_32" title="linkedin" href="#">linkedin</a>
+        <a class="skype_round_gray_32 tsc_social_round_gray_32" title="skype" href="#">skype</a>
+        <a class="youtube_round_gray_32 tsc_social_round_gray_32" title="youtube" href="#">youtube</a>
+      </nav>
+
+      <nav class="footenotebar">
+        <p class="footenote"> © EPWN Lisbon 2014 </p>
+        <!-- <button style="border:0px solid: black; background-color: white; margin-top: 3%;" type="button" class="btn btn-default btn-lg"> -->
+        <%= link_to '<button style="border:0px solid: black; background-color: white; margin-top: 10%;" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-lock"></span></button>'.html_safe, admin_root_path  %>
+        </nav>
+    </div>
+</div>
+
+
+
+        </div>
 </body>
 </html>

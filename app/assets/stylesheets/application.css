@@ -25,3 +25,149 @@
 	width: 100;
 	
 }
+
+@font-face {
+  font-family: 'NewsGothicCondensedBold';
+  src: url('/assets/newsgothic-boldcond.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NewsGothicCondensed';
+  src: url('/assets/newsgothic-cond.woff') format('woff');
+}
+
+
+.facebook_round_gray_32{ background:url(facebook-round-gray-32.png) no-repeat; }
+.twitter_round_gray_32{ background:url(twitter-round-gray-32.png) no-repeat; }
+.linkedin_round_gray_32{ background:url(linkedin-round-gray-32.png) no-repeat; }
+.skype_round_gray_32{ background:url(skype-round-gray-32.png) no-repeat; }
+.youtube_round_gray_32{ background:url(youtube-round-gray-32.png) no-repeat; }
+
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+  width: 100%;
+}
+
+
+/* Footer */
+
+
+
+.footer .wrap {
+  width: 85%;
+  margin: 0 auto;
+  
+  
+}
+
+.footer .fr {
+  float: right;
+}
+
+.footer .fl {
+  float: left;
+  display: block;
+  -webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+.footer .menu {
+  background: #2f2f2f;
+  padding: 30px 0 100px 0;
+}
+
+.footer .menu .links {
+  margin-top: 5px;
+  float: left;
+}
+
+.footer .menu .links a {
+  color: #fff;
+  margin: 3px 10px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font: 1.4em/1 'NewsGothicCondensedBold';
+}
+
+.footer .menu .links a:before {
+  position: absolute;
+  content: "|";
+  left: -15px;
+}
+
+.footer .menu .links a:first-child {
+  margin-left: 0;
+}
+
+.footer .menu .links a:first-child:before {
+  content: "";
+}
+
+.footer .menu .links a:hover {
+  color: #ffd600;
+  text-decoration: none;
+}
+
+.footer .menu .links a:hover:before {
+	color: #fff;
+  text-decoration: none;
+}
+
+.footer .menu .social {
+  float: right;
+}
+
+.footer .menu .social a {
+  margin-left: 10px;
+  font-size: 2.5em;
+  color: #fff;
+}
+
+
+.footer .footnotebar {
+	margin-top: 500px;
+  float: left;
+}
+
+.footer .footnotebar .links a {
+  color: #a8a8a8;
+  margin: 30px 100px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font: 1.4em/1 'NewsGothicCondensed';
+  
+}
+
+.footer .footnotebar .links a:before {
+  position: absolute;
+  left: -15px;
+}
+
+.footer .footnotebar .links a:first-child {
+  margin-left: 0;
+}
+
+.footer .footnotebar .links a:first-child:before {
+  content: "";
+}
+
+.footer .footenote {
+  font: 1.4em/1 'NewsGothicCondensed';
+  
+  
+  
+  color: #a8a8a8;
+}
+

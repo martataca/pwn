@@ -58,268 +58,25 @@
       </ul>
       <br/>
               
-      <div style="margin-left: 300px">
+      <div id="div_register" style="margin-left: 300px">
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div>
-        <%= form_for @profile do |p| %>
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="1" style="">
-              <h3>1. About myself: contact details</h3>
-              <div class="container">
-        		  	<div>
-        		  		<%= p.label "Name", :class => "label_spec" %>
-        		  		<%= p.text_field :fullName, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Email", :class => "label_spec" %>
-        		  		<%= p.text_field :email, :class => "text_field_spec" %>
-        		  	</div>		  
-        		  	<div>
-        		  		<%= p.label "Telephone", :class => "label_spec" %>
-        		  		<%= p.text_field :phone_number, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Skype Name", :class => "label_spec" %>
-        		  		<%= p.text_field :skype_name, :class => "text_field_spec" %>
-        		  	</div>
-                <div>
-        		  		<%= p.label "Linkedin Profile", :class => "label_spec" %>
-        		  		<%= p.text_field :linkedin_profile, :class => "text_field_spec" %>
-        		  	</div>	    
-        		    <div>
-        		  		<%= p.label "Picture", :class => "label_spec" %>
-        		  		<br/>
-        			  	<%= p.file_field :picture %>
-                </div>
-        		  	<div>
-          				<%= p.label "CV", :class => "label_spec" %>
-          				<br/>
-          			 	<%= p.file_field :cv %>
-        		  	</div> 	
-      		      <br/>
-              </div>
-            	          	
-            	<h3>2. About myself: demographics</h3>
-              <div class="container">
-        		  	<div>
-        		  		<%= p.label "Age", :class => "label_spec" %>
-        		  		<%= p.text_field :age, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Nationality", :class => "label_spec" %>
-        		  		<%= p.text_field :nationality, :class => "text_field_spec" %>
-        		  	</div>		  
-        		  	<div>
-        		  		<%= p.label "City of Residence", :class => "label_spec" %>
-        		  		<%= p.text_field :city, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Marital Status", :class => "label_spec" %>
-        		  		<%= p.text_field :marital_status, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Number of Children", :class => "label_spec" %>
-        		  		<%= p.text_field :number_children, :class => "text_field_spec" %>
-        		  	</div>		     	
-          		  <br/>
-              </div>
-        	
-              <h3>3. About myself: studies</h3>
-              <div class="container">
-        		  	<div>
-        		  		<%= p.label "Highest academic title", :class => "long_label_spec" %>
-        		  		<%= p.text_field :highest_academic, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Main area of studies", :class => "long_label_spec" %>
-        		  		<%= p.text_field :main_area, :class => "text_field_spec" %>
-        		  	</div>		  
-        		  	<div>
-        		  		<%= p.label "Country of main studies", :class => "long_label_spec" %>
-        		  		<%= p.text_field :study_country, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        				  <%= p.label "Other (please specify)", :class => "long_label_spec" %>
-        		  		<%= p.text_field :studies_other, :class => "text_field_spec" %>
-                </div>		     	
-                <br/>
-              </div>
-        	
-              <h3>4. About myself: professional experience</h3>
-              <div class="container">
-        		  	<div>
-        		  		<%= p.label "Years of professional experience", :class => "long_label_spec" %>
-        		  		<%= p.text_field :years_experience, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-        		  		<%= p.text_field :number_subordinates, :class => "text_field_spec" %>
-        		  	</div>		  
-        		  	<div>
-        		  		<%= p.label "Level you report to", :class => "long_label_spec" %>
-        		  		<%= p.text_field :reporting_level, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "International Experience", :class => "long_label_spec" %>
-        		  		<%= p.text_field :international_experience, :class => "text_field_spec" %>
-        		  	</div>	     	
-                <br/>
-              </div>
-                             
-              <h3>5. Company I currently work for</h3>
-              <div class="container">
-        		  	<%= p.text_field :company, :class => "text_field_spec" %>
-        		    <br/>
-        		    <br/>
-              </div>
-        	
-              <h3>6. Title of my position in the company I currently work for</h3>
-              <div class="container">
-        		  	<%= p.text_field :company_title, :class => "text_field_spec" %>		
-                <br/>
-                <br/>
-              </div>
         
-              <!-- <h3>7. Job Level</h3>
-              <div class="container">
-        		  	<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Entry Level: little or no prior working experience; recent college graduate", :class => "long_option") %>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Intermediate Level: proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees", :class => "long_option") %>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure): oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.", :class => "long_option") %>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Upper Management Level: extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.", :class => "long_option") %>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs): highly skilled and experienced employees, with macro management and strategic responsabilities", :class => "long_option") %>
-          			</div>
-        		    <br/>
-              </div>
-            
-              <h3>7. Job Level</h3>
-              <div class="container">
-          		 	<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Entry Level", :class => "long_option") %>
-          				<span class="dropt" title="Little or no prior working experience; recent college graduate">
-                    <img src="/assets/info.png"/>
-          				</span>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Intermediate Level", :class => "long_option") %>
-          				<span class="dropt" title="Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to work without constant supervision and can take on responsibility for specific projects or tasks or/and supervisory responsibility for other intermediate or entry­level employees">
-                    <img src="/assets/info.png"/>
-          				</span>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Middle Management (first managerial level in the corporate structure)", :class => "long_option") %>
-          				<span class="dropt" title="Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives and goals.">
-                    <img src="/assets/info.png"/>
-          				</span>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Upper Management Level", :class => "long_option") %>
-          				<span class="dropt" title="Extensive experience and education in their field, as well as experience managing others. Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities to middle managers.">
-                    <img src="/assets/info.png"/>
-          				</span>
-          			</div>
-          			<div>
-          				<%= p.check_box :nationality %>
-          				<%= label_tag(:pet_dog, "Executive Level (Vice President, officers or department chiefs)", :class => "long_option") %>          				
-                  <span class="dropt" title="Highly skilled and experienced employees, with macro management and strategic responsabilities">
-                    <img src="/assets/info.png"/>
-                  </span>
-          			</div>
-        		    <br/>
-        	    </div> -->
-        	
-        	    <h3>7. Job Level</h3>
-              <div class="container">
-                <div>
-                  <%= p.radio_button :job_level, "Entry Level" %>
-                  <%= p.label "Entry Level", :class => "long_option" %>
-                  <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.1')" value="Toggle">                  
-                  <div id="opt7.1" style="display:none">
-                    Little or no prior working experience; recent college graduate
-                    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.1')" value="Toggle">
-                  </div>
-                </div>
-                <div>
-                  <%= p.radio_button :job_level, "Intermediate Level" %>
-                  <%= p.label "Intermediate Level", :class => "long_option" %>
-                  <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.2')" value="Toggle">                  
-                  <div id="opt7.2" style="display:none">
-                    Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
-                    work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
-                    supervisory responsibility for other intermediate or entry­level employees
-                    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.2')" value="Toggle">
-                  </div>
-                </div>
-                <div>
-                  <%= p.radio_button :job_level, "Middle Management (first managerial level in the corporate structure)" %>
-                  <%= p.label "Middle Management (first managerial level in the corporate structure)", :class => "long_option" %>
-                  <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.3')" value="Toggle">                  
-                  <div id="opt7.3" style="display:none">
-                    Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
-                    and goals.
-                    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.3')" value="Toggle">
-                  </div>
-                </div>
-                <div>
-                  <%= p.radio_button :job_level, "Upper Management Level" %>
-                  <%= p.label "Upper Management Level", :class => "long_option" %>
-                  <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.4')" value="Toggle">                  
-                  <div id="opt7.4" style="display:none">
-                    Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
-                    divisions, departments or specific functions within the corporate structure and delegate<br/>
-                    responsibilities to middle managers.
-                    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.4')" value="Toggle">
-                  </div>
-                </div>
-                <div>
-                  <%= p.radio_button :job_level, "Executive Level (Vice President, officers or department chiefs)" %>
-                  <%= p.label "Executive Level (Vice President, officers or department chiefs)", :class => "long_option" %>                  
-                  <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.5')" value="Toggle">                  
-                  <div id="opt7.5" style="display:none">
-                    Highly skilled and experienced employees, with macro management and strategic responsabilities
-                    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.5')" value="Toggle">
-                  </div>
-                </div>
-                <br/>
-              </div> 
+        
+        
+        <%= form_for @profile do |p| %>
+          <%= p.label "Your application is at 0%", :id => "progresstext", :class => "long_label_spec"%>
+          <div class="progress progress-striped">
+            <div id="progressbar" class="progress-bar" style="width: 0%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
           
-              <h3>8. About the company</h3>
-              <div class="container">
-        		  	<div>
-        		  		<%= p.label "Area", :class => "label_spec"%>
-        		  		<%= p.text_field :company_area, :class => "text_field_spec" %>
-        		  	</div>
-        		  	<div>
-        		  		<%= p.label "Sector", :class => "label_spec"%>
-        		  		<%= p.text_field :company_sector, :class => "text_field_spec" %>
-        		  	</div>		  
-        		  	<div>
-        		  		<%= p.label "Nationality", :class => "label_spec"%>
-        		  		<%= p.text_field :company_nation, :class => "text_field_spec" %>
-        		  	</div>		     	
-        		    <br/>
-        	    </div>
-      	    </div>
+          <div class="tab-content">
+            <%= render :partial => "aboutmyself", :locals => {:p => p} %>  
           	    
       	    <div class="tab-pane fade" id="2">
               <h3>9. Are you a member of EPWN</h3>
@@ -867,8 +624,53 @@
             $('#btnPrevious').click(function() {
               $('.nav-tabs > .active').prev('li').find('a').trigger('click');
             });
-                    
-          </script>  	
+             
+            function verifyPercentage() {
+              var percentage = 0.0;
+               
+              var source = document.getElementById("namebox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("emailbox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("phonebox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("skypebox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("linkedinbox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("picturebox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+               
+              source = document.getElementById("cvbox").value;
+              if(source !== "") {
+                percentage += 1; 
+              }
+              
+              percentage = Math.floor(percentage / 7 * 100);
+               
+              source = document.getElementById("progresstext").innerHTML = "Your application is at " + percentage + "%";
+              document.getElementById('progressbar').setAttribute("style","width: " + percentage + "%");
+               
+            } 
+          </script>
+            	
       	<% end %>
     	</div>
     </body>
