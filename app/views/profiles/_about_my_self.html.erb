@@ -1,6 +1,6 @@
-<div class="tab-pane fade in active" id="1" style="">
-  <h3>1. About myself: contact details</h3>
-  <div class="container">
+<div>
+  <h3 class="myform">1. About myself: contact details</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Name", :class => "label_spec" %>
       <%= p.text_field :fullName, :id => "namebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
@@ -32,10 +32,11 @@
       <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
     </div>  
     <br/>
+    <hr>
   </div>
               
-  <h3>2. About myself: demographics</h3>
-  <div class="container">
+  <h3 class="myform">2. About myself: demographics</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Birth Date", :class => "label_spec" %>
       <%= p.text_field :born_on, :class => 'datepicker' %>
@@ -75,10 +76,11 @@
         <%= p.number_field :number_children, in: 0..20, step: 1 %>
     </div>          
     <br/>
+    <hr>
   </div>
   
-  <h3>3. About myself: studies</h3>
-  <div class="container">
+  <h3 class="myform">3. About myself: studies</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Highest academic title", :class => "long_label_spec" %>
       <%= p.select :highest_academic, options_for_select(['Please select one', 'Licence (pre-Bologna)', 'Bachelor', 'Master', 'Doctorate' ]) %>
@@ -139,10 +141,11 @@
       <%= p.country_select :studies_other, {priority: %w(PT), prompt: 'Please select a country'} %>
     </div>  
     <br/>
+    <hr>
   </div>
   
-  <h3>4. About myself: professional experience</h3>
-  <div class="container">
+  <h3 class="myform">4. About myself: professional experience</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Years of professional experience", :class => "long_label_spec" %>
       <%= p.number_field :years_experience, in: 0..100, step: 1 %>
@@ -161,24 +164,27 @@
       <%= p.text_field :international_experience, :class => "text_field_spec" %>
     </div>  
     <br/>
+    <hr>
   </div>
                  
-  <h3>5. Company I currently work for</h3>
-  <div class="container">
+  <h3 class="myform">5. Company I currently work for</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_field :company, :class => "text_field_spec" %>
     <br/>
     <br/>
+    <hr>
   </div>
   
-  <h3>6. Title of my position in the company I currently work for</h3>
-  <div class="container"> 
+  <h3 class="myform">6. Title of my position in the company I currently work for</h3>
+  <div class="container", style="width: 70%; margin-left: 30%"> 
     <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
     <br/>
     <br/>
+    <hr>
   </div>
   
-  <h3>7. Job Level</h3>
-  <div class="container">
+  <h3 class="myform">7. Job Level</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.radio_button :job_level, "Entry Level" %>
       <%= p.label "Entry Level", :class => "long_option" %>
@@ -230,10 +236,11 @@
       </div>
     </div>
     <br/>
+    <hr>
   </div> 
   
-  <h3>8. About the company</h3>
-  <div class="container">
+  <h3 class="myform">8. About the company</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Industry:", :class => "label_spec"%>
       <%#= p.text_field :company_sector, :class => "text_field_spec" %>
@@ -297,5 +304,10 @@
       <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
     </div>  
     <br/>
+    <hr>
   </div>
+  
+  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
+    <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>
+  </div>  
 </div>

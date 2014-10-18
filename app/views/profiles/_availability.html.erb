@@ -1,0 +1,102 @@
+<div>
+  <!-- <h3>11. Availability for trainings (We will hold 4 trainings during the year, on a week day, excluding friday)</h3>
+  <div class="container">
+    <div>
+      <%= p.check_box :availability_8 %>
+      <%= p.label "8:30­ - 10:30" %>
+    </div>
+    <div>
+      <%= p.check_box :availability_12 %>
+      <%= p.label "12:30­ - 14:30" %>
+    </div>
+    <div>
+      <%= p.check_box :availability_18 %>
+      <%= p.label "18:00 - ­20:30" %>
+    </div>
+    <br/>
+  </div> -->
+
+  <span class="myform">
+    11. Availability for trainings
+  </span>
+  <input type="image" src="/assets/info.png" class="question_header" onclick=" return toggleMe('opt10')" value="Toggle">                  
+  <div id="opt10" class="myform" style="display:none; margin-bottom: 10px;">
+    We will hold 4 trainings during the year, on a week day, excluding friday
+    <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt10')" value="Toggle">
+  </div>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.check_box :availability_8, {}, "Available", "Unavailable" %>
+      <%= p.label "8:30­ - 10:30" %>
+    </div>
+    <div>
+      <%= p.check_box :availability_12, {}, "Available", "Unavailable" %>
+      <%= p.label "12:30­ - 14:30" %>
+    </div>
+    <div>
+      <%= p.check_box :availability_18, {}, "Available", "Unavailable" %>
+      <%= p.label "18:00 - ­20:30" %>
+    </div>
+    <br/>
+  </div>
+
+  <!-- <h3>12. Availability for networking meetings</h3>
+  <div class="container">
+  <div>
+  <%#= p.check_box :nationality %>
+  <%#= p.label "EPWN monthly breakfast (first tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa)" %>
+  </div>
+  <div>
+  <%#= p.check_box :nationality %>
+  <%#= p.label "Mentee buddy contacts (once a month, online or face­to­face)" %>
+  </div>
+  <br/>
+  </div> -->
+  
+  <h3 class="myform">12. Availability for networking meetings</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.check_box :availability_monthly_breakfasts, {}, "Available", "Unavailable" %>
+      <%= p.label "EPWN monthly breakfast", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt12.1')" value="Toggle">
+      <div id="opt12.1" style="display:none">
+        First tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt12.1')" value="Toggle">
+      </div>
+    </div>
+    <div>
+      <%= p.check_box :availability_buddy_contacts, {}, "Available", "Unavailable" %>
+      <%= p.label "Mentee buddy contacts", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt12.2')" value="Toggle">
+      <div id="opt12.2" style="display:none">
+        Once a month, online or face­to­face
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt12.2')" value="Toggle">
+      </div>
+    </div>
+    <br/>
+  </div>
+
+  <!-- <h3>13. Sharing</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+  <%#= form_for @profile do |p| %>
+  <div>
+  <%#= p.check_box :nationality %>
+  <%#= label_tag(:pet_dog, "Do you allow your contacts to be shared with fellow program participants and alumni?") %>
+  </div>
+  <div>
+  <%#= p.check_box :nationality %>
+  <%#= label_tag(:pet_dog, "Do you allow your basic demographic data and contacts to be shared with fellow international mentoring programs for benchmarking purposes only?") %>
+  </div>
+  <div>
+  <%#= p.check_box :nationality %>
+  <%#= label_tag(:pet_dog, "Do you allow pictures of you to be used in promotional material about the program?") %>
+  </div>
+  <%# end %>
+  <br/>
+  </div> -->
+  
+  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
+    <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>
+    <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>
+  </div>  
+</div>

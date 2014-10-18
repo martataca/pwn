@@ -72,7 +72,7 @@
             <div class="container">
               <div>
                 <%= p.label "Name", :class => "label_spec" %>
-                <%= p.text_field :fullName, :class => "text_field_spec", :placeholder => @profile.fullName %>
+                <%= p.text_field :fullName, :id => "fullNameBox", :class => "text_field_spec" %>
               </div>
               <div>
                 <%= p.label "Email", :class => "label_spec" %>
@@ -80,7 +80,7 @@
               </div>  
               <div>
                 <%= p.label "Telephone", :class => "label_spec" %>
-                <%= p.text_field :phone_number, :class => "text_field_spec", :placeholder => @profile.phone_number %>
+                <%= p.text_field :phone_number, :class => "text_field_spec" %>
               </div>
               <div>
                 <%= p.label "Skype Name", :class => "label_spec" %>
@@ -148,12 +148,10 @@
             <div class="container">
               <div>
                 <%= p.label "Highest academic title", :class => "long_label_spec" %>
-                <%#= p.text_field :highest_academic, :class => "text_field_spec" %>
                 <%= p.select :highest_academic, options_for_select(['Please select one', 'Licence (pre-Bologna)', 'Bachelor', 'Master', 'Doctorate' ]) %>
               </div>
               <div>
                 <%= p.label "Main area of studies", :class => "long_label_spec" %>
-                <%#= p.text_field :main_area, :class => "text_field_spec" %>
                 <%= p.select :main_area, options_for_select(['Please select one',
                                                             'Human history',
                                                             'Linguistics',
@@ -238,7 +236,6 @@
             </div>
             <h3>6. Title of my position in the company I currently work for</h3>
             <div class="container">
-              <%#= p.text_field :company_title, :class => "text_field_spec" %> 
               <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
               <br/>
               <br/>
@@ -941,6 +938,11 @@
     }
     return false;
   }
+  
+  function complete(placeholder) {
+    document.getElementById("fullNameBox").placeholder = placeholder;
+  }
+  
   $('#btnNext').click(function() {
     $('.nav-tabs > .active').next('li').find('a').trigger('click');
   });

@@ -1,0 +1,56 @@
+<div>
+  <h3 class="myform">14. Description of my career</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <%= p.text_area :career_description, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  
+  <h3 class="myform">15. My strengths</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.label "1", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "2", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "3", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_3, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "4", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_4, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "5", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_5, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "6", :class => "mini_label_spec"%>
+      <%= p.text_field :strengh_6, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+  
+  <h3 class="myform">16. My interests</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <%= p.text_area :interests, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  
+  <h3 class="myform">17. Characteristics that describe me best</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <%= p.text_area :self_description, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+  
+  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
+    <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>
+    <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>
+  </div>  
+</div>

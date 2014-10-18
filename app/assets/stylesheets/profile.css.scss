@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.myform {
+  width: 70%;
+  margin-left: 30%
+}
+
 .label_spec {
   width: 140px;
   margin-top: 10px;
@@ -52,11 +57,7 @@
 }
  
 .long_option {
-  width: 720px;
-}
- 
-.info_text_spec {
-  width: 500px;
+  width: 90%;
 }
  
 .question_header {
