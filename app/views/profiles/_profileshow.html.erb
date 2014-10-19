@@ -9,6 +9,10 @@
 
           <div><b>Name:</b> <%= @profile.fullName %>
           </div>
+          <% if @profile.age.present? %>
+            <div><b>Age: </b> <%= @profile.age %>
+            </div>
+          <% end %>
           <div><b>Email:</b> <%= @user.email %>
           </div>
           <div><b>Skype:</b> <%= @profile.skype_name %>
@@ -22,10 +26,13 @@
           <% end %>
           </div>
           <div><b>Living in: </b> 
-          <% if @profile.country_origin.present? %>
+          <% if @profile.country_residence.present? %>
             <% @residence = Carmen::Country.coded(@profile.country_residence) %>
-            <% @city = @residence.subregions.coded(@profile.city) %> 
-            <%= @city.name %> , <%= @residence.name %>
+            <% if @profile.city.present? %>
+              <% @city = @residence.subregions.coded(@profile.city) %> 
+              <%= @city.name %> ,
+            <% end %>
+            <%= @residence.name %>
           <% end %>
           </div>
           <div><b>Marital Status: </b> <%= @profile.marital_status %>
@@ -36,7 +43,21 @@
             <b> Resumé attached </b></a>
           <% end %>
           </div>
-          
-          
+          <div><b>Number of Children: </b> <%= @profile.number_children %>
+          </div>
+          <div><b>Highest academic title: </b> <%= @profile.highest_academic %>
+          </div>
+          <div><b>Main Area of Studies: </b> <%= @profile.main_area %>
+          </div>
+          <div><b>Country of Main Studies: </b> <%= @profile.study_country %>
+          </div>
+          <% if @profile.studies_other.present? %>
+            <div><b>Other Country of Main Studies: </b> <%= @profile.studies_other %>
+            </div>
+          <% end %>   
+          <div><b>Years of Professional Experience: </b> <%= @profile.years_experience %>
+          </div>
+          <div><b>Number of direct subordinates: </b> <%= @profile.number_subordinates %>
+          </div>
           
 </div>

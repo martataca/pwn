@@ -42,6 +42,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       ## About Myself - Contact Details
       t.string	:fullName
+      t.integer   :age
       t.string	:email
       t.string	:phone_number, 		null: false, default: ""
       t.string	:skype_name, 		default: ""

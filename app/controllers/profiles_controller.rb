@@ -35,6 +35,9 @@ class ProfilesController < ApplicationController
   def show
      @user = User.find(current_user.id)
      @profile = Profile.find(params[:id])
+     if @profile.born_on.present?
+      @profile.age = age_at(Date.today, @profile.born_on)
+     end
      render 'users/show'
   end
   
@@ -54,6 +57,11 @@ class ProfilesController < ApplicationController
     redirect_to profiles_path
   end
   
+def age_at(date, dob)
+  day_diff = date.day - dob.day
+  month_diff = date.month - dob.month - (day_diff < 0 ? 1 : 0)
+  date.year - dob.year - (month_diff < 0 ? 1 : 0)
+end
   
  private
   def profile_params
