@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>EPWN Lisbon</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" type="text/css" href="http://www.dreamtemplate.com/dreamcodes/social_icons/tsc_social_icons.css" />
+  
   
     <p class="navbar-text pull-right">
     <% if user_signed_in? %>
@@ -30,31 +31,38 @@
     <%= yield %>
 
     <div class="footer dark"> 
+
       <div class="menu">
+          <style>
+    #content{
+        padding-right:0px;
+        margin-left: 0px; 
+    }
+    </style>
         <div class="wrap clearfix">
           <nav class="links">
-            <a href="/">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contacts</a>
-            <a href="#">Help</a>
-            <a href="#">Privacy</a>
+            <a href="/">Home</a> |
+            <a href="#">About Us</a> |
+            <a href="#">Contacts</a> | 
+            <a href="#">Help</a> |
+            <a href="#">Privacy</a> |
             <a href="#">Terms</a>    
           </nav>
       
-          <nav class="social">        
-            <a class="facebook_round_gray_32 tsc_social_round_gray_32" title="facebook" href="#">facebook</a>
-            <a class="twitter2_round_gray_32 tsc_social_round_gray_32" title="twitter" href="#">twitter</a>
-            <a class="linkedin_round_gray_32 tsc_social_round_gray_32" title="linkedin" href="#">linkedin</a>
-            <a class="skype_round_gray_32 tsc_social_round_gray_32" title="skype" href="#">skype</a>
-            <a class="youtube_round_gray_32 tsc_social_round_gray_32" title="youtube" href="#">youtube</a>
+          <nav class="social">      
+            <a target="_blank" class="links" href="https://www.facebook.com/pages/EPWN-Lisbon/127442827333598"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/facebook-4-l.png"  > </a>
+            <a target="_blank" class="links" href="http://www.linkedin.com/groups/PWN-Lisbon-3754527?gid=3754527&trk=anet_about_guest-h-parent_group"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/linkedin-4-l.png"  > </a>
+            <a target="_blank" class="links" href="https://twitter.com/EPWNLisbon"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/twitter-4-l.png"> </a>
+            <a target="_blank" class="links" href="https://www.youtube.com/user/EPWNLisbon"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/youtube-4-l.png"> </a>
           </nav>
         </div>
     
         <span>
-          <p class="footnote"> © EPWN Lisbon 2014 </p>
-          <%= link_to '<button style="border:30px; background-color: #dadada; border-radius: 30px; margin-top: 24px; text-align: center" type="button" class="btn btn-default btn-lg"><span style="" class="glyphicon glyphicon-lock"></span></button>'.html_safe, admin_root_path  %>
-        </span>    
+          <p class="footnote"> © EPWN Lisbon 2014 
+          <%= link_to '<button style="border:30px; background-color: #D9B2B2; align = right" type="button" class="btn btn-default btn-lg"><span style="color: #4C1A1A" class="glyphicon glyphicon-lock"></span></button>'.html_safe, admin_root_path  %></p>
+        </span>  
       </div>
+
     </div>
   </body>
 </html>
