@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
+    t.integer  "percentage"
     t.string   "fullName"
     t.integer  "age"
     t.string   "email"

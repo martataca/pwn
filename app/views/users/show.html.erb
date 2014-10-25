@@ -1,21 +1,29 @@
 <div class="container">
-  <h1>Your Area</h1>
+  <h2> <%=@user.firstName %> <%= @user.lastName %> </h2>
   <hr>
 	<div class="row">
     <!-- left column -->
     <% if @create_new_tag %>
-      <div class="col-md-3">
-        <div class="text-center">
+        <div class="jumbotron" style="background-color: #FFFFE6 ">
+          <h1>Welcome!</h1>
+          <p>It seems you don't have an application yet, create it here:</p>
           <% if @mentee %>
-            <%= link_to "New Mentee Application", new_profile_path(@user.id) %>
+            <%= link_to '<button type="button" class="btn btn-primary btn-lg" style =" margin-right: 4%;">Mentee Application</button>'.html_safe, new_profile_path(@user.id) %>
           <% else %>
-            <%= link_to "New Mentor Application", new_profile_path(@user.id) %>
+            <%= link_to '<button type="button" class="btn btn-primary btn-lg" style =" margin-right: 4%;">Mentor Application</button>'.html_safe, new_profile_path(@user.id) %>
           <% end %>
         </div>
-      </div>
     <% else %>
       <div class="col-md-3">
         <div class="text-center">
+
+      <% if @profile.picture.present? %>
+        <%= image_tag(@profile.picture_url, :width => 150)%>
+      <% else %>
+        <img src="http://www.b2match.com/assets/fallback/default.png"  alt="avatar" style="margin-top: 15px; width: 75%; height: 75%">
+      <% end %>
+       <br>
+       <br>
           <p> Your application is at <%= @profile.application_percentage(@profile).floor.to_i %>% </p>
           
           <div class="progress progress-striped">
@@ -24,10 +32,10 @@
             </div>
           </div>
           
-          <%= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
+          <%#= image_tag(@profile.picture_url, :width => 200) if @profile.picture.present? %>
                 
           <div>
-            <%= link_to "Edit Application", edit_profile_path(@profile.id) %> 
+            <%#= link_to "Edit Application", edit_profile_path(@profile.id) %> 
           </div>
         </div>
       </div>

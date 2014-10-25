@@ -1,10 +1,8 @@
-<div style="vertical-align: middle;">
+
+<div class = "deviseforms">
 <h2>Log in</h2>
-<style>
-    input {
-        max-width: 20%;
-    } 
-</style>
+
+<div class = "deviseforms">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div><%= f.label :email%><br />
   <%= f.email_field :email, autofocus: true %></div>
@@ -16,8 +14,12 @@
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
   <br />
+  <br />
   <div><%= f.submit "Log in" %></div>
 <% end %>
-
+</div>
+<br />
 <%= render "devise/shared/links" %>
+<br />
+</div>
 </div>

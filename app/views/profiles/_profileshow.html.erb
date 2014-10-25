@@ -1,11 +1,19 @@
 <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
+        <div class="alert alert-warning alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
         </div>
-        <h3>Personal info</h3>
 
+
+        <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+        <p>
+        <h2 class="panel-title pull-left" style="padding-top: 7.5px;">Application</h2>
+        <div align="right">
+            <%= link_to '<button style=" background-color: #fff" type="button" class="btn btn-default btn-xs"><span  class="glyphicon glyphicon-pencil"></span></button>'.html_safe, edit_profile_path(@profile.id)  %></p>
+           </div></p>
+       </div>
+  <div class="panel-body">
 
           <div><b>Name:</b> <%= @profile.fullName %>
           </div>
@@ -59,5 +67,6 @@
           </div>
           <div><b>Number of direct subordinates: </b> <%= @profile.number_subordinates %>
           </div>
-          
+          </div>
+</div>
 </div>

@@ -39,6 +39,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
     
     create_table :profiles do |t|
       t.belongs_to :user, index: true, unique: true 
+
+      ##Vars for Selection
+      t.decimal   :percentage
+      
+
       
       ## About Myself - Contact Details
       t.string	:fullName

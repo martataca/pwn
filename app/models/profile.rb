@@ -2,7 +2,7 @@ class Profile < ActiveRecord::Base
    belongs_to :user
    mount_uploader :picture, PictureUploader
    mount_uploader :cv, ResumeUploader
-   
+  
  def application_percentage(id)
    # Profile.find(id)[:linkedin_profile].present?
    @percentage = 0.0
@@ -29,6 +29,8 @@ class Profile < ActiveRecord::Base
    end
    
    @percentage / 7 * 100
+   
+   Profile.find(id)[:percentage] = @percentage
 
  end
    
