@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'user' => 'users#show'
   get '/subregion_options' => 'profiles#subregion_options'
   #get 'users/profie/new/:id' => 'profile#new'
-  
+  get 'aboutus' => 'home#aboutus'
+  get 'contacts' => 'home#contacts'
+  get 'mentoring' => 'home#mentoring'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

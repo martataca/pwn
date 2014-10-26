@@ -14,15 +14,22 @@ ActiveAdmin.register Mentee do
   #   permitted
   # end
   
-    index do
-    column :id
+
+  index do
+    column "Picture" do |mentee|
+     image_tag mentee.profile.picture, class: 'profile_picture_thumbnail_xs'
+    end
     column "First Name", :firstName
     column "Last Name",  :lastName
     column :email
+    column "Phone Number" do |mentee|
+      mentee.profile.phone_number
+    end
+
     actions :defaults => false do |user|
       link_to "View", admin_profile_path(user)
     end
   end
-
+ 
 
 end

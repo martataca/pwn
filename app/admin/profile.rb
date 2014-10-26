@@ -12,6 +12,13 @@ menu false
   #   permitted << :other if resource.something?
   #   permitted
   # end
-
+# show do |profile|
+ #     attributes_table do
+  #      row :picture do
+  #        image_tag(profile.picture)
+  #      end
+  #    end
+  #    active_admin_comments
+  #  end
 
 end
