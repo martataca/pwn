@@ -41,7 +41,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true, unique: true 
       
       ## About Myself - Contact Details
-      t.string	:fullName
+      t.string	:firstName
+      t.string  :surnames
       t.integer   :age
       t.string	:email
       t.string	:phone_number, 		null: false, default: ""
@@ -68,6 +69,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       ##About Myself - Professional Experience
       t.integer	:years_experience
+      t.integer :years_in_company
       t.integer	:number_subordinates
       t.text	:reporting_level
       t.text	:international_experience
@@ -85,15 +87,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text  :member
 
       ##Other Programs
-      t.text  :participation_company_program_as_mentor
-      t.text  :participation_company_program_as_mentee
-      t.text  :participation_lisbon_epwn_as_mentor
-      t.text  :participation_lisbon_epwn_as_mentee
-      t.text  :participation_europe_epwn_as_mentor
-      t.text  :participation_europe_epwn_as_mentee
-      t.text  :participation_other_as_mentor
-      t.text  :participation_other_as_mentee
-      t.text  :participation_other_specified
+      # t.text  :participation_company_program_as_mentor
+      # t.text  :participation_company_program_as_mentee
+      # t.text  :participation_lisbon_epwn_as_mentor
+      # t.text  :participation_lisbon_epwn_as_mentee
+      # t.text  :participation_europe_epwn_as_mentor
+      # t.text  :participation_europe_epwn_as_mentee
+      # t.text  :participation_other_as_mentor
+      # t.text  :participation_other_as_mentee
+      # t.text  :participation_other_specified
 
       ##Availability
       t.text :availability_8

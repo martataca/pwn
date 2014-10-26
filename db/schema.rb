@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 20141010205931) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.string   "fullName"
+    t.string   "firstName"
+    t.string   "surnames"
     t.integer  "age"
     t.string   "email"
     t.string   "phone_number",                                        default: "", null: false
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "study_country"
     t.text     "studies_other"
     t.integer  "years_experience"
+    t.integer  "years_in_company"
     t.integer  "number_subordinates"
     t.text     "reporting_level"
     t.text     "international_experience"

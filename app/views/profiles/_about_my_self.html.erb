@@ -1,9 +1,13 @@
 <div>
-  <h3 class="myform">1. About myself: contact details</h3>
+  <h3 class="myform">1. Contact details</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
-      <%= p.label "Name", :class => "label_spec" %>
-      <%= p.text_field :fullName, :id => "namebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.label "First Name", :class => "label_spec" %>
+      <%= p.text_field :firstName, :id => "namebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Surname(s)", :class => "label_spec" %>
+      <%= p.text_field :surnames, :id => "surnamebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "Email", :class => "label_spec" %>
@@ -25,17 +29,12 @@
       <%= p.label "Picture", :class => "label_spec" %>
       <br/>
       <%= p.file_field :picture, :id => "picturebox", :onchange => 'verifyPercentage()' %>
-    </div>
-    <div>
-      <%= p.label "CV", :class => "label_spec" %>
-      <br/>
-      <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
     </div>  
     <br/>
     <hr>
   </div>
               
-  <h3 class="myform">2. About myself: demographics</h3>
+  <h3 class="myform">2. Demographics</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Birth Date", :class => "label_spec" %>
@@ -79,7 +78,7 @@
     <hr>
   </div>
   
-  <h3 class="myform">3. About myself: studies</h3>
+  <h3 class="myform">3. Studies</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Highest academic title", :class => "long_label_spec" %>
@@ -138,112 +137,70 @@
     </div>
     <div>
       <%= p.label "Other (please specify)", :class => "long_label_spec" %>
-      <%= p.country_select :studies_other, {priority: %w(PT), prompt: 'Please select a country'} %>
-    </div>  
+      <%= p.text_field :studies_other, :class => "text_field_spec" %>
+    </div> 
     <br/>
     <hr>
   </div>
   
-  <h3 class="myform">4. About myself: professional experience</h3>
+  <h3 class="myform">4. Professional experience</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Years of professional experience", :class => "long_label_spec" %>
       <%= p.number_field :years_experience, in: 0..100, step: 1 %>
-    </div>
-    <div>
-      <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-      <%= p.number_field :number_subordinates, in: 0..100, step: 1 %>
-      
-    </div>  
-    <div>
+    </div>      
+    <!-- <div>
       <%= p.label "Level you report to", :class => "long_label_spec" %>
       <%= p.text_field :reporting_level, :class => "text_field_spec" %>
-    </div>
+    </div> -->
     <div>
       <%= p.label "International Experience", :class => "long_label_spec" %>
       <%= p.text_field :international_experience, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "CV", :class => "label_spec" %>
+      <br/>
+      <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
     </div>  
     <br/>
     <hr>
   </div>
                  
-  <h3 class="myform">5. Company I currently work for</h3>
+  <h3 class="myform">5. Company I work for</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_field :company, :class => "text_field_spec" %>
+    <div>
+      <%= p.label "Company", :class => "label_spec" %>
+      <%= p.text_field :company, :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Job title", :class => "label_spec" %>
+      <%= p.text_field :company_title, :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Years in the company", :class => "long_label_spec" %>
+      <%= p.number_field :years_in_company, in: 0..100, step: 1, :onchange => 'verifyPercentage()' %>      
+    </div>
+    <div>
+      <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
+      <%= p.number_field :number_subordinates, in: 0..100, step: 1, :onchange => 'verifyPercentage()' %>      
+    </div>
     <br/>
     <br/>
     <hr>
   </div>
   
-  <h3 class="myform">6. Title of my position in the company I currently work for</h3>
+  <!-- <h3 class="myform">6. Title of my position in the company I currently work for</h3>
   <div class="container", style="width: 70%; margin-left: 30%"> 
     <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
     <br/>
     <br/>
     <hr>
-  </div>
+  </div> -->
   
-  <h3 class="myform">7. Job Level</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.radio_button :job_level, "Entry Level" %>
-      <%= p.label "Entry Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.1')" value="Toggle">                  
-      <div id="opt7.1" style="display:none">
-        Little or no prior working experience; recent college graduate
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.1')" value="Toggle">
-      </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Intermediate Level" %>
-      <%= p.label "Intermediate Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.2')" value="Toggle">                  
-      <div id="opt7.2" style="display:none">
-        Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
-        work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
-        supervisory responsibility for other intermediate or entry­level employees
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.2')" value="Toggle">
-      </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Middle Management (first managerial level in the corporate structure)" %>
-      <%= p.label "Middle Management (first managerial level in the corporate structure)", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.3')" value="Toggle">                  
-      <div id="opt7.3" style="display:none">
-        Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
-        and goals.
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.3')" value="Toggle">
-      </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Upper Management Level" %>
-      <%= p.label "Upper Management Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.4')" value="Toggle">                  
-      <div id="opt7.4" style="display:none">
-        Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
-        divisions, departments or specific functions within the corporate structure and delegate<br/>
-        responsibilities to middle managers.
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.4')" value="Toggle">
-      </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Executive Level (Vice President, officers or department chiefs)" %>
-      <%= p.label "Executive Level (Vice President, officers or department chiefs)", :class => "long_option" %>                  
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.5')" value="Toggle">                  
-      <div id="opt7.5" style="display:none">
-        Highly skilled and experienced employees, with macro management and strategic responsabilities
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.5')" value="Toggle">
-      </div>
-    </div>
-    <br/>
-    <hr>
-  </div> 
-  
-  <h3 class="myform">8. About the company</h3>
+  <h3 class="myform">6. About the company</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Industry:", :class => "label_spec"%>
-      <%#= p.text_field :company_sector, :class => "text_field_spec" %>
       <%= p.select :company_sector, options_for_select(['Please select one',
                                                         'Accountancy', 
                                                         'Advertising',
@@ -303,6 +260,142 @@
       <%= p.label "Nationality", :class => "label_spec"%>
       <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
     </div>  
+    <br/>
+    <hr>
+  </div>
+  
+  <!-- <h3 class="myform">7. Job Level</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.radio_button :job_level, "Entry Level" %>
+      <%= p.label "Entry Level", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.1')" value="Toggle">                  
+      <div id="opt7.1" style="display:none">
+        Little or no prior working experience; recent college graduate
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.1')" value="Toggle">
+      </div>
+    </div>
+    <div>
+      <%= p.radio_button :job_level, "Intermediate Level" %>
+      <%= p.label "Intermediate Level", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.2')" value="Toggle">                  
+      <div id="opt7.2" style="display:none">
+        Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
+        work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
+        supervisory responsibility for other intermediate or entry­level employees
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.2')" value="Toggle">
+      </div>
+    </div>
+    <div>
+      <%= p.radio_button :job_level, "Middle Management (first managerial level in the corporate structure)" %>
+      <%= p.label "Middle Management (first managerial level in the corporate structure)", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.3')" value="Toggle">                  
+      <div id="opt7.3" style="display:none">
+        Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
+        and goals.
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.3')" value="Toggle">
+      </div>
+    </div>
+    <div>
+      <%= p.radio_button :job_level, "Upper Management Level" %>
+      <%= p.label "Upper Management Level", :class => "long_option" %>
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.4')" value="Toggle">                  
+      <div id="opt7.4" style="display:none">
+        Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
+        divisions, departments or specific functions within the corporate structure and delegate<br/>
+        responsibilities to middle managers.
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.4')" value="Toggle">
+      </div>
+    </div>
+    <div>
+      <%= p.radio_button :job_level, "Executive Level (Vice President, officers or department chiefs)" %>
+      <%= p.label "Executive Level (Vice President, officers or department chiefs)", :class => "long_option" %>                  
+      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.5')" value="Toggle">                  
+      <div id="opt7.5" style="display:none">
+        Highly skilled and experienced employees, with macro management and strategic responsabilities
+        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.5')" value="Toggle">
+      </div>
+    </div>
+    <br/>
+    <hr>
+  </div> --> 
+  
+  <h3 class="myform">7. Job Level</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <table>
+      <tr class="list_line_odd">
+          <th class="table_collumn_spec">
+            &nbsp; &nbsp; &nbsp; &nbsp;
+          </th>
+          </th>
+          <th class="table_collumn_spec">
+            Your job level
+          </th>
+          <th class="table_collumn_spec">
+            Level you report to
+          </th>
+        </tr>
+        <tr class="list_line_even">
+          <th> &nbsp; Entry Level - Little or no prior working experience; recent college graduate &nbsp; &nbsp; </th>
+          <th class="table_check_box">
+            <%= p.radio_button :job_level, "Entry Level" %>
+            <!-- <%= p.check_box :participation_company_program_as_mentor, {}, "Yes", "No" %> -->
+          </th>
+          <th class="table_check_box">
+            <%= p.radio_button :reporting_level, "Entry Level" %>
+            <!-- <%= p.check_box :participation_company_program_as_mentee, {}, "Yes", "No" %> -->
+          </th>
+        </tr>
+        <tr class="list_line_odd">
+          <th> &nbsp; Intermediate Level - Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
+        work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
+        supervisory responsibility for other intermediate or entry­level employees
+          <th class="table_check_box">
+            <%= p.radio_button :job_level, "Intermediate Level" %>
+            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentor, {}, "Yes", "No" %> -->
+          </th>
+          <th class="table_check_box">
+            <%= p.radio_button :reporting_level, "Intermediate Level" %>
+            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentee, {}, "Yes", "No" %> -->
+          </th>
+        </tr>
+        <tr class="list_line_even">
+          <th>&nbsp; Middle Management (first managerial level in the corporate structure) - Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
+        and goals. &nbsp; &nbsp;</th>
+          <th class="table_check_box">
+            <%= p.radio_button :job_level, "Middle Management" %>
+            <!-- <%= p.check_box :participation_europe_epwn_as_mentor, {}, "Yes", "No" %> -->
+          </th>
+          <th class="table_check_box">
+            <%= p.radio_button :reporting_level, "Middle Management" %>
+            <!-- <%= p.check_box :participation_europe_epwn_as_mentee, {}, "Yes", "No" %> -->
+          </th>
+        </tr>
+        <tr class="list_line_odd">
+          <th> &nbsp; Upper Management Level - Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
+        divisions, departments or specific functions within the corporate structure and delegate<br/>
+        responsibilities to middle managers. &nbsp; &nbsp;</th>
+          <th class="table_check_box">
+            <%= p.radio_button :job_level, "Upper Management Level" %>
+            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentor, {}, "Yes", "No" %> -->
+          </th>
+          <th class="table_check_box">
+            <%= p.radio_button :reporting_level, "Upper Management Level" %>
+            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentee, {}, "Yes", "No" %> -->
+          </th>
+        </tr>
+        <tr class="list_line_even">
+          <th>&nbsp; Executive Level (Vice President, officers or department chiefs) - Highly skilled and experienced employees, with macro management and strategic responsabilities &nbsp; &nbsp;</th>
+          <th class="table_check_box">
+            <%= p.radio_button :job_level, "Executive Level" %>
+            <!-- <%= p.check_box :participation_europe_epwn_as_mentor, {}, "Yes", "No" %> -->
+          </th>
+          <th class="table_check_box">
+            <%= p.radio_button :reporting_level, "Executive Level" %>
+            <!-- <%= p.check_box :participation_europe_epwn_as_mentee, {}, "Yes", "No" %> -->
+          </th>
+        </tr>        
+    </table>
     <br/>
     <hr>
   </div>
