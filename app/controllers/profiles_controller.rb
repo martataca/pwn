@@ -21,11 +21,6 @@ class ProfilesController < ApplicationController
  end
  
  
- 
-  def percentage
-    @percentage
-  end
- 
   def edit
          
      @profile = Profile.find(params[:id])

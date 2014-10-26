@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.integer  "user_id"
     t.string   "firstName"
     t.string   "surnames"
+    t.integer  "percentage"
+    t.string   "fullName"
     t.integer  "age"
     t.string   "email"
     t.string   "phone_number",                                        default: "", null: false

@@ -23,8 +23,10 @@ index do
     column :email 
     actions
     end
-    
-    
+
+
+filter :firstName
+filter :lastName   
 
  end
 
