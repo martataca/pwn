@@ -24,6 +24,11 @@ gem 'carmen', git: 'git://github.com/jim/carmen.git'
 gem 'carmen-rails', git: 'git://github.com/jim/carmen-rails.git'
 gem 'jquery-turbolinks'
 
+gem 'cancan'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

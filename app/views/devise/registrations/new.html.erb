@@ -22,10 +22,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
     <br />
     <div><%= f.label "Sign up as a ..." %><br />
-		  		<%= f.radio_button :type, 'mentee', :checked => true %>&nbsp
-		  	    <%= f.label :type_mentee, 'Mentee' %>&nbsp&nbsp&nbsp
-		   		<%= f.radio_button :type, 'mentor' %>&nbsp
-		        <%= f.label :type_mentor, 'Mentor' %> &nbsp </div>
+		  		<%= f.radio_button :type, "Mentee" %>&nbsp
+		  	    <%= f.label :type, "Mentee", :value => "Mentee" %>&nbsp&nbsp&nbsp
+		   		<%= f.radio_button :type, "Mentor" %>&nbsp
+		        <%= f.label :type_mentor, "Mentor",:value => "Mentor" %> &nbsp 
+    </div>
    <br />
   <div><%= f.submit "Sign up" %></div>
   </div>

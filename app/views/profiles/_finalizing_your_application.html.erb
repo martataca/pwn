@@ -1,17 +1,9 @@
 <div>
-  <h3 class="myform">31. How did you hear about Womenship ­ EPWN Lisbon Mentoring Program?</h3>
+  <h3 class="myform">30. How did you hear about PWN Lisbon Mentoring Program?</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
-    <!-- <div>
-    <%#= p.check_box :nationality %>
-    <%#= p.label "EPWN communication, I am an EPWN member" %>
-    </div>
-    <div>
-    <%#= p.check_box :nationality %>
-    <%#= p.label "EPWN communication, I still am not an EPWN member" %>
-    </div> -->
     <div>
       <%= p.check_box :heard_about_program_from_epwn, {}, "Yes", "No" %>
-      <%= p.label "EPWN communication" %>
+      <%= p.label "PWN communication and events" %>
     </div>
     <div>
       <%= p.check_box :heard_about_program_from_previous_participant, {}, "Yes", "No" %>
@@ -19,7 +11,7 @@
     </div>
     <div>
       <%= p.check_box :heard_about_program_from_epwn_member, {}, "Yes", "No" %>
-      <%= p.label "From an EPWN member" %>
+      <%= p.label "From an PWN member" %>
     </div>
     <div>
       <%= p.check_box :heard_about_program_from_company, {}, "Yes", "No" %>
@@ -37,9 +29,11 @@
     <br/>
   </div>
 
-  <h3 class="myform">32. Please note any preferences or constraints you would like us to be aware of in terms of schedule, meeting frequency, location, language etc.</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :preference_or_constraint, :size => "70x8" %>
+  <div class="container", style="width: 70%; margin-left: 30%; margin-top: 10%">
+    <div>
+      <%= p.check_box :mentee_fee_aware, {}, "Yes", "No" %>
+      <%= p.label "I am aware that there is a 50€ mentoring program fee for administrative expenses upon being accepted" %>
+    </div>
     <br/>
     <br/>
   </div>

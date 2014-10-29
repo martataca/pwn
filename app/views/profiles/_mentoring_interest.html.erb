@@ -1,18 +1,111 @@
 <div>
-  <h3 class="myform">18. Motivations to be on EPWN Mentoring program:</h3>
+  <h3 class="myform">17. Motivations to be on PWN Mentoring program:</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_area :motivations, :size => "70x8" %>
     <br/>
     <br/>
   </div>
-  
-  <h3 class="myform">19. What I would like to get from my participation as a Mentee:</h3>
+
+  <h3 class="myform">18. The goals that I want to achieve from my participation as a mentee are:</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :expectations, :size => "70x8" %>
+    <div>
+      <%= p.label "Goal 1", :class => "short_label_spec"%>
+      <%= p.text_field :goal_1, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Goal 2", :class => "short_label_spec"%>
+      <%= p.text_field :goal_2, :class => "text_field_spec" %>
+    </div>
+    <div>
+      <%= p.label "Goal 3", :class => "short_label_spec"%>
+      <%= p.text_field :goal_3, :class => "text_field_spec" %>
+    </div>  
+    <br/>
+  </div>
+
+  <h3 class="myform">19. Imagining myself today and in 3 (or 5 or 10) years: <br> Who do I want to be?</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <%= p.text_area :aspirations, :size => "70x8" %>
     <br/>
     <br/>
   </div>
-  
+
+  <h3 class="myform">20. Imagining myself today and in 3 (or 5 or 10) years: <br> What do I want to be known for?</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <%= p.text_area :want_to_be_known_for, :size => "70x8" %>
+    <br/>
+    <br/>
+  </div>
+
+
+  <h3 class="myform">21. The main area in which I seek a mentor:</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.check_box :mentoring_in_career_orientation, {}, "Yes", "No" %>
+      <%= p.label "Career Orientation, goal setting and advancement" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_career_transition, {}, "Yes", "No" %>
+      <%= p.label "Career Transition, changing jobs (sector, function and/or area)" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_reintegration, {}, "Yes", "No" %>
+      <%= p.label "Ŕeintegration" %>
+    </div> 
+    <div>
+      <%= p.check_box :mentoring_in_entreperneurship, {}, "Yes", "No" %>
+      <%= p.label "Entrepreneurship" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_work_life_balance, {}, "Yes", "No" %>
+      <%= p.label "Work-life Balance" %>
+    </div>
+    <%= p.label "Other (please specify)"%>
+    <%= p.text_field :mentoring_in_other_one, :class => "text_field_spec" %>
+  </div>
+  <br/>
+
+  <h3 class="myform">22. The specific areas in which I seek a mentor:</h3>
+  <div class="container", style="width: 70%; margin-left: 30%">
+    <div>
+      <%= p.check_box :mentoring_in_leadership, {}, "Yes", "No" %>
+      <%= p.label "Leadership Development" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_change, {}, "Yes", "No" %>
+      <%= p.label "Change Management" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_conflict, {}, "Yes", "No" %>
+      <%= p.label "Conflict Management" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_people, {}, "Yes", "No" %>
+      <%= p.label "People Management" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_political, {}, "Yes", "No" %>
+      <%= p.label "Political Acumen" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_strategic, {}, "Yes", "No" %>
+      <%= p.label "Strategic Thinking" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_cross_cultural, {}, "Yes", "No" %>
+      <%= p.label "Cross­-Cultural Working Practices" %>
+    </div>
+    <div>
+      <%= p.check_box :mentoring_in_networking, {}, "Yes", "No" %>
+      <%= p.label "Networking" %>
+    </div>
+    <div>
+      <%= p.label "Other (please specify)"%>
+      <%= p.text_field :mentoring_in_other_two, :class => "text_field_spec" %>
+    </div>
+  </div>
+  <br/>
+
   <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
     <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>
     <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>

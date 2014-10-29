@@ -11,7 +11,7 @@
     </div>
     <div>
       <%= p.label "Email", :class => "label_spec" %>
-      <%= p.text_field :email, :id => "emailbox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.email_field :email, :id => "emailbox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
     </div>      
     <div>
       <%= p.label "Telephone", :class => "label_spec" %>
@@ -33,12 +33,12 @@
     <br/>
     <hr>
   </div>
-              
+
   <h3 class="myform">2. Demographics</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Birth Date", :class => "label_spec" %>
-      <%= p.text_field :born_on, :class => 'datepicker' %>
+      <%= p.date_field :born_on, :class => 'datepicker' %><span class="glyphicon glyphicon-calendar"></span>
     </div>
     <br/>
     <div class="field">
@@ -71,336 +71,325 @@
     </div>
     <br/>
     <div>
-        <%= p.label "Number of Children", :class => "label_spec" %>
-        <%= p.number_field :number_children, in: 0..20, step: 1 %>
+      <%= p.label "Number of Children", :class => "label_spec" %>
+      <%= p.number_field :number_children, in: 0..20, step: 1, :class => "number_field_spec" %> 
     </div>          
     <br/>
     <hr>
   </div>
-  
+
   <h3 class="myform">3. Studies</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Highest academic title", :class => "long_label_spec" %>
-      <%= p.select :highest_academic, options_for_select(['Please select one', 'Licence (pre-Bologna)', 'Bachelor', 'Master', 'Doctorate' ]) %>
-    </div>
-    <div>
-      <%= p.label "Main area of studies", :class => "long_label_spec" %>
-      <%= p.select :main_area, options_for_select(['Please select one',
-                                                  'Human history',
-                                                  'Linguistics',
-                                                  'Literature',
-                                                  'Arts',
-                                                  'Philosophy',
-                                                  'Religion',
-                                                  'Anthropology',
-                                                  'Archaeology',
-                                                  'Area studies',
-                                                  'Cultural and ethnic studies',
-                                                  'Economics',
-                                                  'Gender and sexuality studies',
-                                                  'Geography',
-                                                  'Political science',
-                                                  'Psychology',
-                                                  'Sociology',
-                                                  'Biology',
-                                                  'Chemistry',
-                                                  'Earth sciences',
-                                                  'Physics',
-                                                  'Space sciences',
-                                                  'Mathematics',
-                                                  'Computer sciences',
-                                                  'Logic',
-                                                  'Statistics',
-                                                  'Systems science',
-                                                  'Agriculture',
-                                                  'Architecture and design',
-                                                  'Business',
-                                                  'Divinity',
-                                                  'Education',
-                                                  'Engineering',
-                                                  'Environmental studies and forestry',
-                                                  'Family and consumer science',
-                                                  'Human physical performance and recreation*',
-                                                  'Journalism, media studies and communication',
-                                                  'Law',
-                                                  'Library and museum studies',
-                                                  'Medicine',
-                                                  'Military sciences',
-                                                  'Public administration',
-                                                  'Social work',
-                                                  'Transportation']) %>
-    </div>  
-    <div>
-      <%= p.label "Country of main studies", :class => "long_label_spec" %>
-      <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'} %>
-    </div>
-    <div>
-      <%= p.label "Other (please specify)", :class => "long_label_spec" %>
-      <%= p.text_field :studies_other, :class => "text_field_spec" %>
-    </div> 
-    <br/>
-    <hr>
-  </div>
-  
-  <h3 class="myform">4. Professional experience</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.label "Years of professional experience", :class => "long_label_spec" %>
-      <%= p.number_field :years_experience, in: 0..100, step: 1 %>
-    </div>      
-    <!-- <div>
-      <%= p.label "Level you report to", :class => "long_label_spec" %>
-      <%= p.text_field :reporting_level, :class => "text_field_spec" %>
-    </div> -->
-    <div>
-      <%= p.label "International Experience", :class => "long_label_spec" %>
-      <%= p.text_field :international_experience, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "CV", :class => "label_spec" %>
-      <br/>
-      <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
-    </div>  
-    <br/>
-    <hr>
-  </div>
-                 
-  <h3 class="myform">5. Company I work for</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.label "Company", :class => "label_spec" %>
-      <%= p.text_field :company, :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "Job title", :class => "label_spec" %>
-      <%= p.text_field :company_title, :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "Years in the company", :class => "long_label_spec" %>
-      <%= p.number_field :years_in_company, in: 0..100, step: 1, :onchange => 'verifyPercentage()' %>      
-    </div>
-    <div>
-      <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-      <%= p.number_field :number_subordinates, in: 0..100, step: 1, :onchange => 'verifyPercentage()' %>      
-    </div>
-    <br/>
-    <br/>
-    <hr>
-  </div>
-  
-  <!-- <h3 class="myform">6. Title of my position in the company I currently work for</h3>
-  <div class="container", style="width: 70%; margin-left: 30%"> 
-    <%= p.select :company_title, options_for_select(['Please select one','Chairman','Chief Executive Officer', 'Chief Financial Officer','Chief Information Officer','Chief Operating Officer','Director','Division President','Executive Director','Executive Vice President','General Secretary','President','Managing Director','Partner','Senior Vice President', 'Vice President', 'Manager', 'Staff']) %>
-    <br/>
-    <br/>
-    <hr>
-  </div> -->
-  
-  <h3 class="myform">6. About the company</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.label "Industry:", :class => "label_spec"%>
-      <%= p.select :company_sector, options_for_select(['Please select one',
-                                                        'Accountancy', 
-                                                        'Advertising',
-                                                        'Aerospace Industry',
-                                                        'Agriculture',
-                                                        'Antiques',            
-                                                        'Architecture and Interior Design',            
-                                                        'Arts/Heritage/Museums',            
-                                                        'Automotive Industry',            
-                                                        'Banking/Corporate Finance',            
-                                                        'Building and Construction Industries',            
-                                                        'Business Management',            
-                                                        'Business Psychology',            
-                                                        'Catering/Hospitality',            
-                                                        'Charity - In House Management',            
-                                                        'Charity - Services',            
-                                                        'Chemical Industry',            
-                                                        'Commercial & Professional Services',            
-                                                        'Consumer Durables and Apparel',            
-                                                        'Crisis Management',            
-                                                        'Editorial Services',            
-                                                        'Education/Training',            
-                                                        'Energy',            
-                                                        'Entertainment and Music Industries',            
-                                                        'Executive Coaching and Development',            
-                                                        'Fashion/Cosmetics',            
-                                                        'Financial Services',            
-                                                        'Food, Beverage & Tobacco',            
-                                                        'Healthcare/Pharmaceutical/Medical Devices',            
-                                                        'Hotels and Leisure Industry',            
-                                                        'Household & Personal Products',            
-                                                        'Human Resources (Consultants)',            
-                                                        'Human Resources (In House Management)',            
-                                                        'Insurance',            
-                                                        'Languages/Translation Services',            
-                                                        'Law - Employment',            
-                                                        'Law - Family and Matrimonial',            
-                                                        'Law - General Legal Services',            
-                                                        'Management Consultants',            
-                                                        'Manufacturing',            
-                                                        'Marketing/Public Relations',            
-                                                        'Materials',            
-                                                        'Media',            
-                                                        'Non-Profit',            
-                                                        'Oil/Gas/Petroleum Industries',            
-                                                        'Professional Bodies/Trade Organisations',            
-                                                        'Public Affairs',            
-                                                        'Real Estate / Property',            
-                                                        'Retail Industry',            
-                                                        'Software & Services',            
-                                                        'Technology Hardware & Equipment',            
-                                                        'Telecommunications',            
-                                                        'Transport Industry',            
-                                                        'Travel and Tourism',            ]) %>
-    </div>  
-    <div>
-      <%= p.label "Nationality", :class => "label_spec"%>
-      <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
-    </div>  
-    <br/>
-    <hr>
-  </div>
-  
-  <!-- <h3 class="myform">7. Job Level</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.radio_button :job_level, "Entry Level" %>
-      <%= p.label "Entry Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.1')" value="Toggle">                  
-      <div id="opt7.1" style="display:none">
-        Little or no prior working experience; recent college graduate
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.1')" value="Toggle">
+      <%= p.select :highest_academic, options_for_select(['Please select one', 
+        'Licence (pre-Bologna)', 
+        'Bachelor',
+        'Master', 
+        'Doctorate', 
+        'other' ]) %> 
+        <br/>
+        <%= p.label "Other (please specify)", :class => "other_label_spec" %>
+        <%= p.text_field :highest_academic_other, :class => "other_text_spec" %>
       </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Intermediate Level" %>
-      <%= p.label "Intermediate Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.2')" value="Toggle">                  
-      <div id="opt7.2" style="display:none">
-        Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
-        work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
-        supervisory responsibility for other intermediate or entry­level employees
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.2')" value="Toggle">
+      <div>
+        <%= p.label "Main area of studies", :class => "long_label_spec" %>
+        <%= p.select :main_area, options_for_select(['Please select one',
+          'Human history',
+          'Linguistics',
+          'Literature',
+          'Arts',
+          'Philosophy',
+          'Religion',
+          'Anthropology',
+          'Archaeology',
+          'Area studies',
+          'Cultural and ethnic studies',
+          'Economics',
+          'Gender and sexuality studies',
+          'Geography',
+          'Political science',
+          'Psychology',
+          'Sociology',
+          'Biology',
+          'Chemistry',
+          'Earth sciences',
+          'Physics',
+          'Space sciences',
+          'Mathematics',
+          'Computer sciences',
+          'Logic',
+          'Statistics',
+          'Systems science',
+          'Agriculture',
+          'Architecture and design',
+          'Business',
+          'Divinity',
+          'Education',
+          'Engineering',
+          'Environmental studies and forestry',
+          'Family and consumer science',
+          'Human physical performance and recreation*',
+          'Journalism, media studies and communication',
+          'Law',
+          'Library and museum studies',
+          'Medicine',
+          'Military sciences',
+          'Public administration',
+          'Social work',
+          'Transportation',
+          'Other']) %> <br/>
+
+          <%= p.label "Other (please specify)", :class => "other_label_spec" %>
+          <%= p.text_field :main_area_other, :class => "other_text_spec" %>
+
+        </div>  
+        <div>
+          <%= p.label "Country of main studies", :class => "long_label_spec" %>
+          <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'} %>
+        </div>
+        <div>
+          <%= p.label "Other (please specify)", :class => "other_label_spec" %>
+          <%= p.text_field :studies_other, :class => "other_text_spec" %>
+        </div> 
+        <br/>
       </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Middle Management (first managerial level in the corporate structure)" %>
-      <%= p.label "Middle Management (first managerial level in the corporate structure)", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.3')" value="Toggle">                  
-      <div id="opt7.3" style="display:none">
-        Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
-        and goals.
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.3')" value="Toggle">
+
+      <h3 class="myform">4. Professional experience</h3>
+      <div class="container", style="width: 70%; margin-left: 30%">
+        <div>
+          <%= p.label "Years of professional experience", :class => "long_label_spec"  %>
+          <%= p.number_field :years_experience, in: 0..100, step: 1, :class => "number_field_spec"%>
+        </div>      
+        <div>
+          <%= p.label "International Experience", :class => "long_label_spec" %>
+          <%= p.text_field :international_experience, :class => "text_field_spec" %>
+        </div>
+        <div>
+          <%= p.label "Curriculum Vitae", :class => "label_spec" %>
+          <br/>
+          <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
+        </div>  
+        <br/>
+        <hr>
       </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Upper Management Level" %>
-      <%= p.label "Upper Management Level", :class => "long_option" %>
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.4')" value="Toggle">                  
-      <div id="opt7.4" style="display:none">
-        Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
-        divisions, departments or specific functions within the corporate structure and delegate<br/>
-        responsibilities to middle managers.
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.4')" value="Toggle">
-      </div>
-    </div>
-    <div>
-      <%= p.radio_button :job_level, "Executive Level (Vice President, officers or department chiefs)" %>
-      <%= p.label "Executive Level (Vice President, officers or department chiefs)", :class => "long_option" %>                  
-      <input type="image" src="/assets/info.png" onclick="return toggleMe('opt7.5')" value="Toggle">                  
-      <div id="opt7.5" style="display:none">
-        Highly skilled and experienced employees, with macro management and strategic responsabilities
-        <input type="image" src="/assets/minus.png" onclick="return toggleMe('opt7.5')" value="Toggle">
-      </div>
-    </div>
-    <br/>
-    <hr>
-  </div> --> 
-  
-  <h3 class="myform">7. Job Level</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <table>
-      <tr class="list_line_odd">
-          <th class="table_collumn_spec">
-            &nbsp; &nbsp; &nbsp; &nbsp;
-          </th>
-          </th>
-          <th class="table_collumn_spec">
-            Your job level
-          </th>
-          <th class="table_collumn_spec">
-            Level you report to
-          </th>
-        </tr>
-        <tr class="list_line_even">
-          <th> &nbsp; Entry Level - Little or no prior working experience; recent college graduate &nbsp; &nbsp; </th>
-          <th class="table_check_box">
-            <%= p.radio_button :job_level, "Entry Level" %>
-            <!-- <%= p.check_box :participation_company_program_as_mentor, {}, "Yes", "No" %> -->
-          </th>
-          <th class="table_check_box">
-            <%= p.radio_button :reporting_level, "Entry Level" %>
-            <!-- <%= p.check_box :participation_company_program_as_mentee, {}, "Yes", "No" %> -->
-          </th>
-        </tr>
-        <tr class="list_line_odd">
-          <th> &nbsp; Intermediate Level - Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to<br/>
-        work without constant supervision and can take on responsibility for specific projects or tasks or/and<br/>
-        supervisory responsibility for other intermediate or entry­level employees
-          <th class="table_check_box">
-            <%= p.radio_button :job_level, "Intermediate Level" %>
-            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentor, {}, "Yes", "No" %> -->
-          </th>
-          <th class="table_check_box">
-            <%= p.radio_button :reporting_level, "Intermediate Level" %>
-            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentee, {}, "Yes", "No" %> -->
-          </th>
-        </tr>
-        <tr class="list_line_even">
-          <th>&nbsp; Middle Management (first managerial level in the corporate structure) - Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
-        and goals. &nbsp; &nbsp;</th>
-          <th class="table_check_box">
-            <%= p.radio_button :job_level, "Middle Management" %>
-            <!-- <%= p.check_box :participation_europe_epwn_as_mentor, {}, "Yes", "No" %> -->
-          </th>
-          <th class="table_check_box">
-            <%= p.radio_button :reporting_level, "Middle Management" %>
-            <!-- <%= p.check_box :participation_europe_epwn_as_mentee, {}, "Yes", "No" %> -->
-          </th>
-        </tr>
-        <tr class="list_line_odd">
-          <th> &nbsp; Upper Management Level - Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
-        divisions, departments or specific functions within the corporate structure and delegate<br/>
-        responsibilities to middle managers. &nbsp; &nbsp;</th>
-          <th class="table_check_box">
-            <%= p.radio_button :job_level, "Upper Management Level" %>
-            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentor, {}, "Yes", "No" %> -->
-          </th>
-          <th class="table_check_box">
-            <%= p.radio_button :reporting_level, "Upper Management Level" %>
-            <!-- <%= p.check_box :participation_lisbon_epwn_as_mentee, {}, "Yes", "No" %> -->
-          </th>
-        </tr>
-        <tr class="list_line_even">
-          <th>&nbsp; Executive Level (Vice President, officers or department chiefs) - Highly skilled and experienced employees, with macro management and strategic responsabilities &nbsp; &nbsp;</th>
-          <th class="table_check_box">
-            <%= p.radio_button :job_level, "Executive Level" %>
-            <!-- <%= p.check_box :participation_europe_epwn_as_mentor, {}, "Yes", "No" %> -->
-          </th>
-          <th class="table_check_box">
-            <%= p.radio_button :reporting_level, "Executive Level" %>
-            <!-- <%= p.check_box :participation_europe_epwn_as_mentee, {}, "Yes", "No" %> -->
-          </th>
-        </tr>        
-    </table>
-    <br/>
-    <hr>
-  </div>
-  
-  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
-    <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>
-  </div>  
-</div>
+
+      <h3 class="myform">5. Company I work for</h3>
+      <div class="container", style="width: 70%; margin-left: 30%">
+        <div>
+          <%= p.label "Company", :class => "long_label_spec" %>
+          <%#= p.text_field :company, :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+          <%= p.select :company, options_for_select(['Please select one',
+            'Accenture',
+            'Banco BPI',
+            'Banco Efisa',
+            'Banco Popular',
+            'Banif',
+            'Barclays',
+            'Caixa Geral de Depósitos',
+            'Campofrio Food Group',
+            'Deloitte',
+            'Deutsche Bank',
+            'EDP - Energias de Portugal',
+            'Espírito Santo Saúde',
+            'Galp Energia',
+            'Google',
+            'Grupo Montalva',
+            'Grupo Pestana',
+            'Heidrick & Struggles',
+            'IBM Portugal',
+            'Impresa',
+            'Informa D&B Portugal',
+            'Jerónimo Martins',
+            'Labco Quality Diagnostics',
+            'Leo Burnett',
+            'Mercer',
+            'Merck Sharp & Dohme',
+            'Microsoft Portugal',
+            'Millennium BCP',
+            'Montepio',
+            'Mota Engil',
+            'Nestlé',
+            'NOS',
+            'Novabase',
+            'NOVARTIS',
+            'Novo Banco (Banco Espírito Santo)',
+            'Portucel Soporcel',
+            'Portugal Telecom',
+            'PwC (PricewaterhouseCoopers)',
+            'REN',
+            'RTP',
+            'Santander Totta',
+            'Siemens Portugal',
+            'SONAE',
+            'Teixeira Duarte',
+            'Unicer',
+            'Unilever',
+            'Vodafone Portugal',
+            'Unemployed',
+            'Freelancer',
+            'Other' ])%> 
+            <br>
+            <%= p.label "Other (please specify)", :class => "other_label_spec" %>                                            
+            <%= p.text_field :company_other, :onchange => 'verifyPercentage()', :class => "other_text_spec" %>
+          </div>
+          <div>
+            <%= p.label "Job title", :class => "long_label_spec" %>
+            <%= p.text_field :company_title, :onchange => 'verifyPercentage()', :class => "other_text_spec" %>
+          </div>
+          <div>
+            <%= p.label "Years in the company", :class => "long_label_spec" %>
+            <%= p.number_field :years_in_company, in: 0..100, step: 1, :onchange => 'verifyPercentage()', :class => "number_field_spec" %> &nbsp &nbsp
+            &nbsp     
+            <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
+            <%= p.number_field :number_subordinates, in: 0..100, step: 1, :onchange => 'verifyPercentage()', :class => "number_field_spec" %>      
+          </div>
+          <br/>
+          <br/>
+        </div>    
+
+        <h3 class="myform">6. About the company</h3>
+        <div class="container", style="width: 70%; margin-left: 30%">
+          <div>
+            <%= p.label "Industry:", :class => "label_spec"%>
+            <%= p.select :company_sector, options_for_select(['Please select one',
+              'Accountancy', 
+              'Advertising',
+              'Aerospace Industry',
+              'Agriculture',
+              'Antiques',            
+              'Architecture and Interior Design',            
+              'Arts/Heritage/Museums',            
+              'Automotive Industry',            
+              'Banking/Corporate Finance',            
+              'Building and Construction Industries',            
+              'Business Management',            
+              'Business Psychology',            
+              'Catering/Hospitality',            
+              'Charity - In House Management',            
+              'Charity - Services',            
+              'Chemical Industry',            
+              'Commercial & Professional Services',            
+              'Consumer Durables and Apparel',            
+              'Crisis Management',            
+              'Editorial Services',            
+              'Education/Training',            
+              'Energy',            
+              'Entertainment and Music Industries',            
+              'Executive Coaching and Development',            
+              'Fashion/Cosmetics',            
+              'Financial Services',            
+              'Food, Beverage & Tobacco',            
+              'Healthcare/Pharmaceutical/Medical Devices',            
+              'Hotels and Leisure Industry',            
+              'Household & Personal Products',            
+              'Human Resources (Consultants)',            
+              'Human Resources (In House Management)',            
+              'Insurance',            
+              'Languages/Translation Services',            
+              'Law - Employment',            
+              'Law - Family and Matrimonial',            
+              'Law - General Legal Services',            
+              'Management Consultants',            
+              'Manufacturing',            
+              'Marketing/Public Relations',            
+              'Materials',            
+              'Media',            
+              'Non-Profit',            
+              'Oil/Gas/Petroleum Industries',            
+              'Professional Bodies/Trade Organisations',            
+              'Public Affairs',            
+              'Real Estate / Property',            
+              'Retail Industry',            
+              'Software & Services',            
+              'Technology Hardware & Equipment',            
+              'Telecommunications',            
+              'Transport Industry',            
+              'Travel and Tourism',            ]) %>
+            </div>  
+            <div>
+              <%= p.label "Nationality", :class => "label_spec"%>
+              <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
+            </div>  
+            <br/>
+          </div>
+
+          <h3 class="myform">7. Job Level</h3>
+          <div class="container", style="width: 70%; margin-left: 30%">
+            <table>
+              <tr class="list_line_odd">
+                <th class="table_collumn_spec">
+                  &nbsp; &nbsp; &nbsp; &nbsp;
+                </th>
+                <th class="table_collumn_spec">
+                  Your job level
+                </th>
+                <th class="table_collumn_spec">
+                  Level you report to
+                </th>
+              </tr>
+              <tr class="list_line_even">
+                <th> &nbsp; Entry Level - Little or no prior working experience; recent college graduate &nbsp; &nbsp; 
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :job_level, "Entry Level" %>
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :reporting_level, "Entry Level" %>
+                </th>
+              </tr>
+              <tr class="list_line_odd">
+                <th> &nbsp; Intermediate Level - Proficiency with entry­level job functions and responsibilities; can teach these skills to others. Is able to
+                  <br/>
+                  work without constant supervision and can take on responsibility for specific projects or tasks or/and
+                  <br/>
+                  supervisory responsibility for other intermediate or entry­level employees
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :job_level, "Intermediate Level" %>
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :reporting_level, "Intermediate Level" %>
+                </th>
+              </tr>
+              <tr class="list_line_even">
+                <th>&nbsp; Middle Management (first managerial level in the corporate structure) - Oversee intermediate and entry­level employees, as well as take on responsibility for department objectives<br/>
+                  and goals. &nbsp; &nbsp;
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :job_level, "Middle Management" %>
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :reporting_level, "Middle Management" %>
+                </th>
+              </tr>
+              <tr class="list_line_odd">
+                <th> &nbsp; Upper Management Level - Extensive experience and education in their field, as well as experience managing others. Oversee<br/>
+                  divisions, departments or specific functions within the corporate structure and delegate<br/>
+                  responsibilities to middle managers. &nbsp; &nbsp;
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :job_level, "Upper Management Level" %>
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :reporting_level, "Upper Management Level" %>
+                </th>
+              </tr>
+              <tr class="list_line_even">
+                <th>&nbsp; Executive Level (Vice President, officers or department chiefs) - Highly skilled and experienced employees, with macro management and strategic responsabilities &nbsp; &nbsp;
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :job_level, "Executive Level" %>
+                </th>
+                <th class="table_check_box">
+                  <%= p.radio_button :reporting_level, "Executive Level" %>
+                </th>
+              </tr>        
+            </table>
+            <br/>
+          </div>
+
+          <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
+            <a class="btn btn-primary" style="width: 10%; margin-left: 1%;" onclick='nextTab()'>Next</a>
+          </div> 
+        </div>

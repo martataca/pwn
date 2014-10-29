@@ -1,18 +1,41 @@
 <div>
-  <h3 class="myform">24. Description of the ideal mentor: industry & role</h3>
+  <h3 class="myform">23. Description of the ideal mentor: industry & role</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
+      <h5> Option 1</h5>
     <div>
-      <%= p.label "Function", :class => "short_label_spec"%>
-      <%= p.text_field :ideal_mentor_function, :class => "text_field_spec" %>
+      <p>
+      <%= p.label "Function", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
+      <%= p.text_field :ideal_mentor_function_1, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
+      <%= p.label "Sector", :class => "shorter_label_spec"%> 
+      <%= p.text_field :ideal_mentor_sector_1, :class => "short_text_field_spec" %>
+      </p>
     </div>
+      <h5> Option 2</h5>
     <div>
-      <%= p.label "Sector", :class => "short_label_spec"%>
-      <%= p.text_field :ideal_mentor_sector, :class => "text_field_spec" %>
+      <p>
+      <%= p.label "Function", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
+      <%= p.text_field :ideal_mentor_function_2, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
+      <%= p.label "Sector", :class => "shorter_label_spec"%>
+      <%= p.text_field :ideal_mentor_sector_2, :class => "short_text_field_spec" %>
+      </p>
+    </div>
+      <h5> Option 3</h5> 
+    <div>
+      <p>
+      <%= p.label "Function ", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
+      <%= p.text_field :ideal_mentor_function_3, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
+      <%= p.label "Sector", :class => "shorter_label_spec"%>
+      <%= p.text_field :ideal_mentor_sector_3, :class => "short_text_field_spec" %>
+      </p>
+    </div>
+      <div>
+      <%= p.label "Other (please specify)"%>
+      <%= p.text_field :ideal_mentor_func_sec_other, :class => "text_field_spec" %>
     </div>  
     <br/>
   </div>
   
-  <h3 class="myform">25. Description of the ideal mentor: strengths</h3>
+  <h3 class="myform">24. Description of the ideal mentor: strengths</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "1", :class => "mini_label_spec"%>
@@ -26,36 +49,24 @@
       <%= p.label "3", :class => "mini_label_spec"%>
       <%= p.text_field :ideal_mentor_strength_3, :class => "text_field_spec" %>
     </div>
-    <div>
-      <%= p.label "4", :class => "mini_label_spec"%>
-      <%= p.text_field :ideal_mentor_strength_4, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "5", :class => "mini_label_spec"%>
-      <%= p.text_field :ideal_mentor_strength_5, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "6", :class => "mini_label_spec"%>
-      <%= p.text_field :ideal_mentor_strength_6, :class => "text_field_spec" %>
-    </div>  
     <br/>
   </div>
   
-  <h3 class="myform">26. Description of the ideal mentor: interests</h3>
+  <h3 class="myform">25. Description of the ideal mentor: <br> interests and personal characteristics</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_area :ideal_mentor_interests, :size => "70x8" %>
     <br/>
     <br/>
   </div>
   
-  <h3 class="myform">27. What role do I want the mentor to play (e.g. act as sounding board, provide developmental feedback, share experiences, connect with relevant people, ...)</h3>
+  <h3 class="myform">26. What role do you want the mentor to play? </br><small> (e.g. act as sounding board, provide developmental feedback, share experiences, connect with relevant people, ...) </small></h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_area :ideal_mentor_role, :size => "70x8" %>
     <br/>
     <br/>
   </div>
   
-  <h3 class="myform">28. Gender preference</h3>
+  <h3 class="myform">27. Gender preference</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.radio_button :mentor_gender_preference, "Woman" %>
@@ -65,26 +76,24 @@
       <%= p.radio_button :mentor_gender_preference, "Man" %>
       <%= p.label "Man" %>
     </div>
-    <div>
-      <%= p.radio_button :mentor_gender_preference, "No Preference" %>
-      <%= p.label "No preference" %>
-    </div>
     <br/>
   </div>
   
-  <h3 class="myform">29. Mentor referrals</h3>
+  <h3 class="myform">28. Mentor referrals <br>
+  <small>(Names of persons that you would like to see as mentors within the PWN Mentoring Program) </small>
+  </h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "1", :class => "mini_label_spec"%>
-      <%= p.text_field :mental_referral_1, :class => "text_field_spec" %>
+      <%= p.text_field :mentor_referral_1, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "2", :class => "mini_label_spec"%>
-      <%= p.text_field :mental_referral_2, :class => "text_field_spec" %>
+      <%= p.text_field :mentor_referral_2, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "3", :class => "mini_label_spec"%>
-      <%= p.text_field :mental_referral_3, :class => "text_field_spec" %>
+      <%= p.text_field :mentor_referral_3, :class => "text_field_spec" %>
     </div>  
     <br/>
   </div>

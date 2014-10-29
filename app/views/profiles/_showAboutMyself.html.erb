@@ -1,0 +1,145 @@
+<div class="panel-body">
+<div class="row">
+            <div class="col-md-6">
+
+
+  <div>Name: 
+  <b><%= @profile.firstName %></b>
+  </div>
+  
+  <div>Surname(s):
+  <b><%= @profile.surnames %></b>
+  </div>
+  
+  <div>Email: 
+  <b><%= @user.email %></b>
+  </div>
+
+  <div>Phone:  
+  <b><%= @profile.phone_number %></b>
+  </div>
+
+  <div>Skype: 
+  <b><%= @profile.skype_name %></b>
+  </div>
+  
+  <div>Linkedin: 
+  <b><%= @profile.linkedin_profile %></b>
+  </div>
+ 
+<hr>
+
+  <% if @profile.age.present? %>
+  <div>Age:  
+  <b><%= @profile.age %></b>
+  </div>
+  <% end %>
+
+
+  <div>From:  
+  <% if @profile.country_origin.present? %>
+  <% @origin = Carmen::Country.coded(@profile.country_origin) %>
+  <b><%= @origin.name %></b>
+  <% end %>
+  </div>
+
+  <div>Living in:  
+  <% if @profile.country_residence.present? %>
+  <% @residence = Carmen::Country.coded(@profile.country_residence) %>
+  <% if @profile.city.present? %>
+  <% @city = @residence.subregions.coded(@profile.city) %> 
+  <b><%= @city.name %> ,
+  <% end %>
+  <%= @residence.name %></b>
+  <% end %>
+  </div>
+
+  <div>Marital Status:  
+  <b><%= @profile.marital_status %></b>
+  </div>
+
+  <div>Number of Children:  
+  <b><%= @profile.number_children %></b>
+  </div>
+
+
+ </div> 
+      <div class="col-md-6">
+        
+  <div>Main Area of Studies:  
+  <b><%= @profile.main_area %></b>
+  </div>
+
+  <div>Highest academic title:  
+  <b><%= @profile.highest_academic %></b>
+  </div>
+   
+  <div>Country of Main Studies:  
+  <% if @profile.study_country.present? %>
+  <% @studycountry = Carmen::Country.coded(@profile.study_country) %>
+  <b><%= @studycountry.name %></b>
+  <% end %>
+  </div>
+  <% if @profile.studies_other.present? %>
+  <div>Other:  <b><%= @profile.studies_other %></b>
+  </div>
+  <% end %>   
+
+  <div>CV: 
+  <% if @profile.cv.present? %>
+  <a target="_blank" href="<%= @profile.cv.url %> ">
+  <b> Resumé attached </b></a>
+  <% end %> 
+  </div>
+
+<hr>
+
+
+  <div>Years of Professional Experience:  
+  <b><%= @profile.years_experience %></b>
+  </div>
+  
+  <div>International Experience:  
+  <b><%= @profile.international_experience %></b>
+  </div>
+
+  <div>Company:  
+  <b><%= @profile.company %></b>
+  </div>
+  <% if @profile.company_other.present? %>
+  <div>Other:  <b><%= @profile.company_other %></b>
+  </div>
+  <% end %>
+
+  <div>Job Title:  
+  <b><%= @profile.company_title %></b>
+  </div>
+
+  <div>Years in the company:  
+  <b><%= @profile.years_in_company %></b>
+  </div>
+
+  <div>Number of direct subordinates:  
+  <b><%= @profile.number_subordinates %></b>
+  </div>
+
+  <div>Company:
+  <ul>
+  <li>Area:<b><%= @profile.company_area %></b></li>
+  <li>Sector:<b><%= @profile.company_sector %></b></li>
+  <li>Nationality: <b><%= @profile.company_nation %></b></li>
+  </ul>
+  </div>
+
+  <div>Job Level:  
+  <b><%= @profile.job_level %></b>
+  </div>
+
+  <div>Level you report to:  
+  <b><%= @profile.reporting_level %></b>
+  </div>
+
+
+</div>
+
+</div>

@@ -1,5 +1,5 @@
 <div>
-  <h3 class="myform">14. Description of my career</h3>
+  <h3 class="myform">14. Description of my career <br><small>Please indicate main areas of expertise</small></h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_area :career_description, :size => "70x8" %>
     <br/>
@@ -20,31 +20,12 @@
       <%= p.label "3", :class => "mini_label_spec"%>
       <%= p.text_field :strengh_3, :class => "text_field_spec" %>
     </div>
-    <div>
-      <%= p.label "4", :class => "mini_label_spec"%>
-      <%= p.text_field :strengh_4, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "5", :class => "mini_label_spec"%>
-      <%= p.text_field :strengh_5, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "6", :class => "mini_label_spec"%>
-      <%= p.text_field :strengh_6, :class => "text_field_spec" %>
-    </div>  
     <br/>
   </div>
   
-  <h3 class="myform">16. My interests</h3>
+  <h3 class="myform">16. Interests and characteristics that describe me best</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :interests, :size => "70x8" %>
-    <br/>
-    <br/>
-  </div>
-  
-  <h3 class="myform">17. Characteristics that describe me best</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :self_description, :size => "70x8" %>
+    <%= p.text_area :interests_and_characteristics, :size => "70x8" %>
     <br/>
     <br/>
   </div>

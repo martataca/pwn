@@ -32,7 +32,7 @@
           <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         </li>
         <li style="word-wrap: break-word; width: 11%;">
-          <a href="#2" data-toggle="tab">EPWN and mentoring</a>
+          <a href="#2" data-toggle="tab">PWN and mentoring</a>
         </li>
         <li style="word-wrap: break-word; width: 11%;">
           <a href="#3" data-toggle="tab">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -42,9 +42,6 @@
         </li>
         <li style="word-wrap: break-word; width: 11%;">
           <a href="#5" data-toggle="tab">Mentoring Interest</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;">
-          <a href="#6" data-toggle="tab">Mentoring Relationship</a>
         </li>
         <li style="word-wrap: break-word; width: 11%;;">
           <a href="#7" data-toggle="tab">About the mentor</a>
@@ -92,15 +89,12 @@
               <%= render :partial => "mentoring_interest", :locals => {:p => p} %>
             </div>
             <div class="tab-pane fade" id="6">
-              <%= render :partial => "mentoring_relationship", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="7">
               <%= render :partial => "about_the_mentor", :locals => {:p => p} %>
             </div>
-            <div class="tab-pane fade" id="8">
+            <div class="tab-pane fade" id="7">
               <%= render :partial => "institutional_support", :locals => {:p => p} %>
             </div>
-            <div class="tab-pane fade" id="9">
+            <div class="tab-pane fade" id="8">
               <%= render :partial => "finalizing_your_application", :locals => {:p => p} %>
             </div>
           </div>

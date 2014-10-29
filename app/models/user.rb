@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_one :profile  
+  TYPES = %w( Mentor Mentee )
+  
          
 end

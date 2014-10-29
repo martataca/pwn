@@ -15,7 +15,9 @@
        </div>
   <div class="panel-body">
 
-          <div><b>Name:</b> <%= @profile.fullName %>
+          <div><b>Name:</b> <%= @profile.firstName %>
+          </div>
+          <div><b>Surname(s):</b> <%= @profile.surnames %>
           </div>
           <% if @profile.age.present? %>
             <div><b>Age: </b> <%= @profile.age %>

@@ -18,8 +18,13 @@
 }
  
 .short_label_spec {
-  width: 80px;
+  width: 100px;
   margin-top: 10px;
+}
+.shorter_label_spec {
+  width: 60px;
+  margin-top: 10px;
+
 }
  
 .long_label_spec {
@@ -29,6 +34,13 @@
  
 .text_field_spec {
   width: 400px;
+}
+.short_text_field_spec {
+  width: 200px;
+}
+
+.number_field_spec {
+  width: 50px;
 }
  
 .table_collumn_spec {
@@ -59,12 +71,42 @@
 .long_option {
   width: 90%;
 }
+.long_2lines_option {
+  width: 90%;
+}
+
+.check_box_upper{
+  margin-top: -10px;
+}
  
 .question_header {
   vertical-align:middle;
   height: 24px;
   font-size: 24px;
 }
+
+.other_label_spec {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 80px;
+  font-size: 12px;
+}
+.other_text_spec {
+  width: 250px;
+}
+
+.panel-heading a:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";    
+    float: right; 
+    color: grey; 
+}
+.panel-heading a.collapsed:after {
+    content: "\e080";
+}
+
+
+
  
 // .nav-tabs {
     // text-align:center;
