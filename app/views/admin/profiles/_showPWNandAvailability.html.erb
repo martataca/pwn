@@ -1,5 +1,6 @@
 <div class="panel-body">
 
+ <div style="font-size: 18px; line-height: 1.5">
   <div>Member of PWN: 
   <b><%= @profile.member %></b>
   </div>
@@ -43,11 +44,13 @@
 purposes only: <b><%= @profile.permission_benchmarking %></b></li>
   <li> Permission for your contacts to be shared with interested reporters to help promote the program: <b><%= @profile.permission_promoting %></b>
   </li>
+  </ul>
   <% if @profile.previous_participation_other.present? %>
   <div>Observations:  <b><%= @profile.permission_other %></b>
   </div>
   <% end %> 
   </div>
   
-
+</ul>
+</div>
 </div>
