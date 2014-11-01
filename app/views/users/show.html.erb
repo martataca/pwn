@@ -7,7 +7,7 @@
         <div class="jumbotron" style="background-color: #FFFFE6 ">
           <h1>Welcome!</h1>
           <p>It seems you don't have an application yet, create it here:</p>
-          <% if @mentee %>
+          <% if @user.type == "Mentee" %>
             <%= link_to '<button type="button" class="btn btn-primary btn-lg" style =" margin-right: 4%;">Mentee Application</button>'.html_safe, new_profile_path(@user.id) %>
           <% else %>
             <%= link_to '<button type="button" class="btn btn-primary btn-lg" style =" margin-right: 4%;">Mentor Application</button>'.html_safe, new_profile_path(@user.id) %>

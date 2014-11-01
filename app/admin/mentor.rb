@@ -39,9 +39,13 @@ ActiveAdmin.register Mentor do
       end
     end
 
-    column "Application Completeness" do |user|
+    column "Application Completeness in %" do |user|
       if Profile.exists?(:user_id => user.id)
-        user.profile.percentage
+        @profile = Profile.where(user_id: user.id).first
+        if @profile.percentage.present?
+          @pure = user.profile.percentage
+          @percentage = @pure.floor.to_i
+        end
       end
     end
 

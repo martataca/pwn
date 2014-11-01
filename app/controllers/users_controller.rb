@@ -10,8 +10,6 @@ def decide_new_or_edit
  else
     @create_new_tag = true
  end
- @type = current_user.type
- @mentee = @type == 'Mentee'
 end
 
 def show

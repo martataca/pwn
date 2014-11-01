@@ -3,32 +3,32 @@
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "First Name", :class => "label_spec" %>
-      <%= p.text_field :firstName, :id => "namebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.text_field :firstName, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "Surname(s)", :class => "label_spec" %>
-      <%= p.text_field :surnames, :id => "surnamebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.text_field :surnames, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "Email", :class => "label_spec" %>
-      <%= p.email_field :email, :id => "emailbox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.email_field :email, :class => "text_field_spec" %>
     </div>      
     <div>
       <%= p.label "Telephone", :class => "label_spec" %>
-      <%= p.telephone_field :phone_number, :id => "phonebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.telephone_field :phone_number, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "Skype Name", :class => "label_spec" %>
-      <%= p.text_field :skype_name, :id => "skypebox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.text_field :skype_name, :class => "text_field_spec" %>
     </div>
     <div>
       <%= p.label "Linkedin Profile", :class => "label_spec" %>
-      <%= p.text_field :linkedin_profile, :id => "linkedinbox", :onchange => 'verifyPercentage()', :class => "text_field_spec" %>
+      <%= p.text_field :linkedin_profile, :class => "text_field_spec" %>
     </div>      
     <div>
       <%= p.label "Picture", :class => "label_spec" %>
       <br/>
-      <%= p.file_field :picture, :id => "picturebox", :value => "/uploads/profile/picture/1/DETAIL.jpg", :onchange => 'verifyPercentage()' %>
+      <%= p.file_field :picture, :value => "/uploads/profile/picture/1/DETAIL.jpg" %>
     </div>  
     <br/>
     <hr>
@@ -38,17 +38,17 @@
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.label "Birth Date", :class => "label_spec" %>
-      <%= p.text_field :born_on, :class => 'datepicker', :id => "datepickerbox", :onchange => 'verifyPercentage()' %><span class="glyphicon glyphicon-calendar"></span>
+      <%= p.text_field :born_on, :class => 'datepicker' %><span class="glyphicon glyphicon-calendar"></span>
     </div>
     <br/>
     <div class="field">
       <%= p.label "Country of Origin" %><br />
-      <%= p.country_select :country_origin, {priority: %w(PT), prompt: 'Please select a country'}, :id => "countryoriginbox", :onchange => 'verifyPercentage()' %>
+      <%= p.country_select :country_origin, {priority: %w(PT), prompt: 'Please select a country'} %>
     </div>
     <br/>
     <div class="field">
       <%= p.label "Country of Residence" %><br />
-      <%= p.country_select :country_residence, {priority: %w(PT), prompt: 'Please select a country'}, :id => "countryresidencebox", :onchange => 'verifyPercentage()' %>
+      <%= p.country_select :country_residence, {priority: %w(PT), prompt: 'Please select a country'} %>
     </div>
     <br/>
     <div class="field">
@@ -58,21 +58,21 @@
     <br/>
     <div>
       <%= p.label "Marital Status", :class => "label_spec" %>
-      <%= p.radio_button :marital_status, 'Single', :id => "singlebox", :onchange => 'verifyPercentage()' %> 
+      <%= p.radio_button :marital_status, 'Single' %> 
       <%= p.label :marital_status_single, 'Single' %> &nbsp
-      <%= p.radio_button :marital_status, 'Cohabiting', :id => "cohabitingbox", :onchange => 'verifyPercentage()' %> 
+      <%= p.radio_button :marital_status, 'Cohabiting' %> 
       <%= p.label :marital_status_cohabiting, 'Cohabiting' %> &nbsp
-      <%= p.radio_button :marital_status, 'Married', :id => "marriedbox", :onchange => 'verifyPercentage()' %>
+      <%= p.radio_button :marital_status, 'Married'  %>
       <%= p.label :marital_status_married, 'Married' %>&nbsp
-      <%= p.radio_button :marital_status, 'Divorced', :id => "divorcedbox", :onchange => 'verifyPercentage()' %>
+      <%= p.radio_button :marital_status, 'Divorced'%>
       <%= p.label :marital_status_divorced, 'Divorced' %>&nbsp
-      <%= p.radio_button :marital_status, 'Widowed', :id => "widowedbox", :onchange => 'verifyPercentage()' %>
+      <%= p.radio_button :marital_status, 'Widowed' %>
       <%= p.label :marital_status_widowed, 'Widowed' %>
     </div>
     <br/>
     <div>
       <%= p.label "Number of Children", :class => "label_spec" %>
-      <%= p.number_field :number_children, in: 0..20, step: 1, :class => "number_field_spec", :id => "numberchildrenbox", :onchange => 'verifyPercentage()' %> 
+      <%= p.number_field :number_children, in: 0..20, step: 1, :class => "number_field_spec" %> 
     </div>          
     <br/>
     <hr>
@@ -87,7 +87,7 @@
         'Bachelor',
         'Master', 
         'Doctorate', 
-        'other' ]), {}, {:onchange => 'verifyPercentage()', :id => "highestacademicbox"} %> 
+        'other' ]) %> 
         <br/>
         <%= p.label "Other (please specify)", :class => "other_label_spec" %>
         <%= p.text_field :highest_academic_other, :class => "other_text_spec" %>
@@ -138,7 +138,7 @@
           'Public administration',
           'Social work',
           'Transportation',
-          'Other']), {}, {:onchange => 'verifyPercentage()', :id => "mainareabox"} %> <br/>
+          'Other']) %> <br/>
 
           <%= p.label "Other (please specify)", :class => "other_label_spec" %>
           <%= p.text_field :main_area_other, :class => "other_text_spec" %>
@@ -146,7 +146,7 @@
         </div>  
         <div>
           <%= p.label "Country of main studies", :class => "long_label_spec" %>
-          <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'}, :id => "studycountrybox", :onchange => 'verifyPercentage()' %>
+          <%= p.country_select :study_country, {priority: %w(PT), prompt: 'Please select a country'}%>
         </div>
         <div>
           <%= p.label "Other (please specify)", :class => "other_label_spec" %>
@@ -159,16 +159,16 @@
       <div class="container", style="width: 70%; margin-left: 30%">
         <div>
           <%= p.label "Years of professional experience", :class => "long_label_spec"  %>
-          <%= p.number_field :years_experience, in: 0..100, step: 1, :class => "number_field_spec", :id => "yearsexperiencebox", :onchange => 'verifyPercentage()' %>
+          <%= p.number_field :years_experience, in: 0..100, step: 1, :class => "number_field_spec"%>
         </div>      
         <div>
           <%= p.label "International Experience", :class => "long_label_spec" %>
-          <%= p.text_field :international_experience, :class => "text_field_spec", :id => "internationalexperiencebox", :onchange => 'verifyPercentage()' %>
+          <%= p.text_field :international_experience, :class => "text_field_spec" %>
         </div>
         <div>
           <%= p.label "Curriculum Vitae", :class => "label_spec" %>
           <br/>
-          <%= p.file_field :cv, :id => "cvbox", :onchange => 'verifyPercentage()' %>
+          <%= p.file_field :cv %>
         </div>  
         <br/>
         <hr>
@@ -227,21 +227,21 @@
             'Vodafone Portugal',
             'Unemployed',
             'Freelancer',
-            'Other' ]), {}, {:onchange => 'verifyPercentage()', :id => "companybox"} %> 
+            'Other' ]) %> 
             <br>
             <%= p.label "Other (please specify)", :class => "other_label_spec" %>                                            
-            <%= p.text_field :company_other, :onchange => 'verifyPercentage()', :class => "other_text_spec" %>
+            <%= p.text_field :company_other, :class => "other_text_spec" %>
           </div>
           <div>
             <%= p.label "Job title", :class => "long_label_spec" %>
-            <%= p.text_field :company_title, :onchange => 'verifyPercentage()', :class => "other_text_spec", :id => "companytitlebox" %>
+            <%= p.text_field :company_title, :class => "other_text_spec" %>
           </div>
           <div>
             <%= p.label "Years in the company", :class => "long_label_spec" %>
-            <%= p.number_field :years_in_company, in: 0..100, step: 1, :onchange => 'verifyPercentage()', :id => "yearsincompanybox", :class => "number_field_spec" %> &nbsp &nbsp
+            <%= p.number_field :years_in_company, in: 0..100, step: 1, :class => "number_field_spec" %> &nbsp &nbsp
             &nbsp     
             <%= p.label "Number of direct subordinates", :class => "long_label_spec" %>
-            <%= p.number_field :number_subordinates, in: 0..100, step: 1, :onchange => 'verifyPercentage()', :id => "numbersubordinatesbox", :class => "number_field_spec" %>      
+            <%= p.number_field :number_subordinates, in: 0..100, step: 1, :class => "number_field_spec" %>      
           </div>
           <br/>
           <br/>
@@ -250,62 +250,13 @@
         <h3 class="myform">6. About the company</h3>
         <div class="container", style="width: 70%; margin-left: 30%">
           <div>
-            <%= p.label "Industry:", :class => "label_spec"%>
-            <%= p.select :company_sector, options_for_select([@profile.company_sector, '-----------', 'Please select one',
-              'Accountancy', 
-              'Advertising',
-              'Aerospace Industry',
-              'Agriculture',
-              'Antiques',            
-              'Architecture and Interior Design',            
-              'Arts/Heritage/Museums',            
-              'Automotive Industry',            
-              'Banking/Corporate Finance',            
-              'Building and Construction Industries',            
-              'Business Management',            
-              'Business Psychology',            
-              'Catering/Hospitality',            
-              'Charity - In House Management',            
-              'Charity - Services',            
-              'Chemical Industry',            
-              'Commercial & Professional Services',            
-              'Consumer Durables and Apparel',            
-              'Crisis Management',            
-              'Editorial Services',            
-              'Education/Training',            
-              'Energy',            
-              'Entertainment and Music Industries',            
-              'Executive Coaching and Development',            
-              'Fashion/Cosmetics',            
-              'Financial Services',            
-              'Food, Beverage & Tobacco',            
-              'Healthcare/Pharmaceutical/Medical Devices',            
-              'Hotels and Leisure Industry',            
-              'Household & Personal Products',            
-              'Human Resources (Consultants)',            
-              'Human Resources (In House Management)',            
-              'Insurance',            
-              'Languages/Translation Services',            
-              'Law - Employment',            
-              'Law - Family and Matrimonial',            
-              'Law - General Legal Services',            
-              'Management Consultants',            
-              'Manufacturing',            
-              'Marketing/Public Relations',            
-              'Materials',            
-              'Media',            
-              'Non-Profit',            
-              'Oil/Gas/Petroleum Industries',            
-              'Professional Bodies/Trade Organisations',            
-              'Public Affairs',            
-              'Real Estate / Property',            
-              'Retail Industry',            
-              'Software & Services',            
-              'Technology Hardware & Equipment',            
-              'Telecommunications',            
-              'Transport Industry',            
-              'Travel and Tourism',            ]) %>
-            </div>  
+            <%= p.label "Sector:", :class => "label_spec"%>
+            <%= p.text_field :company_sector, :class => "text_field_spec"%>
+            </div> 
+            <div>
+            <%= p.label "Area:", :class => "label_spec"%>
+            <%= p.text_field :company_area, :class => "text_field_spec"%>
+            </div> 
             <div>
               <%= p.label "Nationality", :class => "label_spec"%>
               <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
@@ -329,63 +280,63 @@
                 </tr>
                 <tr class="list_line_even">
                   <th class="table_text">
-                    Entry Level - Little or no prior working experience; recent college graduate.            
+                    Entry Level <br> <small> Little or no prior working experience; recent college graduate. </small>           
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :job_level, "Entry Level", :id => "entryjobbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :job_level, "Entry Level" %>            
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :reporting_level, "Entry Level", :id => "entryreportbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :reporting_level, "Entry Level" %>            
                   </th>
                 </tr>
                 <tr class="list_line_odd">
                   <th class="table_text">
-                    Intermediate Level - Proficiency with entry­level job functions and responsibilities; can teach these skills
+                    Intermediate Level  <br> <small> Proficiency with entry­ level job functions and responsibilities; can teach these skills
                     to others. Is able to work without constant supervision and can take on responsibility for specific projects
-                    or tasks or/and supervisory responsibility for other intermediate or entry­level employees.
+                    or tasks or/and supervisory responsibility for other intermediate or entry­level employees </small>
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :job_level, "Intermediate Level", :id => "intermediatejobbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :job_level, "Intermediate Level" %>            
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :reporting_level, "Intermediate Level", :id => "intermediatereportbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :reporting_level, "Intermediate Level" %>            
                   </th>
                 </tr>
                 <tr class="list_line_even">
                   <th class="table_text">
-                    Middle Management (first managerial level in the corporate structure) - Oversee intermediate and entry­level
-                    employees, as well as take on responsibility for department objectives and goals.
+                    Middle Management (first managerial level in the corporate structure) <br> <small> Oversee intermediate and entry­level
+                    employees, as well as take on responsibility for department objectives and goals.</small>
                   </th>                                  
                   <th class="table_check_box">
-                    <%= p.radio_button :job_level, "Middle Management", :id => "middlejobbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :job_level, "Middle Management" %>            
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :reporting_level, "Middle Management", :id => "middlereportbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :reporting_level, "Middle Management" %>            
                   </th>
                 </tr>
                 <tr class="list_line_odd">
                   <th class="table_text">
-                    Upper Management Level - Extensive experience and education in their field, as well as experience managing others.
+                    Upper Management Level <br> <small> Extensive experience and education in their field, as well as experience managing others.
                     Oversee divisions, departments or specific functions within the corporate structure and delegate responsibilities
-                    to middle managers.
+                    to middle managers. </small>
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :job_level, "Upper Management Level", :id => "upperjobbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :job_level, "Upper Management Level" %>            
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :reporting_level, "Upper Management Level", :id => "upperreportbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :reporting_level, "Upper Management Level" %>            
                   </th>
                 </tr>
                 <tr class="list_line_even">
                   <th class="table_text">
-                    Executive Level (Vice President, officers or department chiefs) - Highly skilled and experienced employees, with
-                    macro management and strategic responsabilities.
+                    Executive Level (Vice President, officers or department chiefs) <br> <small> Highly skilled and experienced employees, with
+                    macro management and strategic responsabilities. </small>
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :job_level, "Executive Level", :id => "executivejobbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :job_level, "Executive Level" %>            
                   </th>
                   <th class="table_check_box">
-                    <%= p.radio_button :reporting_level, "Executive Level", :id => "executivereportbox", :onchange => 'verifyPercentage()' %>            
+                    <%= p.radio_button :reporting_level, "Executive Level" %>            
                   </th>
                 </tr>        
             </table>
