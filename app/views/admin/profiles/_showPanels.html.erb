@@ -1,0 +1,59 @@
+  <div class="panel panel-default" style="width:100%;">
+    <div class="panel-heading clearfix">
+
+        <h2 class="panel-title pull-left" style="padding-top: 7.5px;">Application</h2>
+
+</div>
+<div class="panel-body">
+
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default" id="panel1">
+      <div class="panel-heading">
+        <h3 style="font-size: 24px; margin-top: 1%">
+          About Myself
+      </h3>
+    </div>
+    <div id="aboutmyself" class="panel-collapse collapse in">
+      <%= render 'showAboutMyself' %>   
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" id="panel2">
+    <div class="panel-heading">
+       <h3 style="font-size: 24px; margin-top: 1%">
+        PWN, Mentoring and Availability
+    </h3>
+  </div>
+  <div id="PWNandAvailability" class="panel-collapse collapse">
+    <%= render 'showPWNandAvailability' %>
+  </div>
+</div>
+<div class="panel panel-default" id="panel3">
+  <div class="panel-heading">
+    <h3 style="font-size: 24px; margin-top: 1%">
+    Description on Myself and my Interest in the Program
+  </h3>
+</div>
+<div id="DescriptionandInterest" class="panel-collapse collapse">
+<%= render 'showDescriptionandInterest' %>
+</div>
+</div>
+<div class="panel panel-default" id="panel4">
+  <div class="panel-heading">
+     <h3 style="font-size: 24px; margin-top: 1%">
+      About the Mentor, My Company Support and Other
+  </h3>
+</div>
+<div id="MentorandInstitutional" class="panel-collapse collapse">
+<%= render 'showMentorSupportandFinal' %>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
