@@ -41,23 +41,23 @@
   <h3 class="myform">21. The main area in which I seek a mentor:</h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
-      <%= p.check_box :mentoring_in_career_orientation, {}, "Yes", "No" %>
+      <%= p.radio_button :mentoring_in, 'career orientation' %>
       <%= p.label "Career Orientation, goal setting and advancement" %>
     </div>
     <div>
-      <%= p.check_box :mentoring_in_career_transition, {}, "Yes", "No" %>
+      <%= p.radio_button :mentoring_in, 'career transition' %>
       <%= p.label "Career Transition, changing jobs (sector, function and/or area)" %>
     </div>
     <div>
-      <%= p.check_box :mentoring_in_reintegration, {}, "Yes", "No" %>
+      <%= p.radio_button :mentoring_in, 'reintegration' %>
       <%= p.label "Ŕeintegration" %>
     </div> 
     <div>
-      <%= p.check_box :mentoring_in_entreperneurship, {}, "Yes", "No" %>
+      <%= p.radio_button :mentoring_in, 'entreperneurship' %>
       <%= p.label "Entrepreneurship" %>
     </div>
     <div>
-      <%= p.check_box :mentoring_in_work_life_balance, {}, "Yes", "No" %>
+      <%= p.radio_button :mentoring_in, 'work life balance' %>
       <%= p.label "Work-life Balance" %>
     </div>
     <%= p.label "Other (please specify)"%>

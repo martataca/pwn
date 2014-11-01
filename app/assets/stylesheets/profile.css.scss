@@ -43,8 +43,8 @@
   width: 50px;
 }
  
-.table_collumn_spec {
-  width: 230px;
+ .table_collumn_spec {
+  width: 5%;
   margin-top: 10px;
   text-align: center;
 }
@@ -58,6 +58,10 @@
 .table_check_box {
   text-align: center;
   vertical-align: middle;
+}
+
+.table_text {
+  padding-left: 2%;
 }
  
 .list_line_even {

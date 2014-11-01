@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true, unique: true 
 
       ##Vars for Selection
-      t.decimal   :percentage
+      t.float   :percentage
       
 
       
@@ -57,7 +57,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string	:cv
 
       ## About Myself - Demographics
-      t.date     :born_on
+      t.text     :born_on
       t.string   :sex
       t.string   :country_origin
       t.string   :country_residence
@@ -125,11 +125,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text  :aspirations
       t.text  :want_to_be_known_for
 
-      t.text    :mentoring_in_career_orientation
-      t.text    :mentoring_in_career_transition
-      t.text    :mentoring_in_reintegration
-      t.text    :mentoring_in_entreperneurship
-      t.text    :mentoring_in_work_life_balance
+      t.text    :mentoring_in
       t.text    :mentoring_in_other_one
 
       t.text    :mentoring_in_leadership

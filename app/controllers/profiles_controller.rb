@@ -53,9 +53,9 @@ class ProfilesController < ApplicationController
   end
   
 def age_at(date, dob)
-  day_diff = date.day - dob.day
-  month_diff = date.month - dob.month - (day_diff < 0 ? 1 : 0)
-  date.year - dob.year - (month_diff < 0 ? 1 : 0)
+  day_diff = date.day - DateTime.strptime(dob, "%m/%d/%Y").day
+  month_diff = date.month - DateTime.strptime(dob, "%m/%d/%Y").month - (day_diff < 0 ? 1 : 0)
+  date.year - DateTime.strptime(dob, "%m/%d/%Y").year - (month_diff < 0 ? 1 : 0)
 end
   
  private
@@ -119,11 +119,7 @@ end
       :goal_3,
       :aspirations,
       :want_to_be_known_for,
-      :mentoring_in_career_orientation,
-      :mentoring_in_career_transition,
-      :mentoring_in_reintegration,
-      :mentoring_in_entreperneurship,
-      :mentoring_in_work_life_balance,
+      :mentoring_in,
       :mentoring_in_other_one,
       :mentoring_in_leadership,
       :mentoring_in_change,
