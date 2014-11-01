@@ -48,17 +48,17 @@ ActiveRecord::Schema.define(version: 20141010205931) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "percentage",                                    precision: 10, scale: 0
+    t.float    "percentage",                                    limit: 24
     t.string   "firstName"
     t.string   "surnames"
     t.integer  "age"
     t.string   "email"
-    t.string   "phone_number",                                                           default: "", null: false
-    t.string   "skype_name",                                                             default: ""
-    t.string   "linkedin_profile",                                                       default: ""
+    t.string   "phone_number",                                             default: "", null: false
+    t.string   "skype_name",                                               default: ""
+    t.string   "linkedin_profile",                                         default: ""
     t.string   "picture"
     t.string   "cv"
-    t.date     "born_on"
+    t.text     "born_on"
     t.string   "sex"
     t.string   "country_origin"
     t.string   "country_residence"
@@ -107,11 +107,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "goal_3"
     t.text     "aspirations"
     t.text     "want_to_be_known_for"
-    t.text     "mentoring_in_career_orientation"
-    t.text     "mentoring_in_career_transition"
-    t.text     "mentoring_in_reintegration"
-    t.text     "mentoring_in_entreperneurship"
-    t.text     "mentoring_in_work_life_balance"
+    t.text     "mentoring_in"
     t.text     "mentoring_in_other_one"
     t.text     "mentoring_in_leadership"
     t.text     "mentoring_in_change"
