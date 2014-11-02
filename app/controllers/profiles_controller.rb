@@ -46,6 +46,11 @@ class ProfilesController < ApplicationController
      end
   end
   
+  def submitted=(sub)
+    @submitted = @profile.submitted
+    @profile.update_attribute(:submitted, @submitted)
+  end
+  
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
@@ -158,7 +163,19 @@ end
       :heard_about_program_from_company,
       :heard_about_program_in_the_press,
       :heard_about_program_from_other_specified,
-      :mentee_fee_aware
+      :mentee_fee_aware,
+      :act_as_sounding_board,
+      :provide_developmental_feedback,
+      :share_experiences,
+      :connect_with_relevant_people,
+      :mentor_preferred_role,
+      :sugestion_1,
+      :sugestion_2,
+      :sugestion_3,
+      :sugestion_4,
+      :sugestion_5,
+      :sugestion_6,
+      :submitted
 									 )
   end
 

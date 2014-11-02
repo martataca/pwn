@@ -16,6 +16,7 @@
       <%= p.label "18:00 - ­20:30" %>
     </div>
     <br/>
+    <hr>
   </div>
 
   <h3 class="myform">11. Availability for networking meetings</h3>
@@ -24,18 +25,25 @@
       <%= p.check_box :availability_monthly_breakfasts, {}, "Available", "Unavailable" %>
       <%= p.label "PWN monthly breakfast (first tuesday of the month, 8:30­ - 10:00 in Tivoli Lisboa)", :class => "long_option" %>
     </div>
-    <div>
-      <%= p.check_box :availability_buddy_contacts, {}, "Available", "Unavailable" %>
-      <%= p.label "Mentee buddy contacts (once a month, online or face­-to­-face)", :class => "long_option" %>
-    </div>
+    <% if current_user.type == "Mentee" %>
+      <div>
+        <%= p.check_box :availability_buddy_contacts, {}, "Available", "Unavailable" %>
+        <%= p.label "Mentee buddy contacts (once a month, online or face­-to­-face)", :class => "long_option" %>
+      </div>
+      <br/>
+    <% end %>
+    <br/>
+    <hr>    
   </div>
-  <br/>
 
   <h3 class="myform">12. Availability Observations <br> 
     <small>Please note any preferences or constraints you would like us to be aware of in terms of schedule, meeting frequency, location, language etc. </small>
   </h3>
   <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :availability_obs, :class => "text_field_spec" %>
+    <%= p.text_area :availability_obs, :size => "70x8" %>
+    <br/>
+    <br/>
+    <hr>
   </div>
 
   <h3 class="myform">13. Sharing information <br> 

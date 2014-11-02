@@ -1,83 +1,138 @@
+<script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap.js"></script>
 <div class="col-md-9 personal-info">
-  <div class="alert alert-warning alert-dismissable">
-    <a class="panel-close close" data-dismiss="alert">×</a> 
-    <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
-  </div>
-
+  <% if current_user.type == "Mentee"%>
+    <% if @profile.application_percentage(@profile).floor.to_i < 100%>
+      <div class="alert alert-warning alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
+      </div>
+    <% else %>
+      <div class="alert alert-success">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        Your application is now complete. You can now <strong>submit</strong> it.
+      </div>
+    <% end %>
+  <% else %>
+    <% if @profile.application_percentage_mentor(@profile).floor.to_i < 100%>
+      <div class="alert alert-warning alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
+      </div>
+    <% else %>
+      <div class="alert alert-success alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        Your application is now complete. You can now <strong>submit</strong> it.
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="panel panel-default">
     <div class="panel-heading clearfix">
       <p>
         <h2 class="panel-title pull-left" style="padding-top: 7.5px;">Application</h2>
-       <div align="right">
-<%= link_to '<button style=" background-color: #fff" type="button" class="btn btn-default btn-xs"><span  class="glyphicon glyphicon-pencil"></span></button>'.html_safe, edit_profile_path(@profile.id)  %></p> 
-</div>
-</p>
-</div>
-<div class="panel-body">
-
-
-  <div class="panel-group" id="accordion">
-    <div class="panel panel-default" id="panel1">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-target="#aboutmyself" 
-          href="#aboutmyself">
-          About Myself
-        </a>
-      </h4>
+        <div align="right">
+          <%= link_to '<button style=" background-color: #fff" type="button" class="btn btn-default btn-xs"><span  class="glyphicon glyphicon-pencil"></span></button>'.html_safe, edit_profile_path(@profile.id)  %></p> 
+        </div>
+      </p>
     </div>
-    <div id="aboutmyself" class="panel-collapse collapse in">
-      <%= render 'profiles/showAboutMyself' %>   
+
+    <div class="panel-body">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panel1">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#aboutmyself" 
+              href="#aboutmyself">
+              About Myself
+              </a>
+            </h4>
+          </div>
+        
+          <div id="aboutmyself" class="panel-collapse collapse in">
+            <%= render 'profiles/showAboutMyself' %>   
+          </div>
+        </div>
+      </div>
+  
+      <div class="panel panel-default" id="panel2">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#PWNandAvailability" 
+            href="#PWNandAvailability" class="collapsed">
+            PWN, Mentoring and Availability
+            </a>
+          </h4>
+        </div>
+    
+        <div id="PWNandAvailability" class="panel-collapse collapse">
+          <%= render 'profiles/showPWNandAvailability' %>
+        </div>
+      </div>
+      
+      <div class="panel panel-default" id="panel3">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#DescriptionandInterest"
+            href="#DescriptionandInterest" class="collapsed">
+            Description of Myself and my Interest in the Program
+            </a>
+          </h4>
+        </div>
+        
+        <div id="DescriptionandInterest" class="panel-collapse collapse">
+          <%= render 'profiles/showDescriptionandInterest' %>
+        </div>
+      </div>
+      
+      <div class="panel panel-default" id="panel4">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#MentorandInstitutional"
+            href="#MentorandInstitutional" class="collapsed">
+            About the Mentor, My Company Support and Other
+            </a>
+          </h4>
+        </div>
+
+        <div id="MentorandInstitutional" class="panel-collapse collapse">
+          <%= render 'profiles/showMentorSupportandFinal' %>
+        </div>
+      </div>
+      
+      <% if current_user.type == "Mentee"%>
+        <% if @profile.application_percentage(@profile).floor.to_i == 100%>
+          <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
+            <a class="btn btn-primary" style="width: 20%; margin-left: 1%;" data-toggle="modal" data-target="#myModal">Submit Application</a>
+          </div>
+        <% end %>
+      <% else %>
+        <% if @profile.application_percentage_mentor(@profile).floor.to_i == 100%>
+          <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
+            <a class="btn btn-primary" style="width: 20%; margin-left: 1%;" data-toggle="modal" data-target="#myModal">Submit Application</a>
+          </div>
+        <% end %>
+      <% end %>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title" id="myModalLabel">Application Submission</h3>
+            </div>
+            <div class="modal-body" style="text-align: center">
+              Are you sure you want to submit your application?
+            </div>
+            <div class="modal-footer">
+              <div style="text-align: center; margin-top: 2%; margin-bottom: 2%;">                
+                <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Yes</a>
+                <a class="btn btn-default" style="width: 10%; margin-left: 1%;" data-dismiss="modal">No</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="panel panel-default" id="panel2">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-target="#PWNandAvailability" 
-        href="#PWNandAvailability" class="collapsed">
-        PWN, Mentoring and Availability
-      </a>
-    </h4>
-  </div>
-  <div id="PWNandAvailability" class="panel-collapse collapse">
-    <%= render 'profiles/showPWNandAvailability' %>
-  </div>
 </div>
-<div class="panel panel-default" id="panel3">
-  <div class="panel-heading">
-    <h4 class="panel-title">
-      <a data-toggle="collapse" data-target="#DescriptionandInterest"
-      href="#DescriptionandInterest" class="collapsed">
-      Description of Myself and my Interest in the Program
-    </a>
-  </h4>
-</div>
-<div id="DescriptionandInterest" class="panel-collapse collapse">
-<%= render 'profiles/showDescriptionandInterest' %>
-</div>
-</div>
-<div class="panel panel-default" id="panel3">
-  <div class="panel-heading">
-    <h4 class="panel-title">
-      <a data-toggle="collapse" data-target="#MentorandInstitutional"
-      href="#MentorandInstitutional" class="collapsed">
-      About the Mentor, My Company Support and Other
-    </a>
-  </h4>
-</div>
-<div id="MentorandInstitutional" class="panel-collapse collapse">
-<%= render 'profiles/showMentorSupportandFinal' %>
-</div>
-</div>
-
-
-
-
-</div>
-</div>
-</div>
-</div>
-
-
