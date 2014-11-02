@@ -21,7 +21,7 @@
       </div>
     </div>
     <!DOCTYPE html>
-<html>
+  <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -30,30 +30,55 @@
     </head>
     <body>
       <ul class="nav nav-tabs">
-        <li class="active" style="word-wrap: break-word; width: 11%;">
-          <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;">
-          <a href="#2" data-toggle="tab">PWN and mentoring</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;">
-          <a href="#3" data-toggle="tab">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;">
-          <a href="#4" data-toggle="tab">Description of myself</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;">
-          <a href="#5" data-toggle="tab">Mentoring Interest</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;;">
-          <a href="#6" data-toggle="tab">About the mentor</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;;">
-          <a href="#7" data-toggle="tab">Institutional support</a>
-        </li>
-        <li style="word-wrap: break-word; width: 11%;;">
-          <a href="#8" data-toggle="tab">Finalizing your application</a>
-        </li>
+        <% if current_user.type == "Mentee" %>
+          <li class="active" style="word-wrap: break-word; width: 12.5%;">
+            <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#2" data-toggle="tab">PWN and mentoring</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#3" data-toggle="tab">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#4" data-toggle="tab">Description of myself</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#5" data-toggle="tab">Mentoring Interest</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#6" data-toggle="tab">About the mentor</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#7" data-toggle="tab">Institutional support</a>
+          </li>
+          <li style="word-wrap: break-word; width: 12.5%;">
+            <a href="#8" data-toggle="tab">Finalizing your application</a>
+          </li>
+        <% end %>
+        <% if current_user.type == "Mentor" %>
+          <li class="active" style="word-wrap: break-word; width: 14.2%;">
+            <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#2" data-toggle="tab">PWN and mentoring&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#3" data-toggle="tab">Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#4" data-toggle="tab">Description of myself</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#5" data-toggle="tab">Mentoring Relationship</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#6" data-toggle="tab">Institutional support&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </li>
+          <li style="word-wrap: break-word; width: 14.2%;">
+            <a href="#7" data-toggle="tab">Finalizing your application</a>
+          </li>
+        <% end %>
       </ul>
       <br/>
                 
@@ -65,40 +90,65 @@
         </div>
                  
         <%= form_for @profile do |p| %>
-          <div style="width: 75%; margin-left: 25%">
+          <!-- <div style="width: 75%; margin-left: 25%">
             <%= p.label "Your application is at 0%", :id => "progresstext", :class => "long_label_spec"%>
             <div class="progress progress-striped">
               <div id="progressbar" class="progress-bar" style="width: 0%;">
                 <span class="sr-only">60% Complete</span>
               </div>
             </div>
-          </div>
+          </div> -->
             
           <div class="tab-content">
-            <div class="tab-pane fade in active" id="1" style="width: 90%">
-              <%= render :partial => "about_my_self", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="2">  
-              <%= render :partial => "epwn_and_mentoring", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="3">
-              <%= render :partial => "availability", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="4">
-              <%= render :partial => "description_of_myself", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="5">
-              <%= render :partial => "mentoring_interest", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="6">
-              <%= render :partial => "about_the_mentor", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="7">
-              <%= render :partial => "institutional_support", :locals => {:p => p} %>
-            </div>
-            <div class="tab-pane fade" id="8">
-              <%= render :partial => "finalizing_your_application", :locals => {:p => p} %>
-            </div>
+            <% if current_user.type == "Mentee" %>
+              <div class="tab-pane fade in active" id="1" style="width: 90%">
+                <%= render :partial => "about_my_self", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="2">  
+                <%= render :partial => "epwn_and_mentoring", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="3">
+                <%= render :partial => "availability", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="4">
+                <%= render :partial => "description_of_myself", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="5">
+                <%= render :partial => "mentoring_interest", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="6">
+                <%= render :partial => "about_the_mentor", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="7">
+                <%= render :partial => "institutional_support", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="8">
+                <%= render :partial => "finalizing_your_application", :locals => {:p => p} %>
+              </div>
+            <% end %>
+            <% if current_user.type == "Mentor" %>
+              <div class="tab-pane fade in active" id="1" style="width: 90%">
+                <%= render :partial => "about_my_self", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="2">  
+                <%= render :partial => "epwn_and_mentoring", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="3">
+                <%= render :partial => "availability", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="4">
+                <%= render :partial => "description_of_myself", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="5">
+                <%= render :partial => "mentoring_interest", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="6">
+                <%= render :partial => "institutional_support", :locals => {:p => p} %>
+              </div>
+              <div class="tab-pane fade" id="7">
+                <%= render :partial => "finalizing_your_application", :locals => {:p => p} %>
+              </div>
+            <% end %>
           </div>
   
           <!-- <a class="btn btn-primary" id="btnPrevious">Previous</a>

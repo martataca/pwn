@@ -4,41 +4,61 @@
     <%= p.text_area :motivations, :size => "70x8" %>
     <br/>
     <br/>
+    <hr>
   </div>
 
-  <h3 class="myform">18. The goals that I want to achieve from my participation as a mentee are:</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <div>
-      <%= p.label "Goal 1", :class => "short_label_spec"%>
-      <%= p.text_field :goal_1, :class => "text_field_spec" %>
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">18. What I would like to get from my participation as a Mentor:</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <%= p.text_area :aspirations, :size => "70x8" %>
+      <br/>
+      <br/>
+    <hr>
     </div>
-    <div>
-      <%= p.label "Goal 2", :class => "short_label_spec"%>
-      <%= p.text_field :goal_2, :class => "text_field_spec" %>
-    </div>
-    <div>
-      <%= p.label "Goal 3", :class => "short_label_spec"%>
-      <%= p.text_field :goal_3, :class => "text_field_spec" %>
+  <% end %>
+  
+  <% if current_user.type == "Mentee" %>
+    <h3 class="myform">18. The goals that I want to achieve from my participation as a mentee are:</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <div>
+        <%= p.label "Goal 1", :class => "short_label_spec"%>
+        <%= p.text_field :goal_1, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Goal 2", :class => "short_label_spec"%>
+        <%= p.text_field :goal_2, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Goal 3", :class => "short_label_spec"%>
+        <%= p.text_field :goal_3, :class => "text_field_spec" %>
+      </div>  
+      <br/>
+      <hr>
     </div>  
-    <br/>
-  </div>
 
-  <h3 class="myform">19. Imagining myself today and in 3 (or 5 or 10) years: <br> Who do I want to be?</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :aspirations, :size => "70x8" %>
-    <br/>
-    <br/>
-  </div>
+    <h3 class="myform">19. Imagining myself today and in 3 (or 5 or 10) years: <br> Who do I want to be?</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <%= p.text_area :aspirations, :size => "70x8" %>
+      <br/>
+      <br/>
+      <hr>
+    </div>
+  
+    <h3 class="myform">20. Imagining myself today and in 3 (or 5 or 10) years: <br> What do I want to be known for?</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <%= p.text_area :want_to_be_known_for, :size => "70x8" %>
+      <br/>
+      <br/>
+      <hr>
+    </div>
+  <% end %>
 
-  <h3 class="myform">20. Imagining myself today and in 3 (or 5 or 10) years: <br> What do I want to be known for?</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <%= p.text_area :want_to_be_known_for, :size => "70x8" %>
-    <br/>
-    <br/>
-  </div>
-
-
-  <h3 class="myform">21. The main area in which I seek a mentor:</h3>
+  <% if current_user.type == "Mentee" %>
+    <h3 class="myform">21. The main area in which I seek a mentor:</h3>
+  <% end %>
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">19. What is the main area in which I would like to mentor:</h3>
+  <% end %>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.radio_button :mentoring_in, 'career orientation' %>
@@ -50,7 +70,7 @@
     </div>
     <div>
       <%= p.radio_button :mentoring_in, 'reintegration' %>
-      <%= p.label "Ŕeintegration" %>
+      <%= p.label "Reintegration" %>
     </div> 
     <div>
       <%= p.radio_button :mentoring_in, 'entreperneurship' %>
@@ -60,12 +80,20 @@
       <%= p.radio_button :mentoring_in, 'work life balance' %>
       <%= p.label "Work-life Balance" %>
     </div>
-    <%= p.label "Other (please specify)"%>
-    <%= p.text_field :mentoring_in_other_one, :class => "text_field_spec" %>
+    <div>
+      <%= p.label "Other (please specify)"%>
+      <%= p.text_field :mentoring_in_other_one, :class => "text_field_spec" %>
+    </div>
+    <br/>
+    <hr>
   </div>
-  <br/>
-
-  <h3 class="myform">22. The specific areas in which I seek a mentor:</h3>
+  
+  <% if current_user.type == "Mentee" %>
+    <h3 class="myform">22. The specific areas in which I seek a mentor:</h3>
+  <% end %>
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">20. What are the specific areas in which I would like to mentor:</h3>
+  <% end %>  
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.check_box :mentoring_in_leadership, {}, "Yes", "No" %>
@@ -103,8 +131,35 @@
       <%= p.label "Other (please specify)"%>
       <%= p.text_field :mentoring_in_other_two, :class => "text_field_spec" %>
     </div>
-  </div>
-  <br/>
+    <br/>
+    <hr>
+  </div>  
+
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">21. I would especially like to play the following role(s):</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <div>
+        <%= p.check_box :act_as_sounding_board, {}, "Yes", "No" %>
+        <%= p.label "Act as sounding board" %>
+      </div>
+      <div>
+        <%= p.check_box :provide_developmental_feedback, {}, "Yes", "No" %>
+        <%= p.label "Provide developmental feedback" %>
+      </div>
+      <div>
+        <%= p.check_box :share_experiences, {}, "Yes", "No" %>
+        <%= p.label "Share experiences" %>
+      </div>
+      <div>
+        <%= p.check_box :connect_with_relevant_people, {}, "Yes", "No" %>
+        <%= p.label "Connect with relevant people" %>
+      </div>
+      <div>
+        <%= p.label "Other (please specify)"%>
+        <%= p.text_field :mentor_preferred_role, :class => "text_field_spec" %>
+      </div>
+    </div>
+  <% end %>
 
   <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
     <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>

@@ -1,5 +1,10 @@
 <div>
-  <h3 class="myform">29. How does your company support your envolvement in this program?</h3>
+  <% if current_user.type == "Mentee" %>
+    <h3 class="myform">29. How does your company support your envolvement in this program?</h3>
+  <% end %>
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">22. How does your company support your envolvement in this program?</h3>
+  <% end %>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
       <%= p.check_box :company_is_not_aware, {}, "Yes", "No" %>
@@ -26,7 +31,39 @@
       <%= p.text_field :institutional_support_other, :class => "text_field_spec" %>
     </div>
     <br/>
+    <hr>
   </div>
+
+  <% if current_user.type == "Mentor" %>
+    <h3 class="myform">23. Would you like to suggest other mentors and mentees for this program?</h3>
+    <div class="container", style="width: 70%; margin-left: 30%">
+      <div>
+        <%= p.label "Suggestion 1", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_1, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Suggestion 2", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_2, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Suggestion 3", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_3, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Suggestion 4", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_4, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Suggestion 5", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_5, :class => "text_field_spec" %>
+      </div>
+      <div>
+        <%= p.label "Suggestion 6", :class => "short_label_spec"%>
+        <%= p.text_field :sugestion_6, :class => "text_field_spec" %>
+      </div>  
+      <br/>
+    </div> 
+  <% end %>
 
   <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
     <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>

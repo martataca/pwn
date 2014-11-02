@@ -40,7 +40,17 @@
       <%= p.label "Birth Date", :class => "label_spec" %>
       <%= p.text_field :born_on, :class => 'datepicker' %><span class="glyphicon glyphicon-calendar"></span>
     </div>
-    <br/>
+    <br/>    
+    <% if current_user.type == "Mentor" %>
+      <div class="field">
+        <%= p.label "Sex", :class => "label_spec" %>
+        <%= p.radio_button :sex, 'Male' %> 
+        <%= p.label :sex_male, 'Male' %> &nbsp
+        <%= p.radio_button :sex, 'Female' %> 
+        <%= p.label :sex_female, 'Female' %>
+      </div>
+      <br/>
+    <% end %>    
     <div class="field">
       <%= p.label "Country of Origin" %><br />
       <%= p.country_select :country_origin, {priority: %w(PT), prompt: 'Please select a country'} %>
@@ -153,6 +163,7 @@
           <%= p.text_field :studies_other, :class => "other_text_spec" %>
         </div> 
         <br/>
+        <hr>
       </div>
 
       <h3 class="myform">4. Professional experience</h3>
@@ -245,6 +256,7 @@
           </div>
           <br/>
           <br/>
+          <hr>
         </div>    
 
         <h3 class="myform">6. About the company</h3>
@@ -262,6 +274,7 @@
               <%= p.country_select :company_nation, {priority: %w(PT), prompt: 'Please select a country'} %>
             </div>  
             <br/>
+            <hr>
           </div>
 
           <h3 class="myform">7. Job Level</h3>
@@ -341,7 +354,6 @@
                 </tr>        
             </table>
             <br/>
-            <hr>
           </div>
 
           <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    

@@ -174,6 +174,22 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text    :heard_about_program_from_other_specified
       t.text    :mentee_fee_aware
      
+      ##Mentor's own fields
+      t.text    :act_as_sounding_board
+      t.text    :provide_developmental_feedback
+      t.text    :share_experiences
+      t.text    :connect_with_relevant_people
+      t.text    :mentor_preferred_role
+      t.text    :sugestion_1
+      t.text    :sugestion_2
+      t.text    :sugestion_3
+      t.text    :sugestion_4
+      t.text    :sugestion_5
+      t.text    :sugestion_6 
+     
+      ##Final Submition
+      t.string    :submitted
+     
       t.timestamps
     end
     
