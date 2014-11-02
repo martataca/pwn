@@ -1,0 +1,18 @@
+<div>
+<% @selected1.each do |user| -%>
+    <li>
+      <%= render partial: "user", locals: { user: user } %>
+    </li>
+</div>
+
+
+def selection1
+  users.each do |user|
+    if user.type == "Mentee"
+    profiles.each do |profile|
+    if profile.years_experience >= 5
+      if profile.company == "Accenture"
+        @selected1
+
+
+end
