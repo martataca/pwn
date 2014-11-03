@@ -259,7 +259,8 @@ class Profile < ActiveRecord::Base
    
    
    @percentage = @percentage / 58 * 100   
-   @found_profile.update_attribute(:percentage, @percentage)
+   @found_profile.percentage = @percentage
+   @found_profile.save
    @percentage
  end
  
@@ -469,7 +470,8 @@ class Profile < ActiveRecord::Base
    
    
    @percentage = @percentage / 42 * 100   
-   @found_profile.update_attribute(:percentage, @percentage)
+   @found_profile.percentage = @percentage
+   @found_profile.save
    @percentage
  end
    

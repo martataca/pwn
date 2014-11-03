@@ -34,20 +34,24 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @profile = Profile.find(params[:id])
-    @profile.submitted = true
 
-    @select_res = select1?(@profile)
-    @profile.select1 =  @select_res
-    @profile.save
+      
+    if @profile.percentage == 100.0
+      @profile.submitted = true
+      @select_res = select1?(@profile)
+      @profile.select1 =  @select_res
+      @profile.save
+    end
 
     render 'show'
   end
   
   def update
+     @user = User.find(current_user.id)
      @profile = Profile.find(params[:id])
      
      if @profile.update(profile_params)
-      redirect_to @profile
+      render  'users/show'
      else
       render 'edit'
      end
