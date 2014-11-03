@@ -1,0 +1,93 @@
+<script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap.js"></script>
+<div class="container">
+  <h2> <%=@user.firstName %> <%= @user.lastName %> <%= @select_res %></h2>
+  <hr>
+  <div class="row">
+
+      <div class="col-md-3">
+        <div class="text-center">
+            <%= image_tag(@profile.picture_url, :width => 150)%>
+          </div>
+          </div>
+
+
+<div class="col-md-9 personal-info">
+      <div class="alert alert-success alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a> 
+        Your application has been submitted. Thank you!
+      </div>
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <p>
+        <h2 class="panel-title pull-left" style="padding-top: 7.5px;">Application</h2>
+    </div>
+
+    <div class="panel-body">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panel1">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#aboutmyself" 
+              href="#aboutmyself">
+              About Myself
+              </a>
+            </h4>
+          </div>
+        
+          <div id="aboutmyself" class="panel-collapse collapse in">
+            <%= render 'profiles/showAboutMyself' %>   
+          </div>
+        </div>
+      </div>
+  
+      <div class="panel panel-default" id="panel2">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#PWNandAvailability" 
+            href="#PWNandAvailability" class="collapsed">
+            PWN, Mentoring and Availability
+            </a>
+          </h4>
+        </div>
+    
+        <div id="PWNandAvailability" class="panel-collapse collapse">
+          <%= render 'profiles/showPWNandAvailability' %>
+        </div>
+      </div>
+      
+      <div class="panel panel-default" id="panel3">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#DescriptionandInterest"
+            href="#DescriptionandInterest" class="collapsed">
+            Description of Myself and my Interest in the Program
+            </a>
+          </h4>
+        </div>
+        
+        <div id="DescriptionandInterest" class="panel-collapse collapse">
+          <%= render 'profiles/showDescriptionandInterest' %>
+        </div>
+      </div>
+      
+      <div class="panel panel-default" id="panel4">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#MentorandInstitutional"
+            href="#MentorandInstitutional" class="collapsed">
+            About the Mentor, My Company Support and Other
+            </a>
+          </h4>
+        </div>
+
+        <div id="MentorandInstitutional" class="panel-collapse collapse">
+          <%= render 'profiles/showMentorSupportandFinal' %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</p>
+</div>
+</div>

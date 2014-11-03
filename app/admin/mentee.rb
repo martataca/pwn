@@ -46,11 +46,28 @@ ActiveAdmin.register Mentee do
         if @profile.percentage.present?
           @pure = user.profile.percentage
           @percentage = @pure.floor.to_i 
+          @percentage
         end
       end
     end
 
+    column "Selection 1" do |user|
+      if Profile.exists?(:user_id => user.id)
+         @profile = Profile.where(user_id: user.id).first
+         if @profile.select1.present?
+            user.profile.select1
+         end
+      end
+    end
 
+        column "Submitted" do |user|
+      if Profile.exists?(:user_id => user.id)
+         @profile = Profile.where(user_id: user.id).first
+         if @profile.submitted.present?
+            user.profile.submitted
+         end
+      end
+    end
 
 
 
@@ -64,6 +81,8 @@ ActiveAdmin.register Mentee do
       end
     end
   end
- 
+
+#filter :select1, :label => 'Selection 1', :as  => :select
+
 
 end

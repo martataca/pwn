@@ -1,18 +1,15 @@
 <div>
-<% @selected1.each do |user| -%>
-    <li>
-      <%= render partial: "user", locals: { user: user } %>
-    </li>
+ <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+   mentees size:  <%= @mentees.size %>
+   selected size: <%= @selected.size %>
+      <% @selected.each do |profile| %>
+      <% if profile.select1 %>
+      <%= render partial: "selection1", locals: { profile: profile } %>
+      <% end %>
+      <% end %>
+</div>
 </div>
 
 
-def selection1
-  users.each do |user|
-    if user.type == "Mentee"
-    profiles.each do |profile|
-    if profile.years_experience >= 5
-      if profile.company == "Accenture"
-        @selected1
-
-
-end

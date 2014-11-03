@@ -382,9 +382,9 @@ class Profile < ActiveRecord::Base
      @percentage += 1
    end
    
-   if @found_profile.availability_obs.present?
-     @percentage += 1
-   end
+   #if @found_profile.availability_obs.present?
+   #  @percentage += 1
+   #end
    #31
    
    
@@ -468,7 +468,7 @@ class Profile < ActiveRecord::Base
    #43
    
    
-   @percentage = @percentage / 43 * 100   
+   @percentage = @percentage / 42 * 100   
    @found_profile.update_attribute(:percentage, @percentage)
    @percentage
  end

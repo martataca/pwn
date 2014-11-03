@@ -188,11 +188,17 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text    :sugestion_6 
      
       ##Final Submition
-      t.string    :submitted
+      t.boolean   :submitted,       null: false, default: false
+      t.boolean   :select1,         null: false, default: false
+      t.boolean   :select2,         null: false, default: false
      
       t.timestamps
     end
     
+
+
+
+
     
 	
     add_index :users, :firstName

@@ -11,10 +11,14 @@ class ProfilesController < ApplicationController
  end
 
  def create
+    @user = User.find(current_user.id)
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     if @profile.save
-     redirect_to @profile
+     if @profile.born_on.present?
+      @profile.age = age_at(Date.today, @profile.born_on)
+     end
+     render 'users/show'
     else
      render 'new'
     end
@@ -28,12 +32,15 @@ class ProfilesController < ApplicationController
   end
   
   def show
-     @user = User.find(current_user.id)
-     @profile = Profile.find(params[:id])
-     if @profile.born_on.present?
-      @profile.age = age_at(Date.today, @profile.born_on)
-     end
-     render 'users/show'
+    @user = User.find(current_user.id)
+    @profile = Profile.find(params[:id])
+    @profile.submitted = true
+
+    @select_res = select1?(@profile)
+    @profile.select1 =  @select_res
+    @profile.save
+
+    render 'show'
   end
   
   def update
@@ -46,10 +53,6 @@ class ProfilesController < ApplicationController
      end
   end
   
-  def submitted=(sub)
-    @submitted = @profile.submitted
-    @profile.update_attribute(:submitted, @submitted)
-  end
   
   def destroy
     @profile = Profile.find(params[:id])
@@ -62,7 +65,28 @@ def age_at(date, dob)
   month_diff = date.month - DateTime.strptime(dob, "%m/%d/%Y").month - (day_diff < 0 ? 1 : 0)
   date.year - DateTime.strptime(dob, "%m/%d/%Y").year - (month_diff < 0 ? 1 : 0)
 end
-  
+ 
+
+def available?(prof)
+ if prof.availability_8 == "Available" or prof.availability_12 == "Available" or prof.availability_18 == "Available"
+  return true
+ else
+  return false
+ end
+end
+
+
+def select1?(prof)
+  if prof.submitted
+    if prof.years_experience >= 5
+      return available?(prof)
+   end
+  end
+end
+
+
+
+
  private
   def profile_params
      params.require(:profile).permit(
@@ -175,7 +199,9 @@ end
       :sugestion_4,
       :sugestion_5,
       :sugestion_6,
-      :submitted
+      :submitted,
+      :select1,
+      :select2
 									 )
   end
 

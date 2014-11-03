@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'aboutus' => 'home#aboutus'
   get 'contacts' => 'home#contacts'
   get 'mentoring' => 'home#mentoring'
+ 
 
   
   # The priority is based upon order of creation: first created -> highest priority.

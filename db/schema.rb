@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.string   "surnames"
     t.integer  "age"
     t.string   "email"
-    t.string   "phone_number",                                             default: "", null: false
+    t.string   "phone_number",                                             default: "",    null: false
     t.string   "skype_name",                                               default: ""
     t.string   "linkedin_profile",                                         default: ""
     t.string   "picture"
@@ -158,7 +158,9 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "sugestion_4"
     t.text     "sugestion_5"
     t.text     "sugestion_6"
-    t.string   "submitted"
+    t.boolean  "submitted",                                                default: false, null: false
+    t.boolean  "select1",                                                  default: false, null: false
+    t.boolean  "select2",                                                  default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
