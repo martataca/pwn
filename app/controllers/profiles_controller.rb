@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     if @profile.save
       calc_age
-     redirect_to user_path
+     redirect_to user_path(@user.id)
     else
      render 'new'
     end
@@ -53,7 +53,7 @@ class ProfilesController < ApplicationController
      
      if @profile.update(profile_params)
       calc_age
-      redirect_to user_path
+      redirect_to user_path(@user.id)
      else
       render 'edit'
      end

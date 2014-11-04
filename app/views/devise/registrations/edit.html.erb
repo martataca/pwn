@@ -15,7 +15,14 @@
   <div><%= f.label "Last Name" %><br />
   <%= f.text_field :lastName %></div>
   <br />
-
+  <div><%= f.label "Sign as a ..." %><br />
+      <%= f.radio_button :type, "Mentee" %> &nbsp
+        <%= f.label :type, "Mentee", :value => "Mentee" %>&nbsp &nbsp &nbsp &nbsp &nbsp
+      <%= f.radio_button :type, "Mentor" %> &nbsp
+        <%= f.label :type_mentor, "Mentor",:value => "Mentor" %> &nbsp 
+  </div>
+  <br />
+  <br />
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

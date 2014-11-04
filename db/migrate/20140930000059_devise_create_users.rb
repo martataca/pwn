@@ -82,7 +82,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer	:number_subordinates
       t.text	:reporting_level
       t.text	:international_experience
-      t.text	:company
+      t.string	:company,                default: "Please select one"
       t.text      :company_other
       t.text	:company_title
       

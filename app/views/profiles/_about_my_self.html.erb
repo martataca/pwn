@@ -24,12 +24,14 @@
     <div>
       <%= p.label "Linkedin Profile", :class => "label_spec" %>
       <%= p.text_field :linkedin_profile, :class => "text_field_spec" %>
-    </div>      
-    <div>
+    </div> 
+    <br>
+    <br>
+    <div>     
       <%= p.label "Picture", :class => "label_spec" %>
-      <br/>
+      <small>photo with 200-500Kb (file name format example: Ana-Santos-mentee-photo-2014) </small><br>
       <%= p.file_field :picture, :value => "/uploads/profile/picture/1/DETAIL.jpg" %>
-    </div>  
+    </div>
     <br/>
     <hr>
   </div>
@@ -50,9 +52,9 @@
     <br/>    
     <% if current_user.type == "Mentor" %>
       <div class="field">
-        <%= p.label "Sex", :class => "label_spec" %>
+        <%= p.label "Sex:", :class => "short_label_spec" %>
         <%= p.radio_button :sex, 'Male' %> 
-        <%= p.label :sex_male, 'Male' %> &nbsp
+        <%= p.label :sex_male, 'Male' %> &nbsp &nbsp &nbsp &nbsp
         <%= p.radio_button :sex, 'Female' %> 
         <%= p.label :sex_female, 'Female' %>
       </div>
@@ -183,9 +185,12 @@
           <%= p.label "International Experience", :class => "long_label_spec" %>
           <%= p.text_field :international_experience, :class => "text_field_spec" %>
         </div>
+        <br/>
         <div>
-          <%= p.label "Curriculum Vitae", :class => "label_spec" %>
-          <br/>
+          <%= p.label "Curriculum Vitae", :class => "label_spec" %> 
+
+          <small>PDF format only (file name format example: Ana-Santos-mentee-cv-2014) </small><br>
+          
           <%= p.file_field :cv %>
         </div>  
         <br/>
@@ -196,7 +201,7 @@
       <div class="container", style="width: 70%; margin-left: 30%">
         <div>
           <%= p.label "Company", :class => "label_spec" %>
-          <%= p.select :company, options_for_select([@profile.company, '-----------', 'Please select one',
+          <%= p.select :company, options_for_select([@profile.company, '-----------',
             'ACCENTURE','ALLIANCE HEALTHCARE, S.A.',
             'ANA - AEROPORTOS DE PORTUGAL, S.A.',
             'AUTOEUROPA - AUTOMÓVEIS, LDA',

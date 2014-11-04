@@ -1,6 +1,5 @@
 ActiveAdmin.register Mentee do
 
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -13,7 +12,7 @@ ActiveAdmin.register Mentee do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-  
+
 
   index do
 
@@ -82,7 +81,19 @@ ActiveAdmin.register Mentee do
     end
   end
 
-#filter :select1, :label => 'Selection 1', :as  => :select
+filter :profile_select1, :label => 'Selection 1', :as  => :select
+
+filter :profile_submitted, :label => 'Application Submitted', :as  => :select
+
+filter :profile_company, :label => 'Company', :as  => :string
+
+
+  csv do
+    column("Name") { |mentee| mentee.profile.firstName }
+    column("Surnames") { |mentee| mentee.profile.surnames }
+    column("Phone Number") { |mentee| mentee.profile.phone_number }
+  end
+
 
 
 end

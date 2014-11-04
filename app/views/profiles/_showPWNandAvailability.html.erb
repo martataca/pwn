@@ -3,6 +3,12 @@
   <div>Member of PWN: 
   <b><%= @profile.member %></b>
   </div>
+
+  <% if @profile.member_years.present? %>
+  <div>Has been a member for: 
+  <b><%= @profile.member_years %></b> years
+  </div>
+  <% end %>
   
   <div>Participated in Mentoring Program:
   <b><%= @profile.previous_participation %></b>
@@ -19,6 +25,7 @@
    <li>8h30-10h30: <b><%= @profile.availability_8 %></b> </li>
    <li>12h30-14h30: <b><%= @profile.availability_12 %></b></li>
    <li>18h00-20h30: <b><%= @profile.availability_18 %></b></li>
+   <li>None: <b><%= @profile.availability_no %></b>
   </ul>
   </div>
 <br>
@@ -28,6 +35,10 @@
 <br>
   <div>Availability for Mentee buddy contacts:  
   <b><%= @profile.availability_buddy_contacts %></b>
+  </div>
+<br>
+  <div>No Availability:  
+  <b><%= @profile.availability_networking_no %></b>
   </div>
 <br>
   <% if @profile.availability_obs.present? %>
