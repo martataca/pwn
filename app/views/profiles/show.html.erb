@@ -1,3 +1,4 @@
+<% if @profile.submitted %>
 <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap.js"></script>
 <div class="container">
   <h2> <%=@user.firstName %> <%= @user.lastName %> <%= @select_res %></h2>
@@ -91,3 +92,4 @@
 </p>
 </div>
 </div>
+<% end %>

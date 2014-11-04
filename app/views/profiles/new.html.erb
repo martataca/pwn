@@ -14,12 +14,12 @@
       <div class="well">
         <% if @current_user.type == "Mentee" %>
           <h3>Thank you for taking your time to answer this mentee application form.<br/>
-            This form is an important tool to evaluate your fit with the Lisbon mentoring program and, if
-            you are selected for the program, will be essencial to match you with your mentor!<br/><br/></h3>
+           <small> This form is an important tool to evaluate your fit with the Lisbon mentoring program and, if
+            you are selected for the program, will be essencial to match you with your mentor!</small><br/><br/></h3>
         <% end %>
         <% if @current_user.type == "Mentor" %>
           <h3>Thank you for taking your time to answer this mentor profile and becoming part of our pool of mentors.<br />
-            Mentor selection will be based on the profiles requested by mentees each year and this profile is an essential tool for that selection. <br/><br/></h3>
+            <small>Mentor selection will be based on the profiles requested by mentees each year and this profile is an essential tool for that selection. </small><br/><br/></h3>
         <% end %>
       </div>
     </div>

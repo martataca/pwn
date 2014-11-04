@@ -25,7 +25,13 @@ class Profile < ActiveRecord::Base
    end
    
    
-   if @found_profile.born_on.present?
+   if @found_profile.born_on_day.present?
+     @percentage += 1
+   end
+   if @found_profile.born_on_month.present?
+     @percentage += 1
+   end
+   if @found_profile.born_on_year.present?
      @percentage += 1
    end
    if @found_profile.country_origin.present?
@@ -258,7 +264,7 @@ class Profile < ActiveRecord::Base
    #58
    
    
-   @percentage = @percentage / 58 * 100   
+   @percentage = @percentage / 60 * 100   
    @found_profile.percentage = @percentage
    @found_profile.save
    @percentage
@@ -287,7 +293,13 @@ class Profile < ActiveRecord::Base
    end
    
    
-   if @found_profile.born_on.present?
+   if @found_profile.born_on_day.present?
+     @percentage += 1
+   end
+   if @found_profile.born_on_month.present?
+     @percentage += 1
+   end
+   if @found_profile.born_on_year.present?
      @percentage += 1
    end
    if @found_profile.sex.present?
@@ -469,7 +481,7 @@ class Profile < ActiveRecord::Base
    #43
    
    
-   @percentage = @percentage / 42 * 100   
+   @percentage = @percentage / 44 * 100   
    @found_profile.percentage = @percentage
    @found_profile.save
    @percentage

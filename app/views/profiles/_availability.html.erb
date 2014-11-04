@@ -15,6 +15,10 @@
       <%= p.check_box :availability_18, {}, "Available", "Unavailable" %>
       <%= p.label "18:00 - ­20:30" %>
     </div>
+    <div>
+      <%= p.check_box :availability_no, {}, "Yes", "No" %>
+      <%= p.label "None" %>
+    </div>
     <br/>
     <hr>
   </div>
@@ -32,12 +36,16 @@
       </div>
       <br/>
     <% end %>
+    <div>
+      <%= p.check_box :availability_networking_no, {}, "Yes", "No" %>
+      <%= p.label "None" %>
+    </div>
     <br/>
     <hr>    
   </div>
 
   <h3 class="myform">12. Availability Observations <br> 
-    <small>Please note any preferences or constraints you would like us to be aware of in terms of schedule, meeting frequency, location, language etc. </small>
+    <h4>Please note any preferences or constraints you would like us to be aware of in terms of schedule, meeting frequency, location, language etc. </h4>
   </h3>
   <div class="container", style="width: 70%; margin-left: 30%">
     <%= p.text_area :availability_obs, :size => "70x8" %>
@@ -46,10 +54,12 @@
     <hr>
   </div>
 
-  <h3 class="myform">13. Sharing information <br> 
-    <small> The PWN Lisbon Mentoring Program promotes networking among participants in the program.
-      <br> Participation in the program entails sharing contact details with other participants and alumni of the program and allowing for photos of the events to be used to promote the program.</small>
-    </h3>
+  <h3 class="myform">13. Sharing information <br> </h3>
+     <h4> The PWN Lisbon Mentoring Program promotes networking among participants in the program.
+      <br> Participation in the program entails sharing contact details with other participants and alumni of the program and allowing for photos of the events to be used to promote the program. </h4>
+    
+    <br>
+    <br>
     <div class="container", style="width: 70%; margin-left: 30%">
       <div>
         <%= p.check_box :permission_benchmarking, {}, "Yes", "No"%>

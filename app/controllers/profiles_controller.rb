@@ -8,6 +8,8 @@ class ProfilesController < ApplicationController
   @profile = Profile.new
   @profile.user_id = current_user.id
   @profile.email = current_user.email
+  @profile.firstName = current_user.firstName
+  @profile.surnames = current_user.lastName
  end
 
  def create
@@ -15,10 +17,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     if @profile.save
-     if @profile.born_on.present?
-      @profile.age = age_at(Date.today, @profile.born_on)
-     end
-     render 'users/show'
+      calc_age
+     redirect_to user_path
     else
      render 'new'
     end
@@ -41,9 +41,10 @@ class ProfilesController < ApplicationController
       @select_res = select1?(@profile)
       @profile.select1 =  @select_res
       @profile.save
+      render 'show'
     end
-
-    render 'show'
+     
+    
   end
   
   def update
@@ -51,7 +52,8 @@ class ProfilesController < ApplicationController
      @profile = Profile.find(params[:id])
      
      if @profile.update(profile_params)
-      render  'users/show'
+      calc_age
+      redirect_to user_path
      else
       render 'edit'
      end
@@ -65,9 +67,9 @@ class ProfilesController < ApplicationController
   end
   
 def age_at(date, dob)
-  day_diff = date.day - DateTime.strptime(dob, "%m/%d/%Y").day
-  month_diff = date.month - DateTime.strptime(dob, "%m/%d/%Y").month - (day_diff < 0 ? 1 : 0)
-  date.year - DateTime.strptime(dob, "%m/%d/%Y").year - (month_diff < 0 ? 1 : 0)
+  day_diff = date.day - DateTime.strptime(dob, "%d/%m/%Y").day
+  month_diff = date.month - DateTime.strptime(dob, "%d/%m/%Y").month - (day_diff < 0 ? 1 : 0)
+  date.year - DateTime.strptime(dob, "%d/%m/%Y").year - (month_diff < 0 ? 1 : 0)
 end
  
 
@@ -88,6 +90,14 @@ def select1?(prof)
   end
 end
 
+def calc_age
+if @profile.born_on_day.present? and @profile.born_on_month.present? and @profile.born_on_year.present?
+  @born_on = ""
+  @born_on = @born_on + @profile.born_on_day.to_s + "/" + @profile.born_on_month.to_s + "/" + @profile.born_on_year.to_s
+  @profile.age = age_at(Date.today, @born_on)
+  @profile.save
+end
+end
 
 
 
@@ -104,6 +114,9 @@ end
       :picture,
       :cv,
       :born_on,
+      :born_on_day,
+      :born_on_month,
+      :born_on_year,
       :sex,
       :country_origin,
       :country_residence,
@@ -125,10 +138,11 @@ end
       :company_other,
       :company_title,
       :job_level,
-      :company_area,
+      :company_job_function,
       :company_sector,
       :company_nation,
       :member,
+      :member_years,
       :previous_participation,
       :previous_participation_other,
       :availability_8,
@@ -137,6 +151,8 @@ end
       :availability_monthly_breakfasts,
       :availability_buddy_contacts,
       :availability_obs,
+      :availability_no,
+      :availability_networking_no,
       :permission_benchmarking,
       :permission_promoting,
       :permission_other,

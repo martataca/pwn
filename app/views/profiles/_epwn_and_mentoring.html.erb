@@ -7,6 +7,10 @@
       <%= p.radio_button :member, "No" %>
       <%= p.label "No" %> 
     </p>
+    <div>
+      <%= p.label "If Yes please specify for how long (years):", :class => "long_label_spec" %>
+       <%= p.number_field :member_years, in: 0..100, step: 1, :class => "number_field_spec"%>
+    </div>
     <br/>
     <hr>
   </div>

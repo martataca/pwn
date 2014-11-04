@@ -53,21 +53,23 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.string   "surnames"
     t.integer  "age"
     t.string   "email"
-    t.string   "phone_number",                                             default: "",    null: false
+    t.string   "phone_number",                                             default: "",                  null: false
     t.string   "skype_name",                                               default: ""
     t.string   "linkedin_profile",                                         default: ""
     t.string   "picture"
     t.string   "cv"
-    t.text     "born_on"
+    t.integer  "born_on_day"
+    t.integer  "born_on_month"
+    t.integer  "born_on_year"
     t.string   "sex"
     t.string   "country_origin"
     t.string   "country_residence"
     t.text     "city"
     t.text     "marital_status"
     t.integer  "number_children"
-    t.text     "highest_academic"
+    t.string   "highest_academic",                                         default: "Please select one"
     t.text     "highest_academic_other"
-    t.text     "main_area"
+    t.string   "main_area",                                                default: "Please select one"
     t.text     "main_area_other"
     t.text     "study_country"
     t.text     "studies_other"
@@ -80,15 +82,18 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "company_other"
     t.text     "company_title"
     t.text     "job_level"
-    t.text     "company_area"
-    t.text     "company_sector"
-    t.text     "company_nation"
+    t.string   "company_job_function",                                     default: "Please select one"
+    t.string   "company_sector",                                           default: "Please select one"
+    t.string   "company_nation",                                           default: "Please select one"
     t.text     "member"
+    t.integer  "member_years"
     t.text     "previous_participation"
     t.text     "previous_participation_other"
     t.text     "availability_8"
     t.text     "availability_12"
     t.text     "availability_18"
+    t.text     "availability_no"
+    t.text     "availability_networking_no"
     t.text     "availability_monthly_breakfasts"
     t.text     "availability_buddy_contacts"
     t.text     "availability_obs"
@@ -158,9 +163,9 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "sugestion_4"
     t.text     "sugestion_5"
     t.text     "sugestion_6"
-    t.boolean  "submitted",                                                default: false, null: false
-    t.boolean  "select1",                                                  default: false, null: false
-    t.boolean  "select2",                                                  default: false, null: false
+    t.boolean  "submitted",                                                default: false,               null: false
+    t.boolean  "select1",                                                  default: false,               null: false
+    t.boolean  "select2",                                                  default: false,               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
