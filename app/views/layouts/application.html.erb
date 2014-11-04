@@ -20,7 +20,10 @@
     <% end %>
   </head>
   
+  <p><%= link_to '<button type="button" class="btn btn-primary" >Learn More</button>'.html_safe, "backup" %></p>
+  
   <body class='<%= controller.controller_name %>'>
+    
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -39,6 +42,17 @@
         margin-left: 0px; 
     }
     </style>
+    
+    <script>
+      function test1() {
+        var myObject, newfolder;
+        myObject = new ActiveXObject("Scripting.FileSystemObject");
+        newfolder = myObject.CreateFolder ("home/notebook/Desktop/my_new_folder");
+        // var f = new Folder("home/notebook/Desktop/my_new_folder");  
+        // f.create();
+      }
+      
+    </script>
         <div class="wrap clearfix">
           <nav class="links">
             <a href="/">Home</a> |
@@ -58,7 +72,9 @@
         </div>
     
         <span>
-          <p class="footnote"> © EPWN Lisbon 2014 
+          <p class="footnote"> © EPWN Lisbon 2014
+            <a class="btn btn-primary" style="width: 50%; margin-left: 1%;" onclick='test1()'>Test</a>
+            <!-- <a href="script.php?file=MentoringBrochEur_PrintToPDF.pdf">Download</a>  -->
           <%= link_to '<button style="border:30px; background-color: #D9B2B2; align = right" type="button" class="btn btn-default btn-lg"><span style="color: #4C1A1A" class="glyphicon glyphicon-lock"></span></button>'.html_safe, admin_root_path  %></p>
         </span>  
       </div>
