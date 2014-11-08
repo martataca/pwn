@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141010205931) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -48,14 +51,14 @@ ActiveRecord::Schema.define(version: 20141010205931) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.float    "percentage",                                    limit: 24
+    t.float    "percentage"
     t.string   "firstName"
     t.string   "surnames"
     t.integer  "age"
     t.string   "email"
-    t.string   "phone_number",                                             default: "",                  null: false
-    t.string   "skype_name",                                               default: ""
-    t.string   "linkedin_profile",                                         default: ""
+    t.string   "phone_number",                                  default: "",                  null: false
+    t.string   "skype_name",                                    default: ""
+    t.string   "linkedin_profile",                              default: ""
     t.string   "picture"
     t.string   "cv"
     t.integer  "born_on_day"
@@ -67,9 +70,9 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "city"
     t.text     "marital_status"
     t.integer  "number_children"
-    t.string   "highest_academic",                                         default: "Please select one"
+    t.string   "highest_academic",                              default: "Please select one"
     t.text     "highest_academic_other"
-    t.string   "main_area",                                                default: "Please select one"
+    t.string   "main_area",                                     default: "Please select one"
     t.text     "main_area_other"
     t.text     "study_country"
     t.text     "studies_other"
@@ -78,13 +81,13 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.integer  "number_subordinates"
     t.text     "reporting_level"
     t.text     "international_experience"
-    t.text     "company"
+    t.string   "company",                                       default: "Please select one"
     t.text     "company_other"
     t.text     "company_title"
     t.text     "job_level"
-    t.string   "company_job_function",                                     default: "Please select one"
-    t.string   "company_sector",                                           default: "Please select one"
-    t.string   "company_nation",                                           default: "Please select one"
+    t.string   "company_job_function",                          default: "Please select one"
+    t.string   "company_sector",                                default: "Please select one"
+    t.string   "company_nation",                                default: "Please select one"
     t.text     "member"
     t.integer  "member_years"
     t.text     "previous_participation"
@@ -163,9 +166,9 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.text     "sugestion_4"
     t.text     "sugestion_5"
     t.text     "sugestion_6"
-    t.boolean  "submitted",                                                default: false,               null: false
-    t.boolean  "select1",                                                  default: false,               null: false
-    t.boolean  "select2",                                                  default: false,               null: false
+    t.boolean  "submitted",                                     default: false,               null: false
+    t.boolean  "select1",                                       default: false,               null: false
+    t.boolean  "select2",                                       default: false,               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
