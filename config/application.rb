@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 config.assets.initialize_on_precompile = false
-
+config.serve_static_assets = true
 module Pwn
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
