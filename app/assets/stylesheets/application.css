@@ -12,14 +12,14 @@
  *
  *= require_tree .
  *= require_self
- * 
+ *= require_self
+*= require_directory
+*= require bootstrap
+*= require twitter/bootstrap
+*= require bootstrap-datepicker3
+*= require twitter/bootstrap/responsive 
  */
-= require_self
-= require_directory
-= require bootstrap
-= require twitter/bootstrap
-= require bootstrap-datepicker3
-= require twitter/bootstrap/responsive
+
 
 /* Footer */
 .facebook_round_gray_32{ background:url(facebook-4-32.png) no-repeat; }
