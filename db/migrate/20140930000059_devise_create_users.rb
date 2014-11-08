@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true, unique: true 
 
       ##Vars for Selection
-      t.float   :percentage
+      t.float   :percentage,              null: false, default: 0
       
 
       

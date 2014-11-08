@@ -74,10 +74,10 @@ end
  
 
 def available?(prof)
- if prof.availability_8 == "Available" or prof.availability_12 == "Available" or prof.availability_18 == "Available"
-  return true
- else
+ if prof.availability_no == "Yes"
   return false
+ else
+  return true
  end
 end
 

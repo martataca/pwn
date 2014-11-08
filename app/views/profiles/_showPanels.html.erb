@@ -1,7 +1,7 @@
 <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap.js"></script>
 <div class="col-md-9 personal-info">
-  <% if current_user.type == "Mentee"%>
-    <% if @profile.application_percentage(@profile).floor.to_i < 100%>
+
+    <% if @profile.percentage.floor.to_i < 100%>
       <div class="alert alert-warning alert-dismissable">
         <a class="panel-close close" data-dismiss="alert">×</a> 
         <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
@@ -12,19 +12,7 @@
         Your application is now complete. You can now <strong>submit</strong> it.
       </div>
     <% end %>
-  <% else %>
-    <% if @profile.application_percentage_mentor(@profile).floor.to_i < 100%>
-      <div class="alert alert-warning alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a> 
-        <strong>Warning:</strong> You can only <strong>submit</strong> your application when it is complete.
-      </div>
-    <% else %>
-      <div class="alert alert-success alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a> 
-        Your application is now complete. You can now <strong>submit</strong> it.
-      </div>
-    <% end %>
-  <% end %>
+    
 
   <div class="panel panel-default">
     <div class="panel-heading clearfix">
@@ -99,19 +87,11 @@
         </div>
       </div>
       
-      <% if current_user.type == "Mentee"%>
-        <% if @profile.application_percentage(@profile).floor.to_i == 100%>
+        <% if @profile.percentage.floor.to_i == 100%>
           <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
             <a class="btn btn-primary" style="width: 20%; margin-left: 1%;" data-toggle="modal" data-target="#myModal">Submit Application</a>
           </div>
         <% end %>
-      <% else %>
-        <% if @profile.application_percentage_mentor(@profile).floor.to_i == 100%>
-          <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
-            <a class="btn btn-primary" style="width: 20%; margin-left: 1%;" data-toggle="modal" data-target="#myModal">Submit Application</a>
-          </div>
-        <% end %>
-      <% end %>
       
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -126,9 +106,9 @@
             </div>
             <div class="modal-footer">
               <div style="text-align: center; margin-top: 2%; margin-bottom: 2%;"> 
-                <%= link_to '<button type="button" class="btn btn-primary" value="Yes"> </button>'.html_safe, profile_path(@profile.id)  %>               
+                <%= link_to '<button type="button" class="btn btn-primary" style="background-color: green;">Yes </button>'.html_safe, profile_path(@profile.id)  %>               
                  
-                <a class="btn btn-default" style="width: 10%; margin-left: 1%;" data-dismiss="modal">No</a>
+                <a class="btn btn-primary" style="width: 10%; margin-left: 1%; background-color: red;" data-dismiss="modal">No</a>
               </div>
             </div>
           </div>
