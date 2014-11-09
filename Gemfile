@@ -28,10 +28,18 @@ gem 'cancan'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-gem 'pg'
+
 
 group :production do
   gem 'rails_12factor'
+  gem  'mysql2'
+
+end
+
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 
 end
 # Use jquery as the JavaScript library

@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true, unique: true 
 
       ##Vars for Selection
-      t.float   :percentage,              null: false, default: 0
+      t.float   :percentage,              null: false, default: 1.0
       
 
       
@@ -136,7 +136,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text    :mentoring_in_other_one
 
       t.text    :mentoring_in_leadership
-      t.text    :mentoring_in_change
+      t.text    :mentoring_in_change_mng
       t.text    :mentoring_in_conflict
       t.text    :mentoring_in_people
       t.text    :mentoring_in_political
@@ -180,6 +180,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text    :heard_about_program_in_the_press
       t.text    :heard_about_program_from_other_specified
       t.text    :mentee_fee_aware
+      t.text    :mentoring_contract_aware
      
       ##Mentor's own fields
       t.text    :act_as_sounding_board

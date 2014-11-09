@@ -20,9 +20,6 @@
 
 
 /* Footer */
-.facebook_round_gray_32{ background:url(facebook-4-32.png) no-repeat; }
-.linkedin_round_gray_32{ background:url(linkedin-4-32.png) no-repeat; }
-
 
 
 .footer .wrap {
@@ -108,7 +105,7 @@
 }
 
 .footnote {
-  margin-top: 40px;
+  margin-top: 2%;
   margin-left: 7.5%;
   width: 12%;
   font: 1.2em/1 'NewsGothicCondensed';

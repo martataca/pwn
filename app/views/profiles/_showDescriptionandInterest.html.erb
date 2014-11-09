@@ -2,69 +2,146 @@
 
   <div>Description of my career: 
   <b><%= @profile.career_description %></b>
+  <% if @profile.career_description == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 <br>
 <hr>
 <br>
   <div>My Strengths:
   <ol>
-  <li><b><%= @profile.strengh_1 %></b></li>
-  <li><b><%= @profile.strengh_2 %></b></li>
-  <li><b><%= @profile.strengh_3 %></b></li>
+  <li><b><%= @profile.strengh_1 %></b>
+    <% if @profile.strengh_1 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.strengh_2 %></b>  
+  <% if @profile.strengh_2 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.strengh_3 %></b>
+    <% if @profile.strengh_3 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
   </ol>
   </div>
 
-  <div>Interests and characteristics that describe me best:  
+<br>
+<br>
+
+  <div>Interests and characteristics that describe me best:
   <b><%= @profile.interests_and_characteristics %></b>
+  <% if @profile.interests_and_characteristics == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
 
 <hr>
   
-  <div>Motivations to be on the PWN Mentoring program:  
+  <div>Motivations to be on the PWN Mentoring program: <br> 
   <b><%= @profile.motivations %></b>
+  <% if @profile.motivations == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
-
+<br>
+  <% if @user.type == "Mentee" %>
   <div>My Goals in participation on the Mentoring program:
   <ol>
-  <li><b><%= @profile.goal_1 %></b></li>
-  <li><b><%= @profile.goal_2 %></b></li>
-  <li><b><%= @profile.goal_3 %></b></li>
+  <li><b><%= @profile.goal_1 %></b>
+  <% if @profile.goal_1 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.goal_2 %></b>
+  <% if @profile.goal_2 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.goal_3 %></b>
+  <% if @profile.goal_3 == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %></li>
   </ol>
   </div>
+  <% end %>
 
-  <div>Who do I want to be:  
+  <% if @user.type == "Mentor" %>
+  <div> What I would like to get from my participation as a Mentor: <br>
+  <% else %> 
+  <div>Who do I want to be: <br>
+  <% end %> 
   <b><%= @profile.aspirations %></b>
+  <% if @profile.aspirations == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
+
 <br>
+  
+  <% if @user.type == "Mentee" %>
   <div>What do I want to be known for:  
   <b><%= @profile.want_to_be_known_for %></b>
-  </div>
-<br>
-  <div>Main area in which I seek a mentor:  
-  <b><%= @profile.want_to_be_known_for %></b>
-  </div> 
-  <% if @profile.mentoring_in_other_one.present? %>
-  <div>Other:<b><%= @profile.mentoring_in_other_one %></b>
+  <% if @profile.want_to_be_known_for == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   <% end %>
+
+<br>
+
+  <% if @user.type == "Mentor" %>
+  <div>Main area I would like to mentor:
+  <% else %>
+  <div>Main area in which I seek a mentor:
+  <% end %>  
+  <b><%= @profile.mentoring_in %></b>
+  <% if !@profile.mentoring_in.present? && !@profile.mentoring_in_other_one.present? %>
+  <span class="label label-danger">missing</span>
+  <% end %>
+  </div> 
+      <% if !@profile.mentoring_in_other_one.present? and @profile.mentoring_in == "Other" %>
+      <div>Other:
+      <span class="label label-danger">missing</span>
+      </div>
+      <% else %>
+          <% if @profile.mentoring_in_other_one.present? %>
+          <div>Other:
+          <b><%= @profile.mentoring_in_other_one %></b>
+          </div>
+          <% end %>
+      <% end %>
   
   <br>
 
+  <% if @user.type == "Mentor" %>
+  <div>Specific areas which I would like to mentor:
+  <% else %>
   <div>Specific areas in which I seek a mentor:
+  <% end %>
   <ul>
-  <li>Leadership Development: <b><%= @profile.mentoring_in_leadership %></b></li>
-  <li>Change Management: <b><%= @profile.mentoring_in_change %></b></li>
-  <li>Conflict management: <b><%= @profile.mentoring_in_conflict %></b></li>
-  <li>People Management: <b><%= @profile.mentoring_in_people %></b></li>
-  <li>Political acumen: <b><%= @profile.mentoring_in_political %></b></li>
-  <li>Strategic Thinking: <b><%= @profile.mentoring_in_strategic %></b></li>
-  <li>Cross­-Cultural Working Practices: <b><%= @profile.mentoring_in_cross_cultural %></b></li>
-  <li>Networking: <b><%= @profile.mentoring_in_networking %></b></li>
+  <% if @profile.mentoring_in_leadership == "Yes" %><li> <b>Leadership Development</b></li> <% end %>
+  <% if @profile.mentoring_in_change_mng == "Yes" %><li> <b>Change Management</b></li> <% end %>
+  <% if @profile.mentoring_in_conflict == "Yes" %><li> <b>Conflict management</b></li> <% end %>
+  <% if @profile.mentoring_in_people == "Yes" %><li> <b>People Management</b></li> <% end %>
+  <% if @profile.mentoring_in_political == "Yes" %><li> <b>Political acumen</b></li> <% end %>
+  <% if @profile.mentoring_in_strategic == "Yes" %><li> <b>Strategic Thinking</b></li> <% end %>
+  <% if @profile.mentoring_in_cross_cultural == "Yes" %><li> <b>Cross­-Cultural Working Practices</b></li> <% end %>
+  <% if @profile.mentoring_in_networking == "Yes" %><li> <b>Networking</b></li> <% end %>
   </ul>
+  <% if @profile.mentoring_in_leadership == "No" &&
+        @profile.mentoring_in_change_mng == "No" &&
+        @profile.mentoring_in_conflict == "No" &&
+        @profile.mentoring_in_people == "No" &&
+        @profile.mentoring_in_political == "No" &&
+        @profile.mentoring_in_strategic == "No" &&
+        @profile.mentoring_in_cross_cultural == "No" &&
+        @profile.mentoring_in_networking == "No" &&
+        @profile.mentoring_in_other_two == "" %>
+   <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   
-  <% if @profile.mentoring_in_other_one.present? %>
+  <% if @profile.mentoring_in_other_two.present? %>
   <div>Other: <b><%= @profile.mentoring_in_other_two %></b>
   </div>
   <% end %>

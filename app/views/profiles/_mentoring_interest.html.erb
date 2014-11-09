@@ -61,24 +61,28 @@
   <% end %>
   <div class="container", style="width: 70%; margin-left: 30%">
     <div>
-      <%= p.radio_button :mentoring_in, 'career orientation' %>
+      <%= p.radio_button :mentoring_in, 'Career orientation' %>
       <%= p.label "Career Orientation, goal setting and advancement" %>
     </div>
     <div>
-      <%= p.radio_button :mentoring_in, 'career transition' %>
+      <%= p.radio_button :mentoring_in, 'Career transition' %>
       <%= p.label "Career Transition, changing jobs (sector, function and/or area)" %>
     </div>
     <div>
-      <%= p.radio_button :mentoring_in, 'reintegration' %>
+      <%= p.radio_button :mentoring_in, 'Reintegration' %>
       <%= p.label "Reintegration" %>
     </div> 
     <div>
-      <%= p.radio_button :mentoring_in, 'entreperneurship' %>
+      <%= p.radio_button :mentoring_in, 'Entreperneurship' %>
       <%= p.label "Entrepreneurship" %>
     </div>
     <div>
-      <%= p.radio_button :mentoring_in, 'work life balance' %>
+      <%= p.radio_button :mentoring_in, 'Work Life Balance' %>
       <%= p.label "Work-life Balance" %>
+    </div>
+    <div>
+      <%= p.radio_button :mentoring_in, 'Other' %>
+      <%= p.label "Other" %>
     </div>
     <div>
       <%= p.label "Other (please specify)"%>
@@ -100,7 +104,7 @@
       <%= p.label "Leadership Development" %>
     </div>
     <div>
-      <%= p.check_box :mentoring_in_change, {}, "Yes", "No" %>
+      <%= p.check_box :mentoring_in_change_mng, {}, "Yes", "No" %>
       <%= p.label "Change Management" %>
     </div>
     <div>

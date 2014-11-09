@@ -191,7 +191,7 @@ def application_percentage(id)
    end
    
    if (@found_profile.mentoring_in_leadership.present? && @found_profile.mentoring_in_leadership != "No") or
-      (@found_profile.mentoring_in_change.present? && @found_profile.mentoring_in_change != "No") or
+      (@found_profile.mentoring_in_change_mng.present? && @found_profile.mentoring_in_change_mng != "No") or
       (@found_profile.mentoring_in_conflict.present? && @found_profile.mentoring_in_conflict != "No") or
       (@found_profile.mentoring_in_people.present? && @found_profile.mentoring_in_people != "No") or
       (@found_profile.mentoring_in_political.present? && @found_profile.mentoring_in_political != "No") or

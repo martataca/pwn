@@ -5,10 +5,16 @@
 
   <div>Name: 
   <b><%= @profile.firstName %></b>
-  </div>
+  <% if @profile.firstName == "" %>
+   <span class="label label-danger">missing</span>
+   <% end %>
+   </div>
   
   <div>Surname(s):
   <b><%= @profile.surnames %></b>
+  <% if @profile.surnames == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   
   <div>Email: 
@@ -17,6 +23,9 @@
 
   <div>Phone:  
   <b><%= @profile.phone_number %></b>
+  <% if @profile.phone_number == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Skype: 
@@ -29,9 +38,21 @@
  
 <hr>
 
+  <div>Age:
   <% if @profile.age.present? %>
-  <div>Age:  
   <b><%= @profile.age %></b>
+  <% if @profile.age == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
+  </div>
+  <% end %>
+
+  <% if @user.type == "Mentor" %>
+  <div>Sex:  
+  <b><%= @profile.sex %></b>
+  <% if @profile.sex == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   <% end %>
 
@@ -41,6 +62,9 @@
   <% @origin = Carmen::Country.coded(@profile.country_origin) %>
   <b><%= @origin.name %></b>
   <% end %>
+  <% if @profile.country_origin == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Living in:  
@@ -49,17 +73,28 @@
   <% if @profile.city.present? %>
   <% @city = @residence.subregions.coded(@profile.city) %> 
   <b><%= @city.name %> ,
+  <% else %>
+  <span class="label label-danger">missing</span>
   <% end %>
   <%= @residence.name %></b>
+  <% else %>
+  <span class="label label-danger">missing</span>
   <% end %>
+
   </div>
 
   <div>Marital Status:  
   <b><%= @profile.marital_status %></b>
+  <% if @profile.marital_status == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Number of Children:  
   <b><%= @profile.number_children %></b>
+  <% if @profile.number_children == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
 
@@ -67,17 +102,27 @@
       <div class="col-md-6">
         
   <div>Main Area of Studies:  
+  <% if @profile.main_area == "Please select one" or @profile.main_area == "-----------" %>
+  <span class="label label-danger">missing</span>
+  <% else %>
   <b><%= @profile.main_area %></b>
+  <% end %>
   </div>
 
   <div>Highest academic title:  
+  <% if @profile.highest_academic == "Please select one" or @profile.highest_academic == "-----------" %>
+  <span class="label label-danger">missing</span>
+  <% else %>
   <b><%= @profile.highest_academic %></b>
+  <% end %>
   </div>
    
   <div>Country of Main Studies:  
   <% if @profile.study_country.present? %>
   <% @studycountry = Carmen::Country.coded(@profile.study_country) %>
   <b><%= @studycountry.name %></b>
+  <% else %>
+  <span class="label label-danger">missing</span>
   <% end %>
   </div>
   <% if @profile.studies_other.present? %>
@@ -85,11 +130,15 @@
   </div>
   <% end %>   
 
-  <div>CV: 
+  <div>CV:
+  <% if !@profile.cv.present? %>
+  <span class="label label-danger">missing</span>
+  <% else %>
   <% if @profile.cv.present? %>
   <a target="_blank" href="<%= @profile.cv.url %> ">
   <b> Resumé attached </b></a>
-  <% end %> 
+  <% end %>
+  <% end %>
   </div>
 
 <hr>
@@ -97,46 +146,103 @@
 
   <div>Years of Professional Experience:  
   <b><%= @profile.years_experience %></b>
+  <% if @profile.years_experience == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   
   <div>International Experience:  
   <b><%= @profile.international_experience %></b>
+  <% if @profile.international_experience == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
-  <div>Company:  
-  <b><%= @profile.company %></b>
+  <div>Company:
+  <% if @profile.company == "Please select one" or @profile.company == "-----------" %>
+    <span class="label label-danger">missing</span>
+  <% else %>  
+    <b><%= @profile.company %></b>
+  <% end %>
   </div>
-  <% if @profile.company_other.present? %>
-  <div>Other:  <b><%= @profile.company_other %></b>
-  </div>
+        <% if @profile.company_other.present? && @profile.company_other != "" %>
+          <div>
+          <ul>
+          <li>Other: <b><%= @profile.company_other %></b>
+          </li>
+          </ul>
+          </div>
+      <% else %>
+          <% if !@profile.company_other.present? && @profile.company == "Other" %>
+          <div>
+          <ul>
+          <li>Other:
+          <span class="label label-danger">missing</span>
+          </li>
+          </ul>
+          </div>
+          <% end %>
   <% end %>
 
   <div>Job Title:  
   <b><%= @profile.company_title %></b>
+  <% if @profile.company_title == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Years in the company:  
   <b><%= @profile.years_in_company %></b>
+  <% if @profile.years_in_company == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Number of direct subordinates:  
   <b><%= @profile.number_subordinates %></b>
+  <% if @profile.number_subordinates == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Company:
   <ul>
-  <li>Job Function:<b><%= @profile.company_job_function %></b></li>
-  <li>Sector:<b><%= @profile.company_sector %></b></li>
-  <li>Nationality: <b><%= @profile.company_nation %></b></li>
+  <li>Job Function: 
+  <% if @profile.company_job_function == "Please select one" or @profile.company_job_function == "-----------" %>
+  <span class="label label-danger">missing</span>
+  <% else %>
+  <b><%= @profile.company_job_function %></b>
+  <% end %>
+  </li>
+  <li>Sector: 
+  <% if @profile.company_sector == "Please select one" or @profile.company_sector == "-----------" %>
+  <span class="label label-danger">missing</span>
+  <% else %>
+  <b><%= @profile.company_sector %></b>
+  <% end %>
+  </li>
+  <li>Nationality: 
+  <% if @profile.company_nation == "Please select one" or @profile.company_nation == "-----------" %>
+  <span class="label label-danger">missing</span>
+  <% else %>
+  <b><%= @profile.company_nation %></b>
+  <% end %>
+  </li>
   </ul>
   </div>
 
   <div>Job Level:  
   <b><%= @profile.job_level %></b>
+  <% if @profile.job_level == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
   <div>Level you report to:  
   <b><%= @profile.reporting_level %></b>
+  <% if @profile.reporting_level == "" %>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
 
 

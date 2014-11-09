@@ -1,7 +1,17 @@
 <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+
 <div class="container">
   <h1>Your Application</h1>
   <hr>
+  <% if current_user.type == "Mentee" %>
   <div class="row">
     <!-- left column -->
     <div class="col-md-3">
@@ -15,22 +25,15 @@
     </div>
     <!-- edit form column -->
     <div class="col-md-9 personal-info">
+
       <h3>Thank you for taking your time to answer this mentee application form.<br/>
-        This form is an important tool to evaluate your fit with the Lisbon mentoring program and, if
-        you are selected for the program, will be essencial to match you with your mentor!<br/><br/></h3>
+        <small>This form is an important tool to evaluate your fit with the Lisbon mentoring program and, if
+        you are selected for the program, will be essencial to match you with your mentor!</small><br/><br/></h3>
       </div>
     </div>
-    <!DOCTYPE html>
-  <html>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/datepicker.css"> 
-      <link rel="stylesheet" href="css/bootstrap.css">
-    </head>
-    <body>
+
       <ul class="nav nav-tabs">
-        <% if current_user.type == "Mentee" %>
+        
           <li class="active" style="word-wrap: break-word; width: 12.5%;">
             <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </li>
@@ -57,6 +60,26 @@
           </li>
         <% end %>
         <% if current_user.type == "Mentor" %>
+        <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+      <% if @profile.picture.present? %>
+        <%= image_tag(@profile.picture_url, :width => 150)%>
+      <% else %>
+        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar" style="margin-top: 15px;">
+      <% end %>
+      </div>
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+
+      <h3>Thank you for taking your time to answer this mentor profile and becoming part of our pool of mentors.<br>
+        <small>Mentor selection will be based on the profiles requested by mentees each year and this profile is an essential tool for that selection.</small><br/><br/></h3>
+      </div>
+    </div>
+        <ul class="nav nav-tabs">
+
           <li class="active" style="word-wrap: break-word; width: 14.2%;">
             <a href="#1" data-toggle="tab">About Myself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </li>
@@ -90,14 +113,6 @@
         </div>
                  
         <%= form_for @profile do |p| %>
-          <!-- <div style="width: 75%; margin-left: 25%">
-            <%= p.label "Your application is at 0%", :id => "progresstext", :class => "long_label_spec"%>
-            <div class="progress progress-striped">
-              <div id="progressbar" class="progress-bar" style="width: 0%;">
-                <span class="sr-only">60% Complete</span>
-              </div>
-            </div>
-          </div> -->
             
           <div class="tab-content">
             <% if current_user.type == "Mentee" %>
@@ -178,65 +193,11 @@
               $('.nav-tabs > .active').prev('li').find('a').trigger('click');
             }
             
-            // $('#btnNext').click(function() {
-              // $('.nav-tabs > .active').next('li').find('a').trigger('click');
-            // });
-//             
-            // $('#btnPrevious').click(function() {
-              // $('.nav-tabs > .active').prev('li').find('a').trigger('click');
-            // });
-  
-            function verifyPercentage() {
-              var percentage = 0.0;
-               
-              var source = document.getElementById("namebox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("emailbox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("phonebox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("skypebox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("linkedinbox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("picturebox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-               
-              source = document.getElementById("cvbox").value;
-              if(source !== "") {
-                percentage += 1; 
-              }
-              
-              percentage = Math.floor(percentage / 7 * 100);
-               
-              source = document.getElementById("progresstext").innerHTML = "Your application is at " + percentage + "%";
-              document.getElementById('progressbar').setAttribute("style","width: " + percentage + "%");
-               
-            }
-            
-            verifyPercentage();
              
           </script>
                 
         <% end %>
       </div>
+      </div>
     </body>
   </html>
-</div>

@@ -20,7 +20,7 @@
     <% end %>
   </head>
   
-  <p><%= link_to '<button type="button" class="btn btn-primary" >Backup</button>'.html_safe, "backup" %></p>
+  
   
   <body class='<%= controller.controller_name %>'>
     
@@ -48,8 +48,6 @@
         var myObject, newfolder;
         myObject = new ActiveXObject("Scripting.FileSystemObject");
         newfolder = myObject.CreateFolder ("home/notebook/Desktop/my_new_folder");
-        // var f = new Folder("home/notebook/Desktop/my_new_folder");  
-        // f.create();
       }
       
     </script>
@@ -64,16 +62,15 @@
           </nav>
       
           <nav class="social">      
-            <a target="_blank" class="links" href="https://www.facebook.com/pages/EPWN-Lisbon/127442827333598"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/facebook-4-l.png"  > </a>
-            <a target="_blank" class="links" href="http://www.linkedin.com/groups/PWN-Lisbon-3754527?gid=3754527&trk=anet_about_guest-h-parent_group"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/linkedin-4-l.png"  > </a>
-            <a target="_blank" class="links" href="https://twitter.com/EPWNLisbon"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/twitter-4-l.png"> </a>
-            <a target="_blank" class="links" href="https://www.youtube.com/user/EPWNLisbon"> <img src="http://www.iconsdb.com/icons/preview/color/4C1A1A/youtube-4-l.png"> </a>
+            <a target="_blank" class="links" href="https://www.facebook.com/pages/EPWN-Lisbon/127442827333598"> <img src="../images/facebook.png"  > </a>
+            <a target="_blank" class="links" href="http://www.linkedin.com/groups/PWN-Lisbon-3754527?gid=3754527&trk=anet_about_guest-h-parent_group"> <img src="../images/linkedin.png"  > </a>
+            <a target="_blank" class="links" href="https://twitter.com/EPWNLisbon"> <img src="../images/twitter.png"> </a>
+            <a target="_blank" class="links" href="https://www.youtube.com/user/EPWNLisbon"> <img src="../images/youtube.png"> </a>
           </nav>
         </div>
     
         <span>
           <p class="footnote"> © EPWN Lisbon 2014
-            <!-- <a href="script.php?file=MentoringBrochEur_PrintToPDF.pdf">Download</a>  -->
           <%= link_to '<button style="border:30px; background-color: #D9B2B2; align = right" type="button" class="btn btn-default btn-lg"><span style="color: #4C1A1A" class="glyphicon glyphicon-lock"></span></button>'.html_safe, admin_root_path  %></p>
         </span>  
       </div>

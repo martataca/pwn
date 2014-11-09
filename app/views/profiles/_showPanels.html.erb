@@ -12,17 +12,11 @@
         Your application is now complete. You can now <strong>submit</strong> it.
       </div>
     <% end %>
-    
 
-  <div class="panel panel-default">
-    <div class="panel-heading clearfix">
-      <p>
-        <h2 class="panel-title pull-left" style="padding-top: 7.5px;">Application</h2>
+       <p> <h2> Your Application</h2>
         <div align="right">
-          <%= link_to '<button style=" background-color: #fff" type="button" class="btn btn-default btn-xs"><span  class="glyphicon glyphicon-pencil"></span></button>'.html_safe, edit_profile_path(@profile.id)  %></p> 
-        </div>
-      </p>
-    </div>
+          <%= link_to '<button type="button" class="btn btn-primary btn"><span  class="glyphicon glyphicon-pencil"></span> <b> Edit Application</b></button>'.html_safe, edit_profile_path(@profile.id)  %>
+        </div> </p>
 
     <div class="panel-body">
       <div class="panel-group" id="accordion">
@@ -114,6 +108,10 @@
           </div>
         </div>
       </div>
+
+      <br>
+      <br>
+      <br>
     </div>
   </div>
-</div>
+
