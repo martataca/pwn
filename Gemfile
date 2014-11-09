@@ -30,8 +30,7 @@ gem 'wkhtmltopdf-binary'
 
 
 
-group :production do
-  gem 'rails_12factor'
+group :development do
   gem  'mysql2'
 
 end
