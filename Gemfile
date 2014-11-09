@@ -32,6 +32,7 @@ gem 'wkhtmltopdf-binary'
 
 group :development do
   gem  'mysql2'
+  gem 'foreman'
 
 end
 
