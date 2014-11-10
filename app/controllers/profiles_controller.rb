@@ -41,7 +41,12 @@ class ProfilesController < ApplicationController
       @profile.submitted = true
       @select_res = select1?(@profile)
       @profile.select1 =  @select_res
-      @profile.save
+      if @profile.select1 == true
+         @profile.save
+      else
+        @profile.select1 = false
+        @profile.save
+      end
       render 'show'
     end
      
