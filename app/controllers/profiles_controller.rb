@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
       
-    if @profile.percentage == 100.0
+    if @profile.percentage == 100
       @profile.submitted = true
       @select_res = select1?(@profile)
       @profile.select1 =  @select_res
