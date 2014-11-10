@@ -2,7 +2,7 @@
 
   <div>Description of my career: 
   <b><%= @profile.career_description %></b>
-  <% if @profile.career_description == "" %>
+  <% if !@profile.career_description.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -12,15 +12,15 @@
   <div>My Strengths:
   <ol>
   <li><b><%= @profile.strengh_1 %></b>
-    <% if @profile.strengh_1 == "" %>
+    <% if !@profile.strengh_1.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
-  <li><b><%= @profile.strengh_2 %></b>  
-  <% if @profile.strengh_2 == "" %>
+  <li><b><%= @profile.strengh_2%></b>  
+  <% if !@profile.strengh_2.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li><b><%= @profile.strengh_3 %></b>
-    <% if @profile.strengh_3 == "" %>
+    <% if !@profile.strengh_3.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   </ol>
@@ -31,7 +31,7 @@
 
   <div>Interests and characteristics that describe me best:
   <b><%= @profile.interests_and_characteristics %></b>
-  <% if @profile.interests_and_characteristics == "" %>
+  <% if !@profile.interests_and_characteristics.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -41,7 +41,7 @@
   
   <div>Motivations to be on the PWN Mentoring program: <br> 
   <b><%= @profile.motivations %></b>
-  <% if @profile.motivations == "" %>
+  <% if !@profile.motivations.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -50,15 +50,15 @@
   <div>My Goals in participation on the Mentoring program:
   <ol>
   <li><b><%= @profile.goal_1 %></b>
-  <% if @profile.goal_1 == "" %>
+  <% if !@profile.goal_1.present?%>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li><b><%= @profile.goal_2 %></b>
-  <% if @profile.goal_2 == "" %>
+  <% if !@profile.goal_2.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li><b><%= @profile.goal_3 %></b>
-  <% if @profile.goal_3 == "" %>
+  <% if !@profile.goal_3.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   </ol>
@@ -71,7 +71,7 @@
   <div>Who do I want to be: <br>
   <% end %> 
   <b><%= @profile.aspirations %></b>
-  <% if @profile.aspirations == "" %>
+  <% if !@profile.aspirations.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -81,7 +81,7 @@
   <% if @user.type == "Mentee" %>
   <div>What do I want to be known for:  
   <b><%= @profile.want_to_be_known_for %></b>
-  <% if @profile.want_to_be_known_for == "" %>
+  <% if !@profile.want_to_be_known_for.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>

@@ -5,26 +5,26 @@
   <br><small> Options:</small>
   <ol>
   <li>Function: <b><%= @profile.ideal_mentor_function_1 %>  </b> 
-  <% if @profile.ideal_mentor_function_1 == "" %>
+  <% if !@profile.ideal_mentor_function_1.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   Sector: <b><%= @profile.ideal_mentor_sector_1 %> </b>
-  <% if @profile.ideal_mentor_sector_1 == "" %>
+  <% if !@profile.ideal_mentor_sector_1.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li>Function: <b><%= @profile.ideal_mentor_function_2 %>  </b> 
-  <% if @profile.ideal_mentor_function_2 == "" %>
+  <% if !@profile.ideal_mentor_function_2.present? %>
   <span class="label label-danger">missing</span>
   <% end %>Sector: <b><%= @profile.ideal_mentor_sector_2 %> </b>
-    <% if @profile.ideal_mentor_sector_2 == "" %>
+    <% if !@profile.ideal_mentor_sector_2.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li>Function: <b><%= @profile.ideal_mentor_function_3 %>  </b> 
-  <% if @profile.ideal_mentor_function_3 == "" %>
+  <% if !@profile.ideal_mentor_function_3.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   Sector: <b><%= @profile.ideal_mentor_sector_3 %> </b>
-  <% if @profile.ideal_mentor_sector_1 == "" %>
+  <% if !@profile.ideal_mentor_sector_1.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   </ol>
@@ -40,15 +40,15 @@
   <div>Ideal Mentor strengths:
   <ol>
   <li><b><%= @profile.ideal_mentor_strength_1 %></b>
-  <% if @profile.ideal_mentor_strength_1 == "" %>
+  <% if !@profile.ideal_mentor_strength_1.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li><b><%= @profile.ideal_mentor_strength_2 %></b>
-  <% if @profile.ideal_mentor_strength_2 == "" %>
+  <% if !@profile.ideal_mentor_strength_2.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li><b><%= @profile.ideal_mentor_strength_3 %></b>
-  <% if @profile.ideal_mentor_strength_3 == "" %>
+  <% if !@profile.ideal_mentor_strength_3.present? %>
   <span class="label label-danger">missing</span>
   <% end %></li>
   </ol>
@@ -57,7 +57,7 @@
 
   <div>Ideal Mentor interests and personal characteristics:  
   <b><%= @profile.ideal_mentor_interests %></b>
-  <% if @profile.ideal_mentor_interests == "" %>
+  <% if !@profile.ideal_mentor_interests.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -82,17 +82,26 @@
         @profile.mentor_preferred_role == "" %>
    <span class="label label-danger">missing</span>
   <% end %>
+   <% if !@profile.act_as_sounding_board.present? &&
+        !@profile.provide_developmental_feedback.present? &&
+        !@profile.share_experiences.present? &&
+        !@profile.connect_with_relevant_people.present? &&
+        !@profile.mentor_preferred_role.present? %>
+   <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   <% if @profile.mentor_preferred_role.present? %>
   <div>Other:<b><%= @profile.mentor_preferred_role %></b>
   </div>
   <% end %>
+  <br>
+  <br>
 
 
   <% if @user.type == "Mentee" %>
   <div>Mentor gender preference:  
   <b><%= @profile.mentor_gender_preference %></b>
-  <% if @profile.mentor_gender_preference == "" %>
+  <% if !@profile.mentor_gender_preference.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
@@ -101,9 +110,9 @@
 
   <div>Mentor referrals:
   <ol>
-  <li><b><%= @profile.ideal_mentor_referral_1 %></b></li>
-  <li><b><%= @profile.ideal_mentor_referral_2 %></b></li>
-  <li><b><%= @profile.ideal_mentor_referral_3 %></b></li>
+  <% if @profile.mentor_referral_1.present? %> <li><b> <%= @profile.mentor_referral_1 %></b></li> <% end %>
+  <% if @profile.mentor_referral_2.present? %><li><b><%= @profile.mentor_referral_2 %></b></li><% end %>
+  <% if @profile.mentor_referral_3.present? %><li><b><%= @profile.mentor_referral_3 %></b></li><% end %>
   </ol>
   </div>
   <% end %>
@@ -125,6 +134,14 @@
         @profile.company_supports == "No" &&
         @profile.institutional_support_other == "" %>
    <span class="label label-danger">missing</span>
+  <% end %>
+  <% if !@profile.company_is_not_aware.present? &&
+        !@profile.company_is_aware.present? &&
+        !@profile.company_suggested.present? &&
+        !@profile.company_is_sponsor.present? &&
+        !@profile.company_supports.present? &&
+        !@profile.institutional_support_other.present? %>
+  <span class="label label-danger">missing</span>
   <% end %>
   </div>
   <% if @profile.institutional_support_other.present? %>
@@ -179,6 +196,14 @@
         @profile.heard_about_program_from_other_specified == "" %>
   <span class="label label-danger">missing</span>
   <% end %>
+    <% if !@profile.heard_about_program_from_epwn.present? &&
+        !@profile.heard_about_program_from_previous_participant.present? &&
+        !@profile.heard_about_program_from_epwn_member.present? &&
+        !@profile.heard_about_program_from_company.present? &&
+        !@profile.heard_about_program_in_the_press.present? &&
+        !@profile.heard_about_program_from_other_specified.present?%>
+  <span class="label label-danger">missing</span>
+  <% end %>
   </div>
   <% if @profile.heard_about_program_from_other_specified.present? %>
   <div>Other:<b><%= @profile.heard_about_program_from_other_specified %></b>
@@ -189,7 +214,7 @@
   <% if @user.type == "Mentee" %>
   <div>I am aware that there is a 50€ mentoring program fee for administrative expenses upon being accepted:  
   <b><%= @profile.mentee_fee_aware %></b>
-  <% if @profile.mentee_fee_aware == "No" or @profile.mentee_fee_aware == "" %>
+  <% if @profile.mentee_fee_aware == "No" or !@profile.mentee_fee_aware.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>

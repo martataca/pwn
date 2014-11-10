@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   @profile.email = current_user.email
   @profile.firstName = current_user.firstName
   @profile.surnames = current_user.lastName
+  @profile.save
  end
 
  def create

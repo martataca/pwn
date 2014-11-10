@@ -20,7 +20,7 @@
           <% if @profile.picture.present? %>
             <%= image_tag(@profile.picture_url, :width => 150)%>
           <% else %>
-            <img src="http://www.b2match.com/assets/fallback/default.png"  alt="avatar" style="margin-top: 15px; width: 75%; height: 75%">
+            <img src="../images/default-user.png"  alt="avatar" style="margin-top: 15px; width: 75%; height: 75%">
           <% end %>
           <br>
           <br>
@@ -32,12 +32,15 @@
             </div>                      
         </div>
       </div>
+      <div>
       <%= render 'profiles/showPanels' %>
+      </div>
     <% end %> 
   </div>
-</div>
-<script type="text/javascript">
+  <script type="text/javascript">
    if(window.location.href.substr(-2) !== "?r") {
       window.location = window.location.href + "?r";
     }
 </script>
+</div>
+</div>
