@@ -1,35 +1,154 @@
 <div class="panel-body">
 
  <div style="font-size: 18px; line-height: 1.5">
-  <div>Member of PWN: 
+<div>Member of PWN: 
   <b><%= @profile.member %></b>
+  <% if @profile.member == "" or !@profile.member.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
+
+  <% if @profile.member == "Yes" %>
+  <% if !@profile.member_years.present?  %>
+  <div>
+  <ul>
+  <li>Has been a member for: 
+  <span style= "color: red;">missing</span>
+  </li>
+  </ul>
+  </div>
+  <% else %>
+  <div>
+  <ul>
+  <li>Has been a member for: 
+  <b><%= @profile.member_years %></b> years
+  </li>
+  </ul>
+  </div>
+  <% end %>
+  <% end %>
   
   <div>Participated in Mentoring Program:
   <b><%= @profile.previous_participation %></b>
+  <% if @profile.previous_participation == "" or !@profile.previous_participation.present?  %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
-  <% if @profile.previous_participation_other.present? %>
-  <div>More specifically:  <b><%= @profile.previous_participation_other %></b>
+ 
+  <% if @profile.previous_participation_other.present? && @profile.previous_participation_other != "" %>
+  <div>
+  <ul>
+  <li>More specifically:
+  </li>
+  </ul>
+  <b><%= @profile.previous_participation_other %></b>
   </div>
-  <% end %> 
+  <% else %>
+  <% if @profile.previous_participation == "Yes" %>
+  <div>
+  <ul>
+  <li>More specifically:
+  <span style= "color: red;">missing</span>
+  </li>
+  </ul>
+  </div>
+  <% end %>
+  <% end %>
 
   <hr>
   
+
   <div>Availability for Trainings:
+  <% if @profile.availability_8 == "Unavailable" && 
+    @profile.availability_12 == "Unavailable" && 
+    @profile.availability_18 == "Unavailable" && 
+    @profile.availability_no == "No" %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   <ul>
-   <li>8h30-10h30: <b><%= @profile.availability_8 %></b> </li>
-   <li>12h30-14h30: <b><%= @profile.availability_12 %></b></li>
-   <li>18h00-20h30: <b><%= @profile.availability_18 %></b></li>
+   <% if @profile.availability_8 == "Available" %>
+   <li>
+   <b> 8h30-10h30 </b>
+   </li>
+   <% end %>
+   <% if @profile.availability_12 == "Available" %>
+   <li>
+   <b> 12h30-14h30 </b> 
+   </li>
+   <% end %>
+   <% if @profile.availability_18 == "Available" %>
+   <li>
+   <b> 18h00-20h30 </b>
+   </li>
+   <% end %>
+  <% if @profile.availability_no == "Yes" %>
+   <b> None </b>
+   <% end %>
   </ul>
   </div>
+
+
+
+
 <br>
-  <div>Availability for Monthly Breakfasts:  
-  <b><%= @profile.availability_monthly_breakfasts %></b>
+
+  <% if @user.type == "Mentor" %>
+  <% if @profile.availability_networking_no == "No" && @profile.availability_monthly_breakfasts == "Unavailable" %>
+  <div>Availability for other events: 
+  <span style= "color: red;">missing</span>
   </div>
-<br>
-  <div>Availability for Mentee buddy contacts:  
-  <b><%= @profile.availability_buddy_contacts %></b>
-  </div>
+  <% else %>
+  <% if @profile.availability_monthly_breakfasts == "Available" %>
+    <div>Availability for other events:
+    <ul>
+        <li>
+        <b> Monthly Breakfasts </b>
+        </li>
+    </ul>
+    </div>
+   <% else %>
+     <% if @profile.availability_networking_no == "Yes" %>
+      <div> <b> No availability for other events. </b>
+      </div>
+       <% end %>
+     <% end %>
+  <% end %>
+  <% end %>
+
+
+  <% if @user.type == "Mentee" %> 
+  <% if @profile.availability_networking_no == "No" && @profile.availability_monthly_breakfasts == "Unavailable" && @profile.availability_buddy_contacts== "Unavailable" %>
+    <div>Availability for other events:
+    <span style= "color: red;">missing</span>
+    </div>
+  <% else %>
+    <% if @profile.availability_monthly_breakfasts == "Available" or @profile.availability_buddy_contacts== "Available" %>
+    <div>Availability for other events:
+    <ul>
+       <% if @profile.availability_monthly_breakfasts == "Available" %>
+        <li>
+        <b> Monthly Breakfasts </b>
+        </li>
+       <% end %>
+       <% if @profile.availability_buddy_contacts == "Available" %>
+       <li>
+       <b> Mentee buddy contacts </b> 
+       </li>
+       <% end %>
+    </ul>
+    </div>
+   <% else %>
+     <% if @profile.availability_networking_no == "Yes" %>
+      <div> <b> No availability for other events. </b>
+      </div>
+       <% end %>
+     <% end %>
+  <% end %>
+  <% end %>
+
+
+
+
 <br>
   <% if @profile.availability_obs.present? %>
   <div>Availability Observations:  <b><%= @profile.availability_obs %></b>
@@ -41,16 +160,22 @@
   <div>Given Permissions:
   <ul>
   <li> Permission for your basic demographic data and contacts to be shared with fellow international mentoring programs for benchmarking 
-purposes only: <b><%= @profile.permission_benchmarking %></b></li>
+purposes only:
+  <b><%= @profile.permission_benchmarking %></b>
+  <% if @profile.permission_benchmarking == "" %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
   <li> Permission for your contacts to be shared with interested reporters to help promote the program: <b><%= @profile.permission_promoting %></b>
+  <% if @profile.permission_promoting == "" %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </li>
-  </ul>
-  <% if @profile.previous_participation_other.present? %>
+  <% if @profile.permission_other.present? %>
   <div>Observations:  <b><%= @profile.permission_other %></b>
   </div>
   <% end %> 
   </div>
-  
-</ul>
+
+
 </div>
 </div>

@@ -66,6 +66,11 @@
 
   <% if @user.type == "Mentee" %>
   <div>Roles I would like my mentor to play:
+    <% if @profile.ideal_mentor_role.present? %>
+    <<b><%= @profile.ideal_mentor_role %></b>
+    <% else %>
+    <span class="label label-danger">missing</span>
+    <% end %>
   <% else %>
   <div>Roles I would like to play as a mentor:
   <% end %>

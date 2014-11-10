@@ -1,84 +1,215 @@
 <div class="panel-body">
  <div style="font-size: 18px; line-height: 1.5">
+
+<% if @user.type == "Mentee" %>
   <div>Description of the ideal mentor:
   <br><small> Options:</small>
   <ol>
-  <li>Function: <b><%= @profile.ideal_mentor_function_1 %>  </b> Sector: <b><%= @profile.ideal_mentor_sector_1 %> </b></li>
-  <li>Function: <b><%= @profile.ideal_mentor_function_2 %>  </b> Sector: <b><%= @profile.ideal_mentor_sector_2 %> </b></li>
-  <li>Function: <b><%= @profile.ideal_mentor_function_3 %>  </b> Sector: <b><%= @profile.ideal_mentor_sector_3 %> </b></li>
+  <li>Function: <b><%= @profile.ideal_mentor_function_1 %>  </b> 
+  <% if !@profile.ideal_mentor_function_1.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
+  Sector: <b><%= @profile.ideal_mentor_sector_1 %> </b>
+  <% if !@profile.ideal_mentor_sector_1.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
+  <li>Function: <b><%= @profile.ideal_mentor_function_2 %>  </b> 
+  <% if !@profile.ideal_mentor_function_2.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>Sector: <b><%= @profile.ideal_mentor_sector_2 %> </b>
+    <% if !@profile.ideal_mentor_sector_2.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
+  <li>Function: <b><%= @profile.ideal_mentor_function_3 %>  </b> 
+  <% if !@profile.ideal_mentor_function_3.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
+  Sector: <b><%= @profile.ideal_mentor_sector_3 %> </b>
+  <% if !@profile.ideal_mentor_sector_1.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
   </ol>
   </div>
-  <% if @profile.mentoring_in_other_one.present? %>
+  <% if @profile.ideal_mentor_func_sec_other.present? %>
   <div>Other:<b><%= @profile.ideal_mentor_func_sec_other %></b>
   </div>
   <% end %>
+
   
 <br>
 
   <div>Ideal Mentor strengths:
   <ol>
-  <li><b><%= @profile.ideal_mentor_strength_1 %></b></li>
-  <li><b><%= @profile.ideal_mentor_strength_2 %></b></li>
-  <li><b><%= @profile.ideal_mentor_strength_3 %></b></li>
+  <li><b><%= @profile.ideal_mentor_strength_1 %></b>
+  <% if !@profile.ideal_mentor_strength_1.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.ideal_mentor_strength_2 %></b>
+  <% if !@profile.ideal_mentor_strength_2.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
+  <li><b><%= @profile.ideal_mentor_strength_3 %></b>
+  <% if !@profile.ideal_mentor_strength_3.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %></li>
   </ol>
   </div>
 <br>
 
   <div>Ideal Mentor interests and personal characteristics:  
   <b><%= @profile.ideal_mentor_interests %></b>
+  <% if !@profile.ideal_mentor_interests.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
 <br>
-
-  <div>Roles I would like my mentor to play:
-  <ul>
-  <li>Act as sounding board: <b><%= @profile.goal_1 %></b></li>
-  <li>Provide developmental feedback: <b><%= @profile.goal_2 %></b></li>
-  <li>Share experiences: <b><%= @profile.goal_3 %></b></li>
-  <li>Connect with relevant people: <b><%= @profile.goal_3 %></b></li>
-  </ul>
-  </div>
-  <% if @profile.mentoring_in_other_one.present? %>
-  <div>Other:<b><%= @profile.ideal_mentor_func_sec_other %></b>
-  </div>
   <% end %>
 
+  <% if @user.type == "Mentee" %>
+  <div>Roles I would like my mentor to play:
+    <% if @profile.ideal_mentor_role.present? %>
+    <<b><%= @profile.ideal_mentor_role %></b>
+    <% else %>
+    <span style= "color: red;">missing</span>
+    <% end %>
+  <% else %>
+  <div>Roles I would like to play as a mentor:
+  <% end %>
+  <ul>
+  <% if @profile.act_as_sounding_board == "Yes" %> <li><b>Act as sounding board</b></li><% end %>
+  <% if @profile.provide_developmental_feedback == "Yes" %> <li><b>Provide developmental feedback</b></li><% end %>
+  <% if @profile.share_experiences == "Yes" %> <li><b>Share experiences</b></li><% end %>
+  <% if @profile.connect_with_relevant_people == "Yes" %> <li><b>Connect with relevant people</b></li><% end %>
+  </ul>
+    <% if @profile.act_as_sounding_board == "No" &&
+        @profile.provide_developmental_feedback == "No" &&
+        @profile.share_experiences == "No" &&
+        @profile.connect_with_relevant_people == "No" &&
+        @profile.mentor_preferred_role == "" %>
+   <span style= "color: red;">missing</span>
+  <% end %>
+   <% if !@profile.act_as_sounding_board.present? &&
+        !@profile.provide_developmental_feedback.present? &&
+        !@profile.share_experiences.present? &&
+        !@profile.connect_with_relevant_people.present? &&
+        !@profile.mentor_preferred_role.present? %>
+   <span style= "color: red;">missing</span>
+  <% end %>
+  </div>
+  <% if @profile.mentor_preferred_role.present? %>
+  <div>Other:<b><%= @profile.mentor_preferred_role %></b>
+  </div>
+  <% end %>
+  <br>
+  <br>
+
+
+  <% if @user.type == "Mentee" %>
   <div>Mentor gender preference:  
   <b><%= @profile.mentor_gender_preference %></b>
+  <% if !@profile.mentor_gender_preference.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
+
+<br>
 
   <div>Mentor referrals:
   <ol>
-  <li><b><%= @profile.ideal_mentor_strength_1 %></b></li>
-  <li><b><%= @profile.ideal_mentor_strength_2 %></b></li>
-  <li><b><%= @profile.ideal_mentor_strength_3 %></b></li>
+  <% if @profile.mentor_referral_1.present? %> <li><b> <%= @profile.mentor_referral_1 %></b></li> <% end %>
+  <% if @profile.mentor_referral_2.present? %><li><b><%= @profile.mentor_referral_2 %></b></li><% end %>
+  <% if @profile.mentor_referral_3.present? %><li><b><%= @profile.mentor_referral_3 %></b></li><% end %>
   </ol>
   </div>
+  <% end %>
 
 <hr>
 
   <div>How your company supports your envolvement in this program:  
   <ul>
-  <li>I am doing this program privately and have not mentioned it to my company:<b><%= @profile.company_is_not_aware %></b></li>
-  <li>My company is aware I am doing this program: <b><%= @profile.company_is_aware %></b></li>
-  <li>My company suggested I participate in this program: <b><%= @profile.company_suggested %></b></li>
-  <li>My company sponsors PWN Lisbon and my mentoring program and/or membership fees are included in the sponsorship agreement: <b><%= @profile.company_is_sponsor%></b></li>
-  <li>My company pays the mentoring program fee and/or membership fees, but is not a PWN Lisbon sponsor: <b><%= @profile.company_supports %></b></li>
+  <% if @profile.company_is_not_aware == "Yes" %> <li><b>I am doing this program privately and have not mentioned it to my company.</b></li><% end %>
+  <% if @profile.company_is_aware == "Yes" %> <li><b>My company is aware I am doing this program.</b></li><% end %>
+  <% if @profile.company_suggested == "Yes" %> <li><b>My company suggested I participate in this program.</b></li><% end %>
+  <% if @profile.company_is_sponsor == "Yes" %> <li><b>My company sponsors PWN Lisbon and my mentoring program and/or membership fees are included in the sponsorship agreement.</b></li><% end %>
+  <% if @profile.company_supports == "Yes" %> <li><b>My company pays the mentoring program fee and/or membership fees, but is not a PWN Lisbon sponsor.</b></li><% end %>
   </ul>
+    <% if @profile.company_is_not_aware == "No" &&
+        @profile.company_is_aware == "No" &&
+        @profile.company_suggested == "No" &&
+        @profile.company_is_sponsor == "No" &&
+        @profile.company_supports == "No" &&
+        @profile.institutional_support_other == "" %>
+   <span style= "color: red;">missing</span>
+  <% end %>
+  <% if !@profile.company_is_not_aware.present? &&
+        !@profile.company_is_aware.present? &&
+        !@profile.company_suggested.present? &&
+        !@profile.company_is_sponsor.present? &&
+        !@profile.company_supports.present? &&
+        !@profile.institutional_support_other.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
-  <% if @profile.mentoring_in_other_one.present? %>
+  <% if @profile.institutional_support_other.present? %>
   <div>Other:<b><%= @profile.institutional_support_other %></b>
   </div>
   <% end %>
+
+  <br>
+  <br>
+
+  <% if @user.type == "Mentor" %>
+  <div>Referrals for Mentoring Program:
+  <% if !@profile.sugestion_1.present? &&
+        !@profile.sugestion_2.present? &&
+        !@profile.sugestion_3.present? &&
+        !@profile.sugestion_4.present? &&
+        !@profile.sugestion_5.present? &&
+        !@profile.sugestion_6.present? %>
+  <b> You have no referrals. </b>
+  <% else %>
+  <ol>
+  <li><b><%= @profile.sugestion_1 %></b></li>
+  <li><b><%= @profile.sugestion_2 %></b></li>
+  <li><b><%= @profile.sugestion_3 %></b></li>
+  <li><b><%= @profile.sugestion_4 %></b></li>
+  <li><b><%= @profile.sugestion_5 %></b></li>
+  <li><b><%= @profile.sugestion_6 %></b></li>
+  </ol>
+  <% end %>
+  </div>
+  <% end %>
+
+
+
+
+
 <hr> 
 <br>
   <div> How you heard about the PWN Lisbon Mentoring Program:
   <ul>
-  <li>PWN communication and events: <b><%= @profile.heard_about_program_from_epwn %></b></li>
-  <li>From a participant in a previous edition of the program: <b><%= @profile.heard_about_program_from_previous_participant %></b></li>
-  <li>From a PWN member: <b><%= @profile.heard_about_program_from_epwn_member %></b></li>
-  <li>From my company: <b><%= @profile.heard_about_program_from_company %></b></li>
-  <li>In the press:<b><%= @profile.heard_about_program_in_the_press %></b></li>
+  <% if @profile.heard_about_program_from_epwn == "Yes" %><li> <b>PWN communication and events.</b></li> <% end %>
+  <% if @profile.heard_about_program_from_previous_participant == "Yes" %><li> <b>From a participant in a previous edition of the program.</b></li> <% end %>
+  <% if @profile.heard_about_program_from_epwn_member == "Yes" %><li> <b>From a PWN member.</b></li> <% end %>
+  <% if @profile.heard_about_program_from_company == "Yes" %><li> <b>From my company.</b></li> <% end %>
+  <% if @profile.heard_about_program_in_the_press == "Yes" %><li> <b>In the press</b></li> <% end %>
   </ul>
+  <% if @profile.heard_about_program_from_epwn == "No" &&
+        @profile.heard_about_program_from_previous_participant == "No" &&
+        @profile.heard_about_program_from_epwn_member == "No" &&
+        @profile.heard_about_program_from_company == "No" &&
+        @profile.heard_about_program_in_the_press == "No" &&
+        @profile.heard_about_program_from_other_specified == "" %>
+  <span style= "color: red;">missing</span>
+  <% end %>
+    <% if !@profile.heard_about_program_from_epwn.present? &&
+        !@profile.heard_about_program_from_previous_participant.present? &&
+        !@profile.heard_about_program_from_epwn_member.present? &&
+        !@profile.heard_about_program_from_company.present? &&
+        !@profile.heard_about_program_in_the_press.present? &&
+        !@profile.heard_about_program_from_other_specified.present?%>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
   <% if @profile.heard_about_program_from_other_specified.present? %>
   <div>Other:<b><%= @profile.heard_about_program_from_other_specified %></b>
@@ -86,12 +217,21 @@
   <% end %>
 <hr> 
 <br>
+  <% if @user.type == "Mentee" %>
   <div>I am aware that there is a 50€ mentoring program fee for administrative expenses upon being accepted:  
   <b><%= @profile.mentee_fee_aware %></b>
+  <% if @profile.mentee_fee_aware == "No" or !@profile.mentee_fee_aware.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
-   <div>I have read and signed the mentoring contract:  
-  <b><%= @profile.mentee_fee_aware %></b>
+  <% end %>
+   <div>I have read and accepted the mentoring contract:  
+  <b><%= @profile.mentoring_contract_aware %></b>
+  <% if @profile.mentoring_contract_aware == "No" or !@profile.mentoring_contract_aware.present? %>
+  <span style= "color: red;">missing</span>
+  <% end %>
   </div>
+
 </div>
 
 </div>
