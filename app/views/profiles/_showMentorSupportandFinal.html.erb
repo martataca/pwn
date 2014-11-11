@@ -65,42 +65,43 @@
   <% end %>
 
   <% if @user.type == "Mentee" %>
-  <div>Roles I would like my mentor to play:
+    <div>Roles I would like my mentor to play:
     <% if @profile.ideal_mentor_role.present? %>
-    <<b><%= @profile.ideal_mentor_role %></b>
+    <b><%= @profile.ideal_mentor_role %></b>
     <% else %>
     <span class="label label-danger">missing</span>
     <% end %>
+
   <% else %>
-  <div>Roles I would like to play as a mentor:
-  <% end %>
-  <ul>
-  <% if @profile.act_as_sounding_board == "Yes" %> <li><b>Act as sounding board</b></li><% end %>
-  <% if @profile.provide_developmental_feedback == "Yes" %> <li><b>Provide developmental feedback</b></li><% end %>
-  <% if @profile.share_experiences == "Yes" %> <li><b>Share experiences</b></li><% end %>
-  <% if @profile.connect_with_relevant_people == "Yes" %> <li><b>Connect with relevant people</b></li><% end %>
-  </ul>
-    <% if @profile.act_as_sounding_board == "No" &&
+    <div>Roles I would like to play as a mentor:
+      <ul>
+        <% if @profile.act_as_sounding_board == "Yes" %> <li><b>Act as sounding board</b></li><% end %>
+        <% if @profile.provide_developmental_feedback == "Yes" %> <li><b>Provide developmental feedback</b></li><% end %>
+        <% if @profile.share_experiences == "Yes" %> <li><b>Share experiences</b></li><% end %>
+        <% if @profile.connect_with_relevant_people == "Yes" %> <li><b>Connect with relevant people</b></li><% end %>
+      </ul>
+      <% if @profile.act_as_sounding_board == "No" &&
         @profile.provide_developmental_feedback == "No" &&
         @profile.share_experiences == "No" &&
         @profile.connect_with_relevant_people == "No" &&
         @profile.mentor_preferred_role == "" %>
-   <span class="label label-danger">missing</span>
-  <% end %>
-   <% if !@profile.act_as_sounding_board.present? &&
-        !@profile.provide_developmental_feedback.present? &&
-        !@profile.share_experiences.present? &&
-        !@profile.connect_with_relevant_people.present? &&
-        !@profile.mentor_preferred_role.present? %>
-   <span class="label label-danger">missing</span>
-  <% end %>
-  </div>
-  <% if @profile.mentor_preferred_role.present? %>
-  <div>Other:<b><%= @profile.mentor_preferred_role %></b>
-  </div>
-  <% end %>
-  <br>
-  <br>
+        <span class="label label-danger">missing</span>
+      <% end %>
+      <% if !@profile.act_as_sounding_board.present? &&
+          !@profile.provide_developmental_feedback.present? &&
+          !@profile.share_experiences.present? &&
+          !@profile.connect_with_relevant_people.present? &&
+          !@profile.mentor_preferred_role.present? %>
+          <span class="label label-danger">missing</span>
+      <% end %>
+        </div>
+      <% end %>
+      <% if @profile.mentor_preferred_role.present? %>
+      <div>Other:<b><%= @profile.mentor_preferred_role %></b>
+      </div>
+      <% end %>
+        <br>
+        <br>
 
 
   <% if @user.type == "Mentee" %>

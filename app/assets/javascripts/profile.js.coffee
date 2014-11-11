@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-  $('.datepicker').datepicker()
+
   
 ready =->
   $('select#profile_country_residence').change (event) ->

@@ -24,25 +24,7 @@ def show
   end
 
 end
-def index
-@users = User.all
-  respond_to do |format|
-      format.html
-      format.pdf do
-               render :pdf => "report2",
-                 :template => 'users/index.pdf.erb',
-                 :layout => 'pdf',
-                 :footer => {
-                    :center => "Center",
-                    :left => "Left",
-                    :right => "Right"
-                 },
-                 :save_to_file => Rails.root.join('public/uploads/profile/application', "report2.pdf")
-      end
-  end
 
-
-end
 
 
 

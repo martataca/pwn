@@ -8,15 +8,12 @@ Rails.application.routes.draw do
   root "home#index"
   
   get 'user' => 'users#show'
-  get 'user/index' => 'users#index'
   get '/subregion_options' => 'profiles#subregion_options'
   #get 'users/profie/new/:id' => 'profile#new'
   get 'aboutus' => 'home#aboutus'
   get 'contacts' => 'home#contacts'
   get 'mentoring' => 'home#mentoring'
   get 'backup' => 'home#backup'
- 
-  get 'admin/backup' => 'home#backup'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

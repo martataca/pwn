@@ -142,7 +142,7 @@ filter :profile_company, :label => 'Company', :as  => :string
     column("Goal #2") { |mentee| mentee.profile.goal_2 }
     column("Goal #3") { |mentee| mentee.profile.goal_3 }
     column("Motivations") { |mentee| mentee.profile.motivations }
-    column("Aspirations") { |mentee| mentee.profile.aspirations }
+    column("Wants to be") { |mentee| mentee.profile.aspirations }
     column("Wants to be Known for") { |mentee| mentee.profile.want_to_be_known_for }
     column("Seeks mentoring in (main)") { |mentee| mentee.profile.mentoring_in }
     column("Seeks mentoring in (main) Obs") { |mentee| mentee.profile.mentoring_in_other_one }

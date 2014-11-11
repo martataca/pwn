@@ -119,11 +119,9 @@ def make_app_pdf_mentee
                render :pdf => "#{@user.id}.pdf",
                  :template => 'profiles/App.pdf.erb',
                  :layout => 'pdf',
-                 :footer => {
-                    :center => "Center",
-                    :left => "Left",
-                    :right => "Right"
+                 :footer => {:right => '[date]',
                  },
+                 :header => { :right => '[page] of [topage]' },
                  :save_to_file => Rails.root.join('public/uploads/profile/application', "#{@user.id}.pdf")
                 
       end

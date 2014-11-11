@@ -19,7 +19,4 @@
 //= require bootstrap
 //= require twitter/bootstrap
 //= require_directory .
-//= require bootstrap-datepicker
 
-
-$('.datepicker').datepicker();
