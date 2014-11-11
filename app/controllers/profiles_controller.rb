@@ -113,16 +113,19 @@ end
 end
 
 def make_app_pdf_mentee
+@footerstring = ""
+@footerstring = @user.type + "_" + @profile.firstName + "_" + @profile.surnames
     respond_to do |format|
       format.html
       format.pdf do
-               render :pdf => "#{@user.id}.pdf",
+               render :pdf => "#{@profile.id}.pdf",
                  :template => 'profiles/App.pdf.erb',
                  :layout => 'pdf',
-                 :footer => {:right => '[date]',
+                 :footer => {:left => '[date]',
+                 :right  => "#{@footerstring}"
                  },
                  :header => { :right => '[page] of [topage]' },
-                 :save_to_file => Rails.root.join('public/uploads/profile/application', "#{@user.id}.pdf")
+                 :save_to_file => Rails.root.join('public/uploads/profile/application', "#{@profile.id}.pdf")
                 
       end
     end

@@ -3,7 +3,7 @@
     <% if @user.type == "Mentor" %> Mentor <% else %> Mentee <%end%> Application </h2> 
 
     <div style="width: 100%; overflow: hidden; line-height: 2">
-    <div style="width: 600px; float: left"> 
+    <div style="width: 70%; float: left"> 
       <h1>
         <b> <%= @profile.firstName %> <%= @profile.surnames %> </b>
       </h1>
@@ -45,8 +45,8 @@
         <hr>
       </p>
       </div>
-    <div style="margin-left: 620px; margin-top: 50px">
-    <%= wicked_pdf_image_tag @profile.picture_url, :width => 200 %> </div>
+    <div style="margin-left: 40%; margin-top: 5%">
+    <%= wicked_pdf_image_tag @profile.picture_url, :width => 150 %> </div>
 
   </div>
   
