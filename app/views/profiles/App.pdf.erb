@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <h1> Mentee Application </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>
+        <b> <%= @profile.firstName %> <%= @profile.surnames %> </b>
+      </h3>
+      <p>
+        Email: <b><%= @profile.email %></b> <br>
+        Phone: <b><%= @profile.phone_number %></b> <br>
+        Skype: <b><%= @profile.skype_name %></b> <br>
+        Linkedin: <b><%= @profile.linkedin_profile %></b> <br>
+
+        Age: <b><%= @profile.age %></b> <br>
+        Country of Residence: <% if @profile.country_origin.present? %> 
+                              <% @origin = Carmen::Country.coded(@profile.country_origin) %> <b><%= @origin.name %></b>
+                              <% end %> <br>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h3>
+        Duis vel
+      </h3>
+      <p>
+        Duis vel tortor elementum, ultrices tortor vel, accumsan dui. Nullam in dolor rutrum, gravida turpis eu, vestibulum lectus. Pellentesque aliquet dignissim justo ut fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut venenatis massa non eros venenatis aliquet. Suspendisse potenti. Mauris sed tincidunt mauris, et vulputate risus. Aliquam eget nibh at erat dignissim aliquam non et risus. Fusce mattis neque id diam pulvinar, fermentum luctus enim porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    
+  </div>
+</div>

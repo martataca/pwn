@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 before_action :authenticate_user!
 respond_to :html, :pdf
 
+layout "pdf", :only => [:index]
+
+
 def decide_new_or_edit
  if Profile.exists?(:user_id => current_user.id)
     @create_new_tag = false
@@ -19,15 +22,30 @@ def show
   if !@create_new_tag
   application_percentage(@profile.id)
   end
+
 end
 def index
-#    respond_to do |format|
-#      format.html
-#      format.pdf do
-#        render :pdf => "users.pdf"
-#     end
- #   end
+@users = User.all
+  respond_to do |format|
+      format.html
+      format.pdf do
+               render :pdf => "report2",
+                 :template => 'users/index.pdf.erb',
+                 :layout => 'pdf',
+                 :footer => {
+                    :center => "Center",
+                    :left => "Left",
+                    :right => "Right"
+                 },
+                 :save_to_file => Rails.root.join('public/uploads/profile/application', "report2.pdf")
+      end
+  end
+
+
 end
+
+
+
 
 
 def application_percentage(id)

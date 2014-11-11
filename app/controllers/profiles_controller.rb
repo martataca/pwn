@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 
+
  def subregion_options
   render partial: 'subregion_select'
  end
@@ -27,15 +28,21 @@ class ProfilesController < ApplicationController
  
  
   def edit
-         
-     @profile = Profile.find(params[:id])
-
+   @profile = Profile.find(params[:id])
+   if current_user.id != @profile.user_id    
+    flash[:error] = "Please access one of your own pages"
+    redirect_to root_url
+   end
   end
   
   def show
     @user = User.find(current_user.id)
     @profile = Profile.find(params[:id])
 
+   if current_user.id != @profile.user_id    
+    flash[:error] = "Please access one of your own pages"
+    redirect_to root_url
+   end
       
     if @profile.percentage == 100
       @profile.submitted = true
@@ -47,7 +54,7 @@ class ProfilesController < ApplicationController
         @profile.select1 = false
         @profile.save
       end
-      render 'show'
+      make_app_pdf_mentee
     end
      
     
@@ -105,6 +112,23 @@ if @profile.born_on_day.present? and @profile.born_on_month.present? and @profil
 end
 end
 
+def make_app_pdf_mentee
+    respond_to do |format|
+      format.html
+      format.pdf do
+               render :pdf => "#{@user.id}.pdf",
+                 :template => 'profiles/App.pdf.erb',
+                 :layout => 'pdf',
+                 :footer => {
+                    :center => "Center",
+                    :left => "Left",
+                    :right => "Right"
+                 },
+                 :save_to_file => Rails.root.join('public/uploads/profile/application', "#{@user.id}.pdf")
+                
+      end
+    end
+end
 
 
  private

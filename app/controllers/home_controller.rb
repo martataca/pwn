@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+	
     def backup
       @ls = `ls`
            
@@ -10,5 +10,6 @@ class HomeController < ApplicationController
       send_file "backup.zip", :type => 'application/zip', :disposition => 'attachment', :filename => "backup.zip"
       `rm -rf tmp/merge/`
     end
+
 
 end
