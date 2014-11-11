@@ -197,7 +197,7 @@ ActiveAdmin.setup do |config|
   #
     config.namespace :admin do |admin|
       admin.build_menu :default do |menu|
-        menu.add label: "My Great Website", url: "http://localhost:3000/backup", html_options: { target: :blank }
+        menu.add label: "DOWNLOAD INFO", url: "http://pwnlisbon.herokuapp.com/backup", html_options: { target: :blank }
       end
     end
 

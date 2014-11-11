@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 	
     def backup
+    if current_admin_user.present?
       %x(rm -f backup.zip)
       %x(mkdir tmp/merge/)
       
@@ -13,10 +14,8 @@ class HomeController < ApplicationController
           cmd = 'mkdir tmp/merge/' + id + '/' 
           %x<#{cmd}>
           
-          link_dest = 'pwn/public/uploads/profile/application/' + id + '/'
-          target = 'public/uploads/profile/application/' + id + '/'
-          merge = 'tmp/merge/' + id + '/'
-          cmd = 'rsync -aplx --link-dest=' + link_dest + ' ' + target + ' ' + merge
+		merge = 'tmp/merge/' + id + '/'
+          cmd = 'cp public/uploads/profile/' + id + '.pdf ' + merge
           %x<#{cmd}>
           
           link_dest = 'pwn/public/uploads/profile/picture/' + id + '/'
@@ -47,7 +46,11 @@ class HomeController < ApplicationController
       send_file "backup.zip", :type => 'application/zip', :disposition => 'attachment', :filename => "backup.zip"
       %x(rm -rf tmp/merge/)
       
+    else
+    	redirect_to root_url
     end
+end
+
 
 
 end
