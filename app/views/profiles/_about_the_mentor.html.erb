@@ -1,34 +1,200 @@
 <div>
   <h3 class="myform">23. Description of the ideal mentor: function & sector</h3>
-  <div class="container", style="width: 70%; margin-left: 30%">
-    <h5> Option 1</h5>
+  <div class="container", style="width: 70%; margin-left: 30%">    
+    <h4> Option 1</h4>
     <div>
-      <p>
-      <%= p.label "Function", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
-      <%= p.text_field :ideal_mentor_function_1, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
-      <%= p.label "Sector", :class => "shorter_label_spec"%> 
-      <%= p.text_field :ideal_mentor_sector_1, :class => "short_text_field_spec" %>
-      </p>
+      <%= p.label "Job Function:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_function_1, options_for_select([@profile.company_job_function, '-----------',
+        'Accounting/Auditing',
+        'Administrative',
+        'Advertising/Marketing',
+        'Analyst',
+        'Art/Creative/Design',
+        'Business Development',
+        'Consulting',
+        'Construction',
+        'Customer Service',
+        'Distribution',
+        'Doctor',
+        'Educator (e.g. teacher, lecturer, professor)',
+        'Engineering',
+        'Finance',
+        'General Business',
+        'Health Care Provider (other than doctor or nurse)',
+        'Human Resources',
+        'Information Technology',
+        'Legal',
+        'Management',
+        'Manufacturing',
+        'Nurse',
+        'Production',
+        'Product Management',
+        'Project Management',
+        'Public Relations',
+        'Purchasing',
+        'Quality Assurance',
+        'Research',
+        'Sales',
+        'Science',
+        'Strategy/Planning',
+        'Supply Chain',
+        'Training',
+        'Writing' ]) %>
+      <br/>
+      <%= p.label "Sector:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_sector_1, options_for_select([@profile.company_sector, '-----------',
+        'Advertising & Marketing',
+        'Agriculture',
+        'Airlines & Aerospace (including Defense)',
+        'Automotive',
+        'Business Support & Logistics',
+        'Construction, Machinery and Homes',
+        'Education',
+        'Entertainment & Leisure',
+        'Finance & Financial Services',
+        'Food & Beverages',
+        'Government',
+        'Health Care & Pharmaceuticals',
+        'Insurance',
+        'Manufacturing',
+        'Nonprofit',
+        'Retail & Consumer Durables',
+        'Real Estate',
+        'Telecommunications, Technology, Internet & Electronics',
+        'Utilities, Energy, and Extraction' ]) %>
     </div>
-    <h5> Option 2</h5>
+    <br/>
+    
+    <h4> Option 2</h4>
     <div>
-      <p>
-      <%= p.label "Function", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
-      <%= p.text_field :ideal_mentor_function_2, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
-      <%= p.label "Sector", :class => "shorter_label_spec"%>
-      <%= p.text_field :ideal_mentor_sector_2, :class => "short_text_field_spec" %>
-      </p>
+      <%= p.label "Job Function:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_function_2, options_for_select([@profile.company_job_function, '-----------',
+        'Accounting/Auditing',
+        'Administrative',
+        'Advertising/Marketing',
+        'Analyst',
+        'Art/Creative/Design',
+        'Business Development',
+        'Consulting',
+        'Construction',
+        'Customer Service',
+        'Distribution',
+        'Doctor',
+        'Educator (e.g. teacher, lecturer, professor)',
+        'Engineering',
+        'Finance',
+        'General Business',
+        'Health Care Provider (other than doctor or nurse)',
+        'Human Resources',
+        'Information Technology',
+        'Legal',
+        'Management',
+        'Manufacturing',
+        'Nurse',
+        'Production',
+        'Product Management',
+        'Project Management',
+        'Public Relations',
+        'Purchasing',
+        'Quality Assurance',
+        'Research',
+        'Sales',
+        'Science',
+        'Strategy/Planning',
+        'Supply Chain',
+        'Training',
+        'Writing' ]) %>
+      <br/>
+      <%= p.label "Sector:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_sector_2, options_for_select([@profile.company_sector, '-----------',
+        'Advertising & Marketing',
+        'Agriculture',
+        'Airlines & Aerospace (including Defense)',
+        'Automotive',
+        'Business Support & Logistics',
+        'Construction, Machinery and Homes',
+        'Education',
+        'Entertainment & Leisure',
+        'Finance & Financial Services',
+        'Food & Beverages',
+        'Government',
+        'Health Care & Pharmaceuticals',
+        'Insurance',
+        'Manufacturing',
+        'Nonprofit',
+        'Retail & Consumer Durables',
+        'Real Estate',
+        'Telecommunications, Technology, Internet & Electronics',
+        'Utilities, Energy, and Extraction' ]) %>
     </div>
-    <h5> Option 3</h5> 
+    <br/>
+    
+    <h4> Option 3</h4> 
     <div>
-      <p>
-      <%= p.label "Function ", :class => "shorter_label_spec"%> &nbsp;&nbsp;&nbsp;
-      <%= p.text_field :ideal_mentor_function_3, :class => "short_text_field_spec" %>&nbsp;&nbsp;&nbsp;
-      <%= p.label "Sector", :class => "shorter_label_spec"%>
-      <%= p.text_field :ideal_mentor_sector_3, :class => "short_text_field_spec" %>
-      </p>
+      <%= p.label "Job Function:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_function_3, options_for_select([@profile.company_job_function, '-----------',
+        'Accounting/Auditing',
+        'Administrative',
+        'Advertising/Marketing',
+        'Analyst',
+        'Art/Creative/Design',
+        'Business Development',
+        'Consulting',
+        'Construction',
+        'Customer Service',
+        'Distribution',
+        'Doctor',
+        'Educator (e.g. teacher, lecturer, professor)',
+        'Engineering',
+        'Finance',
+        'General Business',
+        'Health Care Provider (other than doctor or nurse)',
+        'Human Resources',
+        'Information Technology',
+        'Legal',
+        'Management',
+        'Manufacturing',
+        'Nurse',
+        'Production',
+        'Product Management',
+        'Project Management',
+        'Public Relations',
+        'Purchasing',
+        'Quality Assurance',
+        'Research',
+        'Sales',
+        'Science',
+        'Strategy/Planning',
+        'Supply Chain',
+        'Training',
+        'Writing' ]) %>
+      <br/>
+      <%= p.label "Sector:", :class => "label_spec"%>
+      <%= p.select :ideal_mentor_sector_3, options_for_select([@profile.company_sector, '-----------',
+        'Advertising & Marketing',
+        'Agriculture',
+        'Airlines & Aerospace (including Defense)',
+        'Automotive',
+        'Business Support & Logistics',
+        'Construction, Machinery and Homes',
+        'Education',
+        'Entertainment & Leisure',
+        'Finance & Financial Services',
+        'Food & Beverages',
+        'Government',
+        'Health Care & Pharmaceuticals',
+        'Insurance',
+        'Manufacturing',
+        'Nonprofit',
+        'Retail & Consumer Durables',
+        'Real Estate',
+        'Telecommunications, Technology, Internet & Electronics',
+        'Utilities, Energy, and Extraction' ]) %>      
     </div>
-      <div>
+    <br/>
+    
+    <br/>
+    <div>
       <%= p.label "Other (please specify)"%>
       <%= p.text_field :ideal_mentor_func_sec_other, :class => "text_field_spec" %>
     </div>  

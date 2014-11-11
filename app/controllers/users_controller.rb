@@ -242,6 +242,10 @@ def application_percentage(id)
       (@found_profile.heard_about_program_from_other_specified.present? && @found_profile.heard_about_program_from_other_specified != "")
      @percentage += 1
    end
+   
+   if @found_profile.mentoring_contract_aware.present? && @found_profile.mentoring_contract_aware != "No"
+     @percentage += 1
+   end
 
   
   if @user.type == "Mentee"
@@ -307,7 +311,7 @@ def application_percentage(id)
      @percentage += 1
    end
    #58
-   @numberofanswers = 59
+   @numberofanswers = 60
 
  end
 
@@ -324,7 +328,7 @@ def application_percentage(id)
    if @found_profile.sex.present?
      @percentage += 1
    end
-   @numberofanswers = 44
+   @numberofanswers = 45
   end
 
 
