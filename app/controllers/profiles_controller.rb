@@ -115,6 +115,8 @@ end
 def make_app_pdf_mentee
 @footerstring = ""
 @footerstring = @user.type + "_" + @profile.firstName + "_" + @profile.surnames
+@headercode = ""
+@headercode = @user.id.to_s + "-" + @profile.id.to_s
     respond_to do |format|
       format.html
       format.pdf do
@@ -124,11 +126,17 @@ def make_app_pdf_mentee
                  :footer => {:left => '[date]',
                  :right  => "#{@footerstring}"
                  },
-                 :header => { :right => '[page] of [topage]' },
+                 :header => { :left => "#{@headercode}",
+                  :right => '[page] of [topage]' },
                  :save_to_file => Rails.root.join('public/uploads/profile/application', "#{@profile.id}.pdf")
                 
       end
     end
+    apppdf_path = ""
+    apppdf_path = "public/uploads/profile/application/" + "#{@profile.id}.pdf"
+
+@profile.app_pdf = File.open(apppdf_path)
+@profile.save!
 end
 
 
@@ -253,7 +261,8 @@ end
       :sugestion_6,
       :submitted,
       :select1,
-      :select2
+      :select2,
+      :app_pdf
 									 )
   end
 

@@ -46,7 +46,7 @@
       </p>
       </div>
     <div style="margin-left: 40%; margin-top: 5%">
-    <%= wicked_pdf_image_tag @profile.picture_url, :width => 150 %> </div>
+    <%= image_tag @profile.picture_url, :width => 150 %> </div>
 
   </div>
   
@@ -251,6 +251,5 @@
         <% end %>
         I have read and accepted the mentoring contract: <b><%= @profile.mentoring_contract_aware %></b> <br>
       </p>
-      <p style="color:gray"> apid:00<%= @profile.id %> usid:00 <%= @user.id %></p>
     </div>
 

@@ -195,11 +195,11 @@ ActiveAdmin.setup do |config|
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
-    config.namespace :admin do |admin|
-      admin.build_menu :default do |menu|
-        menu.add label: "DOWNLOAD INFO", url: "http://pwnlisbon.herokuapp.com/backup", html_options: { target: :blank }
-      end
-    end
+    # config.namespace :admin do |admin|
+    #   admin.build_menu :default do |menu|
+    #     menu.add label: "DOWNLOAD INFO", url: "http://pwnlisbon.herokuapp.com", html_options: { target: :blank }
+    #   end
+    # end
 
 
   # == Download Links

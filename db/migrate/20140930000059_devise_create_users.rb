@@ -55,6 +55,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string	:linkedin_profile, 	default: ""
       t.string	:picture
       t.string	:cv
+      t.string    :app_pdf
 
       ## About Myself - Demographics
       t.integer  :born_on_day

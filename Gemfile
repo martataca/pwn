@@ -27,7 +27,8 @@ gem 'cancan'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-
+gem 'dropbox-sdk'
+gem 'carrierwave-dropbox'
 
 group :development do
   gem  'mysql2'

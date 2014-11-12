@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141010205931) do
     t.string   "linkedin_profile",                                         default: ""
     t.string   "picture"
     t.string   "cv"
+    t.string   "app_pdf"
     t.integer  "born_on_day"
     t.integer  "born_on_month"
     t.integer  "born_on_year"
