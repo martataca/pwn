@@ -45,23 +45,44 @@
       <br/>
     </div>
   <% end %>
-  <div class="container", style="width: 70%; margin-left: 30%; margin-top: 10%">
-      <div>
-        <%= p.check_box :mentoring_contract_aware, {}, "Yes", "No" %>
-        <%= p.label "I have read and accepted the mentoring contract" %>   
-        <a target="_blank" href="/mentoringcontract.pdf"><u><b> Mentoring Contract </b></u></a>
-      </div>
-      <br/>
-      <br/>
-    </div>
   
-
-
-
-
-  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
-    <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>
-    <%= p.submit "Save Changes", :disable_with => "Saving...", :class => "btn btn-primary", :style => "width: 11%; margin-left: 1%;"%>
-    
+  <div class="container", style="width: 70%; margin-left: 30%; margin-top: 10%">
+    <div>
+      <%= p.check_box :mentoring_contract_aware, {}, "Yes", "No" %>
+      <%= p.label "I have read and accepted the mentoring contract" %>   
+      <a target="_blank" href="/mentoringcontract.pdf"><u><b> Mentoring Contract </b></u></a>
+    </div>
+    <br/>
+    <br/>
   </div>
+
+  <div style="text-align: center; margin-top: 5%; margin-bottom: 5%;">    
+    <div id="formsubmitbutton">
+      <a class="btn btn-primary" style="width: 10%; margin-right: 1%;" onclick='previousTab()'>Previous</a>
+      <%= p.submit "Save Changes", :class => "btn btn-primary", :style => "width: 11%; margin-left: 1%;", :onclick => 'ButtonClicked()' %>
+    </div>
+    <div id="buttonreplacement" style="margin-left:30px; display:none;">      
+      <img src="http://www.willmaster.com/images/preload.gif" alt="loading...">
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function ButtonClicked() {
+      document.getElementById("formsubmitbutton").style.display = "none"; // to undisplay
+      document.getElementById("buttonreplacement").style.display = ""; // to display
+      return true;
+    }
+    var FirstLoading = true;
+    function RestoreSubmitButton() {
+      if( FirstLoading ) {
+        FirstLoading = false;
+        return;
+      }
+      document.getElementById("formsubmitbutton").style.display = ""; // to display
+      document.getElementById("buttonreplacement").style.display = "none"; // to undisplay
+    }
+    // To disable restoring submit button, disable or delete next line.
+    document.onfocus = RestoreSubmitButton;
+  </script>
+ 
 </div>

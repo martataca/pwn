@@ -171,10 +171,12 @@
             
             function nextTab() {
               $('.nav-tabs > .active').next('li').find('a').trigger('click');
+              $('html,body').scrollTop(0);
             }
             
             function previousTab() {
               $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+              $('html,body').scrollTop(0);
             }
             
              
