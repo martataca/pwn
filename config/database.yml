@@ -27,6 +27,6 @@ production:
   host: localhost
   encoding: unicode
   pool: 5
-  username: test1_production
-  password: password4
+  username: pwn_production
+  password: pwn007hyt
 
