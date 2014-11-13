@@ -74,7 +74,7 @@
     <% end %>
   <% else %>
   <div>Roles I would like to play as a mentor:
-  <% end %>
+  
   <ul>
   <% if @profile.act_as_sounding_board == "Yes" %> <li><b>Act as sounding board</b></li><% end %>
   <% if @profile.provide_developmental_feedback == "Yes" %> <li><b>Provide developmental feedback</b></li><% end %>
@@ -99,6 +99,7 @@
   <% if @profile.mentor_preferred_role.present? %>
   <div>Other:<b><%= @profile.mentor_preferred_role %></b>
   </div>
+  <% end %>
   <% end %>
   <br>
   <br>
