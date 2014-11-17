@@ -29,7 +29,9 @@
     <br>
     <div>     
       <%= p.label "Picture", :class => "label_spec" %>
-      <small>photo with 200-500Kb (file name format example: Ana-Santos-mentee-photo-2014) </small><br>
+      <br />
+      <small>photo max. size: 500Kb<br />(file name: &ltFirst Name&gt-&ltSurname&gt-mentee-photo-&ltYear&gt. Example: Ana-Santos-mentee-photo-2014) </small><br>
+      <br />
       <%= p.file_field :picture, :value => "/uploads/profile/picture/1/DETAIL.jpg" %>
     </div>
     <br/>
@@ -188,9 +190,9 @@
         <br/>
         <div>
           <%= p.label "Curriculum Vitae", :class => "label_spec" %> 
-
-          <small>PDF format only (file name format example: Ana-Santos-mentee-cv-2014) </small><br>
-          
+          <br />
+          <small>cv max. size: 1Mb<br />PDF format only<br />(file name: &ltFirst Name&gt-&ltSurname&gt-mentee-cv-&ltYear&gt. Example: Ana-Santos-mentee-cv-2014) </small><br>
+          <br />
           <%= p.file_field :cv %>
         </div>  
         <br/>

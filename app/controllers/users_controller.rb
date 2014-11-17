@@ -249,21 +249,9 @@ def application_percentage(id)
    if @found_profile.ideal_mentor_function_1.present? # TYPE MENTEE
      @percentage += 1
    end   
-   if @found_profile.ideal_mentor_function_2.present? # TYPE MENTEE
-     @percentage += 1
-   end
-   if @found_profile.ideal_mentor_function_3.present? # TYPE MENTEE
-     @percentage += 1
-   end
    if @found_profile.ideal_mentor_sector_1.present? # TYPE MENTEE
      @percentage += 1
    end   
-   if @found_profile.ideal_mentor_sector_2.present? # TYPE MENTEE
-     @percentage += 1
-   end
-   if @found_profile.ideal_mentor_sector_3.present? # TYPE MENTEE
-     @percentage += 1
-   end
    
    if @found_profile.ideal_mentor_strength_1.present? # TYPE MENTEE
      @percentage += 1
@@ -293,7 +281,7 @@ def application_percentage(id)
      @percentage += 1
    end
    #58
-   @numberofanswers = 60
+   @numberofanswers = 56
 
  end
 
