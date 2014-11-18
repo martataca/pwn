@@ -73,9 +73,6 @@ def application_percentage(id)
    if @found_profile.marital_status.present?
      @percentage += 1
    end
-   if @found_profile.number_children.present?
-     @percentage += 1
-   end
    
    
    if @found_profile.highest_academic.present? && @found_profile.highest_academic != "Please select one"
@@ -225,9 +222,6 @@ def application_percentage(id)
      @percentage += 1
    end
    
-   if @found_profile.mentoring_contract_aware.present? && @found_profile.mentoring_contract_aware != "No"
-     @percentage += 1
-   end
 
   
   if @user.type == "Mentee"
@@ -281,6 +275,14 @@ def application_percentage(id)
      @percentage += 1
    end
    #58
+
+
+
+    if @found_profile.mentoring_contract_aware.present? && @found_profile.mentoring_contract_aware != "No"
+     @percentage += 1
+   end
+
+
    @numberofanswers = 56
 
  end
@@ -298,7 +300,8 @@ def application_percentage(id)
    if @found_profile.sex.present?
      @percentage += 1
    end
-   @numberofanswers = 45
+   @numberofanswers = 43
+
   end
 
 

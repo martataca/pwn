@@ -248,8 +248,9 @@
 
         <% if @user.type == "Mentee" %>
         I am aware that there is a 50€ mentoring program fee for administrative expenses upon being accepted:  <b><%= @profile.mentee_fee_aware %></b> <br>
-        <% end %>
+        
         I have read and accepted the mentoring contract: <b><%= @profile.mentoring_contract_aware %></b> <br>
+        <% end %>
       </p>
     </div>
 

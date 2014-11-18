@@ -13,20 +13,9 @@
   <span class="label label-danger">missing</span>
   <% end %></li>
   <li>Function: <b><%= @profile.ideal_mentor_function_2 %>  </b> 
-  <% if !@profile.ideal_mentor_function_2.present? %>
-  <span class="label label-danger">missing</span>
-  <% end %>Sector: <b><%= @profile.ideal_mentor_sector_2 %> </b>
-    <% if !@profile.ideal_mentor_sector_2.present? %>
-  <span class="label label-danger">missing</span>
-  <% end %></li>
+  Sector: <b><%= @profile.ideal_mentor_sector_2 %> </b></li>
   <li>Function: <b><%= @profile.ideal_mentor_function_3 %>  </b> 
-  <% if !@profile.ideal_mentor_function_3.present? %>
-  <span class="label label-danger">missing</span>
-  <% end %>
-  Sector: <b><%= @profile.ideal_mentor_sector_3 %> </b>
-  <% if !@profile.ideal_mentor_sector_1.present? %>
-  <span class="label label-danger">missing</span>
-  <% end %></li>
+  Sector: <b><%= @profile.ideal_mentor_sector_3 %> </b></li>
   </ol>
   </div>
   <% if @profile.ideal_mentor_func_sec_other.present? %>
@@ -224,13 +213,13 @@
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
-  <% end %>
+
    <div>I have read and accepted the mentoring contract:  
   <b><%= @profile.mentoring_contract_aware %></b>
   <% if @profile.mentoring_contract_aware == "No" or !@profile.mentoring_contract_aware.present? %>
   <span class="label label-danger">missing</span>
   <% end %>
   </div>
-
+    <% end %>
 
 </div>
