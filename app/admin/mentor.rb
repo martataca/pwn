@@ -13,7 +13,16 @@ ActiveAdmin.register Mentor do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+
+
   index do
+
+    column "Profile", :sortable => :id  do |user|
+      if Profile.exists?(:user_id => user.id)
+        user.profile.id
+      end
+    end
+
     column "Picture" do |user|
       if Profile.exists?(:user_id => user.id)
         image_tag user.profile.picture, class: 'profile_picture_thumbnail_xs'
@@ -59,6 +68,13 @@ ActiveAdmin.register Mentor do
     end
     end
   end
+
+filter :profile_firstName, :label => 'Name', :as => :string
+filter :profile_surnames, :label => 'Surnames', :as => :string
+filter :profile_submitted, :label => 'Application Submitted', :as  => :select
+filter :profile_company, :label => 'Company', :as  => :string
+
+
 
 
   csv do    

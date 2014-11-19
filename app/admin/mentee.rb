@@ -16,6 +16,14 @@ ActiveAdmin.register Mentee do
 
   index do
 
+
+    column "Profile", :sortable => :id  do |user|
+      if Profile.exists?(:user_id => user.id)
+        user.profile.id
+      end
+    end
+
+
     column "Picture" do |user|
       if Profile.exists?(:user_id => user.id)
         image_tag user.profile.picture, class: 'profile_picture_thumbnail_xs'
@@ -81,9 +89,14 @@ ActiveAdmin.register Mentee do
     end
   end
 
-filter :profile_select1, :label => 'Selection 1', :as  => :select
+filter :profile_firstName, :label => 'Name', :as => :string
+filter :profile_surnames, :label => 'Surnames', :as => :string
 filter :profile_submitted, :label => 'Application Submitted', :as  => :select
 filter :profile_company, :label => 'Company', :as  => :string
+filter :profile_select1, :label => 'Selection 1', :as  => :select
+
+
+
 
 
   csv do

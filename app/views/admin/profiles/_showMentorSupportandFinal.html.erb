@@ -225,13 +225,14 @@
   <span style= "color: red;">missing</span>
   <% end %>
   </div>
-  <% end %>
+  
    <div>I have read and accepted the mentoring contract:  
   <b><%= @profile.mentoring_contract_aware %></b>
   <% if @profile.mentoring_contract_aware == "No" or !@profile.mentoring_contract_aware.present? %>
   <span style= "color: red;">missing</span>
   <% end %>
   </div>
+  <% end %>
 
 </div>
 
